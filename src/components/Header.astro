@@ -1,0 +1,76 @@
+---
+interface Props {
+  activePage?: 'home' | 'spec' | 'implementations';
+}
+
+const { activePage = 'home' } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-[#08090d]/85 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand / Wordmark -->
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded border border-[#00f2fe]/40 bg-[#00f2fe]/10 flex items-center justify-center font-mono font-bold text-sm text-[#00f2fe] group-hover:border-[#00f2fe] transition-colors">
+          F
+        </div>
+        <div class="flex flex-col">
+          <span class="font-mono font-bold text-base tracking-wider text-white group-hover:text-[#00f2fe] transition-colors">
+            FAIBOS
+          </span>
+          <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest leading-none">
+            Founder AI OS
+          </span>
+        </div>
+      </a>
+
+      <!-- Status badge -->
+      <div class="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 font-mono text-[11px] text-emerald-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 live-indicator"></span>
+        <span>SPEC v1.0 ACTIVE</span>
+      </div>
+    </div>
+
+    <!-- Navigation links -->
+    <nav class="hidden md:flex items-center gap-6 font-mono text-xs text-slate-300">
+      <a 
+        href="/#principles" 
+        class="hover:text-[#00f2fe] transition-colors py-1">
+        // PRINCIPLES
+      </a>
+      <a 
+        href="/#cockpit" 
+        class="hover:text-[#00f2fe] transition-colors py-1">
+        // 1-CLICK COCKPIT
+      </a>
+      <a 
+        href="/implementations" 
+        class={`hover:text-[#00f2fe] transition-colors py-1 ${activePage === 'implementations' ? 'text-[#00f2fe] border-b border-[#00f2fe]' : ''}`}>
+        // IMPLEMENTATIONS
+      </a>
+      <a 
+        href="/spec" 
+        class={`hover:text-[#00f2fe] transition-colors py-1 ${activePage === 'spec' ? 'text-[#00f2fe] border-b border-[#00f2fe]' : ''}`}>
+        // OPEN SPEC
+      </a>
+    </nav>
+
+    <!-- CTAs -->
+    <div class="flex items-center gap-3">
+      <a
+        href="https://contact.samuelmichelot.com/?lang=en&source_site=faibos"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1.5 rounded border border-[#00f2fe]/40 bg-[#00f2fe]/10 hover:bg-[#00f2fe]/20 text-[#00f2fe] font-mono text-xs transition-all flex items-center gap-1.5">
+        <span>TALK TO SAMUEL</span>
+        <span class="text-[10px]" aria-hidden="true">↗</span>
+      </a>
+
+      <a
+        href="/spec"
+        class="hidden lg:inline-flex px-3 py-1.5 rounded bg-white text-black font-mono text-xs font-semibold hover:bg-slate-200 transition-colors">
+        SPEC.md
+      </a>
+    </div>
+  </div>
+</header>

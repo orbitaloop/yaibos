@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* ----------------------------------------------------------------------------
+   FAIBOS Design System Tokens
+   High-precision engineering palette: deep obsidian, cyber-cyan, emerald telemetry
+---------------------------------------------------------------------------- */
+@theme {
+  --color-obsidian-950: #06070a;
+  --color-obsidian-900: #08090d;
+  --color-obsidian-850: #0c0e14;
+  --color-obsidian-800: #11141c;
+  --color-obsidian-700: #1c212e;
+  
+  --color-cyan-glow: #00f2fe;
+  --color-cyan-soft: rgba(0, 242, 254, 0.12);
+  --color-emerald-glow: #10b981;
+  --color-emerald-soft: rgba(16, 185, 129, 0.12);
+  --color-amber-glow: #f59e0b;
+  --color-amber-soft: rgba(245, 158, 11, 0.12);
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: #08090d;
+    color: #f1f5f9;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #08090d;
+    color: #f1f5f9;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  ::selection {
+    background-color: #00f2fe;
+    color: #06070a;
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Technical grid and subtle background textures */
+.tech-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.tech-dot-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+/* Subtle glowing hairline cards */
+.tech-card {
+  background-color: rgba(15, 18, 26, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-card:hover {
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.05);
+}
+
+/* Telemetry pulse animation */
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.92); }
+}
+
+.live-indicator {
+  animation: pulse-fast 2s infinite ease-in-out;
+}

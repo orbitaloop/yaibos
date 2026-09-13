@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SopCockpitDemo from '../components/SopCockpitDemo.astro';
+import Principles from '../components/Principles.astro';
+import ImplementationsScorecard from '../components/ImplementationsScorecard.astro';
+import MyVideoAskSection from '../components/MyVideoAskSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="FAIBOS: The Sovereign AI Operating System for Small Business"
+  description="Open specification for an integrated business AI harness: 1-click SOP execution, BYO subscription auth, team second brain with RBAC, and modular plugins.">
+  <Header activePage="home" />
+
+  <main>
+    <Hero />
+    <SopCockpitDemo />
+    <Principles />
+
+    <!-- Market Scorecard Preview / Section -->
+    <ImplementationsScorecard />
+
+    <!-- Open Spec Callout Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-[#08090d] border-b border-white/10">
+      <div class="max-w-7xl mx-auto tech-card rounded-2xl p-8 sm:p-12 border border-white/15 bg-[#0f121a] flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded text-[11px] font-mono border border-cyan-500/30 bg-cyan-500/10 text-[#00f2fe]">
+            <span>OPEN STANDARD & SCHEMAS</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white font-sans">
+            Ready to implement or inspect the complete RFC specification?
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed font-light">
+            FAIBOS is published as an open architectural specification under CC-BY-4.0. Access the complete technical schemas, SOP YAML manifests, telemetry data structures, and security guarantees.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 shrink-0 font-mono text-xs">
+          <a
+            href="/spec"
+            class="px-6 py-3 rounded bg-white text-black font-semibold hover:bg-slate-200 transition-all text-center">
+            VIEW FULL SPEC (RFC-01) →
+          </a>
+          <a
+            href="https://contact.samuelmichelot.com/?lang=en&source_site=faibos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all text-center">
+            COLLABORATE WITH SAMUEL ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <MyVideoAskSection />
+  </main>
+
+  <Footer />
+</BaseLayout>

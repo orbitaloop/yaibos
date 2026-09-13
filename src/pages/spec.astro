@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import MyVideoAskSection from '../components/MyVideoAskSection.astro';
+import Footer from '../components/Footer.astro';
+import { PILLARS, ARCHITECTURE_LAYERS } from '../data/spec';
+
+const sopYamlSnippet = `---
+faibos_version: "1.0"
+id: "sop-solar-lead-qualification"
+title: "Solar Prospect Qualification & Catastro Review"
+area: "Lead Generation"
+owner: "Operations Lead"
+maturity_stage: "supervised"  # assisted | supervised | autonomous
+timeout_seconds: 600
+permissions:
+  required_role: "operations"
+  fs_scope:
+    - "read: 3 RESOURCES/Solar Data/"
+    - "write: 1 PROJECTS/Active Leads/"
+mcp_tools:
+  - "catastro_lookup"
+  - "pnoa_satellite_view"
+  - "nocodb_update"
+---`;
+
+const telemetryJsonSnippet = `{
+  "execution_id": "exec-20260913-982341",
+  "sop_id": "sop-solar-lead-qualification",
+  "trigger": "manual_1click",
+  "triggered_by": "maria@solarinstaller.es",
+  "auth_mode": "byos_session",
+  "started_at": "2026-09-13T13:42:10Z",
+  "completed_at": "2026-09-13T13:43:08Z",
+  "duration_seconds": 58,
+  "status": "success",
+  "steps_total": 4,
+  "steps_completed": 4,
+  "artifacts_produced": [
+    "1 PROJECTS/Active Leads/2026-09-13-qualified-leads.csv"
+  ],
+  "estimated_human_minutes_saved": 45
+}`;
+---
+
+<BaseLayout
+  title="FAIBOS Specification v1.0.0-draft: Technical RFC & Architecture"
+  description="Open specification for FAIBOS: Sovereign AI harness, 1-click SOP manifests, BYOS session auth, Markdown second brain, and RBAC governance.">
+  <Header activePage="spec" />
+
+  <main class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <!-- Breadcrumb & Document Meta -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-white/10 font-mono text-xs">
+        <div class="flex items-center gap-3">
+          <a href="/" class="text-slate-400 hover:text-[#00f2fe]">← Back to Overview</a>
+          <span class="text-slate-600">/</span>
+          <span class="text-white font-semibold">SPEC.md (Draft RFC-01)</span>
+        </div>
+
+        <div class="flex items-center gap-3 text-slate-400">
+          <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            STATUS: PUBLIC DRAFT
+          </span>
+          <span>VERSION: 1.0.0</span>
+          <span>LICENSE: CC-BY-4.0</span>
+        </div>
+      </div>
+
+      <!-- Title & Document Header -->
+      <div class="mb-12">
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans">
+          FAIBOS: The Sovereign AI Operating System Specification
+        </h1>
+        <p class="mt-4 text-slate-400 text-lg font-light leading-relaxed">
+          An open architectural standard for an integrated, sovereign AI harness designed for small businesses, founders, and non-technical teams.
+        </p>
+
+        <!-- Quick actions -->
+        <div class="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs">
+          <button
+            id="copy-spec-btn"
+            type="button"
+            class="px-4 py-2 rounded bg-white text-black font-semibold hover:bg-slate-200 transition-colors flex items-center gap-2">
+            <span>📋 COPY SPEC.MD RAW</span>
+          </button>
+          <a
+            href="https://contact.samuelmichelot.com/?lang=en&source_site=faibos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-colors">
+            PROPOSE AMENDMENT (MYVIDEOASK) ↗
+          </a>
+        </div>
+        <p id="copy-status" class="hidden text-emerald-400 font-mono text-xs mt-2">
+          ✓ SPEC.md copied to clipboard!
+        </p>
+      </div>
+
+      <!-- Spec Content Body -->
+      <div class="space-y-16 text-slate-300 font-sans leading-relaxed text-sm sm:text-base">
+        
+        <!-- Section 1: Executive Summary -->
+        <section id="executive-summary" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14]">
+          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono mb-4 flex items-center gap-3">
+            <span class="text-[#00f2fe]">01.</span> Executive Summary & Problem Statement
+          </h2>
+          <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+            <p>
+              Current autonomous AI agent frameworks (e.g. CrewAI, AutoGPT, OpenManus) are engineered exclusively for software developers. They demand terminal fluency, package managers, virtual environment maintenance, and unmetered API keys.
+            </p>
+            <p>
+              Conversely, consumer chat interfaces (ChatGPT, Claude, Gemini) isolate team members in conversational silos. They lack persistent company memory, cannot execute business procedures with verifiable status telemetry, and fail to prevent API token bill shock for the organization.
+            </p>
+            <p class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs text-slate-200">
+              <strong class="text-[#00f2fe] block mb-1 uppercase font-bold">The Core Mission:</strong>
+              FAIBOS bridges this gap by decoupling the execution runtime from developer tooling. It provides a visual 1-click execution cockpit over standard plain text Markdown files, authenticated via individual team members' existing consumer AI subscriptions.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Architecture Layers -->
+        <section id="architecture-layers" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14]">
+          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono mb-4 flex items-center gap-3">
+            <span class="text-[#00f2fe]">02.</span> System Layer Architecture
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {ARCHITECTURE_LAYERS.map((layer, index) => (
+              <div class="p-4 rounded-xl border border-white/10 bg-[#08090d]">
+                <span class="text-xs font-mono text-[#00f2fe] uppercase block mb-1">
+                  Layer 0{index + 1}
+                </span>
+                <h3 class="font-bold text-white text-base mb-2">{layer.name}</h3>
+                <ul class="space-y-1.5 font-mono text-xs text-slate-400">
+                  {layer.items.map((item) => (
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-slate-600">›</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section 3: The Six Pillars Deep-Dive -->
+        <section id="pillars-spec" class="space-y-8">
+          <div class="border-b border-white/10 pb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-white font-mono flex items-center gap-3">
+              <span class="text-[#00f2fe]">03.</span> The Six Architectural Pillars
+            </h2>
+            <p class="text-xs font-mono text-slate-400 mt-1">
+              Detailed normative requirements and architectural specifications.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            {PILLARS.map((pillar) => (
+              <div class="tech-card p-6 rounded-xl border border-white/10 bg-[#0c0e14]">
+                <div class="flex items-center justify-between gap-4 mb-3">
+                  <span class="text-xs font-mono text-[#00f2fe] uppercase">
+                    Pillar {pillar.number} // {pillar.badge}
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">{pillar.title}</h3>
+                <p class="text-xs font-mono text-slate-400 mb-4">{pillar.tagline}</p>
+
+                <div class="space-y-3 mb-4 text-xs">
+                  <p class="text-slate-300 leading-relaxed">{pillar.solution}</p>
+                </div>
+
+                <div class="pt-3 border-t border-white/5">
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-2">
+                    Normative Requirements:
+                  </span>
+                  <ul class="space-y-1.5 text-xs font-mono text-slate-400">
+                    {pillar.technicalRequirements.map((req) => (
+                      <li class="flex items-start gap-2">
+                        <span class="text-emerald-400 shrink-0">✓</span>
+                        <span>{req}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {pillar.codeSample && (
+                  <div class="mt-4 pt-3 border-t border-white/5">
+                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-2">
+                      Reference Schema:
+                    </span>
+                    <pre class="p-3 rounded bg-[#06070a] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto">
+                      <code>{pillar.codeSample.code}</code>
+                    </pre>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section 4: Schemas & Manifests -->
+        <section id="schemas" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14] space-y-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono flex items-center gap-3">
+            <span class="text-[#00f2fe]">04.</span> Data Formats & Manifest Schemas
+          </h2>
+
+          <!-- Schema 1: SOP Frontmatter -->
+          <div>
+            <h3 class="font-mono text-xs font-bold text-[#00f2fe] uppercase mb-2">
+              4.1 SOP Manifest Frontmatter (YAML)
+            </h3>
+            <p class="text-xs text-slate-400 mb-3">
+              Stored at the top of any SOP Markdown note inside the workspace (e.g. in <code class="text-slate-300">5 SOP/</code>).
+            </p>
+            <pre class="p-4 rounded-xl bg-[#06070a] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed">
+              <code>{sopYamlSnippet}</code>
+            </pre>
+          </div>
+
+          <!-- Schema 2: Execution Telemetry -->
+          <div>
+            <h3 class="font-mono text-xs font-bold text-emerald-400 uppercase mb-2">
+              4.2 Execution Telemetry Schema (JSON)
+            </h3>
+            <p class="text-xs text-slate-400 mb-3">
+              Emitted upon completion of an SOP execution to generate the audit log and output manifest.
+            </p>
+            <pre class="p-4 rounded-xl bg-[#06070a] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed">
+              <code>{telemetryJsonSnippet}</code>
+            </pre>
+          </div>
+        </section>
+
+        <!-- Section 5: Security & Sovereignty -->
+        <section id="security" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14]">
+          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono mb-4 flex items-center gap-3">
+            <span class="text-[#00f2fe]">05.</span> Security & Sovereignty Guarantees
+          </h2>
+          <div class="space-y-4 text-xs font-mono text-slate-300">
+            <div class="p-3.5 rounded bg-white/5 border border-white/5">
+              <strong class="text-white block mb-1">1. Zero Third-Party Secret Relays</strong>
+              Credentials, session tokens, and keys are stored in encrypted client-side storage only. No proprietary cloud proxy broker mediates agent requests.
+            </div>
+            <div class="p-3.5 rounded bg-white/5 border border-white/5">
+              <strong class="text-white block mb-1">2. Sandboxed File Operations</strong>
+              Agent execution loops operate inside strictly defined filesystem scopes declared in the SOP frontmatter.
+            </div>
+            <div class="p-3.5 rounded bg-white/5 border border-white/5">
+              <strong class="text-white block mb-1">3. Immutable Local Audit Trail</strong>
+              Every agent filesystem modification, tool invocation, and token consumption trace is appended to an immutable local Git log.
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <MyVideoAskSection />
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copy-spec-btn');
+    const copyStatus = document.getElementById('copy-status');
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          const res = await fetch('/SPEC.md');
+          const text = await res.text();
+          await navigator.clipboard.writeText(text);
+          copyStatus.classList.remove('hidden');
+          setTimeout(() => copyStatus.classList.add('hidden'), 4000);
+        } catch (err) {
+          // Fallback
+          copyBtn.textContent = 'COPIED TO CLIPBOARD';
+        }
+      });
+    }
+  });
+</script>
