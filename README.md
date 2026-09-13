@@ -72,6 +72,14 @@ faibos-site/
 │       └── global.css         # Tailwind v4 theme, fonts, custom glow and grid tokens
 ```
 
+## Open Collaboration & Contributing
+
+We actively welcome contributions to the specification, RFC amendments, and new tool evaluations for the scorecard:
+- Review [`CONTRIBUTING.md`](CONTRIBUTING.md) for contribution guidelines and RFC submission steps.
+- Read [`SPEC.md`](SPEC.md) for the complete normative standard.
+- Specification license: [Creative Commons Attribution 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
+- Code license: [MIT License](LICENSE).
+
 ## Relationship to Second Brain
 
 - Specification source: `MD_VAULTS/sam-vault/3 RESOURCES/Tech & AI Experimenter/MAIBOS - MyAIBusinessOS.md`
