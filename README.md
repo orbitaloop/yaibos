@@ -36,6 +36,9 @@ npm run check
 # Build production bundle
 npm run build
 
+# Deploy to Cloudflare Pages
+npm run deploy
+
 # Preview production build locally
 npm run preview
 ```
