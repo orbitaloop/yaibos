@@ -1,0 +1,166 @@
+---
+interface Inspiration {
+  name: string;
+  role: string;
+  avatar: string;
+  isLogo?: boolean;
+  link: string;
+  contribution: string;
+  quoteOrTake?: string;
+}
+
+const INSPIRATIONS: Inspiration[] = [
+  {
+    name: "Tiago Forte",
+    role: "Author of 'Building a Second Brain' & Founder of Forte Labs",
+    avatar: "/images/inspirations/tiago-forte.jpg",
+    link: "https://fortelabs.com",
+    contribution: "Pioneered mainstream Personal Knowledge Management (PKM) with the PARA method (Projects, Areas, Resources, Archives) and CODE framework. Proved that externalizing human memory into a structured digital vault liberates the mind for higher-order synthesis.",
+    quoteOrTake: "The foundation: organizing human memory so an AI agent has a clear world model to consult."
+  },
+  {
+    name: "Eliott Meunier",
+    role: "Author of 'Le Deuxième Cerveau', Creator of Evocative & Prisme One",
+    avatar: "/images/inspirations/eliott-meunier.jpg",
+    link: "https://eliottmeunier.com",
+    contribution: "Visionary on sovereign AI stacks and the IPCRA framework. Demonstrated how to transform an Obsidian markdown vault from a static note repository into an active operating system executing autonomous agent loops.",
+    quoteOrTake: "Pioneered connecting sovereign local markdown notes directly to autonomous agent execution."
+  },
+  {
+    name: "Meta (Analytics Team)",
+    role: "Enterprise AI Second Brain Case Study (60,000 Workers)",
+    avatar: "/images/inspirations/meta-logo.svg",
+    isLogo: true,
+    link: "https://medium.com/@AnalyticsAtMeta/how-we-built-an-ai-second-brain-for-60k-knowledge-workers-78c507dd795b",
+    contribution: "Published the landmark blueprint detailing how Meta deployed an AI second brain across 60,000 knowledge workers. Validated that grounding agents in structured internal documentation beats generic conversational chatbots at scale.",
+    quoteOrTake: "Enterprise proof: structured internal company context is the true differentiator for AI utility."
+  },
+  {
+    name: "Nate Herk",
+    role: "AI Automation Educator & Architect of Claude Code AIOS",
+    avatar: "/images/inspirations/nate-herk.jpg",
+    link: "https://www.nateherk.com",
+    contribution: "Formulated the 4 C's framework: Context (rules and voice), Connections (APIs and tools), Capabilities (reusable skills and SOPs), and Cadence (scheduled routines and audits). Inspired our practical SOP packaging.",
+    quoteOrTake: "The 4 C's framework showed how to package agent skills and routines into repeatable assets."
+  },
+  {
+    name: "Iwo Szapar",
+    role: "Second Brain Architect & Co-Founder of Remote-how",
+    avatar: "/images/inspirations/iwo-szapar.jpg",
+    link: "https://www.iwoszapar.com",
+    contribution: "Global champion of asynchronous operations, written documentation, and remote company architecture. Showed that sovereign, asynchronous workflows allow teams to perform at enterprise quality with minimal operational friction.",
+    quoteOrTake: "Async-first operations: companies run better when processes and decisions are documented in text."
+  },
+  {
+    name: "Andrej Karpathy",
+    role: "Former Director of AI at Tesla, Co-Founder of OpenAI",
+    avatar: "/images/inspirations/andrej-karpathy.jpg",
+    link: "https://karpathy.ai",
+    contribution: "Popularized the 'LLM OS' architecture and the 'LLM Wiki' concept, where an agent continuously synthesizes raw inbox clips into an evolving, interconnected knowledge base.",
+    quoteOrTake: "A brilliant conceptual starting point for local agent compilation, though limited for real business operations without multi-user governance, 1-click execution, and zero-terminal UX."
+  },
+  {
+    name: "Dan Harrison",
+    role: "Founder of Claude for Coaches & Systems Architect",
+    avatar: "/images/inspirations/dan-harrison.jpg",
+    link: "https://danharrison.co.uk",
+    contribution: "Developer and educator creating pragmatic AI operating systems for service businesses. Demonstrated how founders can replace manual administrative drudgery with lean, AI-driven operations to reclaim personal freedom.",
+    quoteOrTake: "Focuses on practical business leverage, keeping operational complexity low and freedom high."
+  },
+  {
+    name: "Nick Milo",
+    role: "Founder of Linking Your Thinking (LYT) & Creator of Maps of Content",
+    avatar: "/images/inspirations/nick-milo.jpg",
+    link: "https://nickmilo.org",
+    contribution: "Champion of the 'File over App' philosophy and spatial note-making. Reminds the industry that personal thinking and company memory must remain in open, future-proof plain text files, never held hostage by proprietary SaaS databases.",
+    quoteOrTake: "File over App: your knowledge and SOPs must live in open Markdown, owned forever by you."
+  }
+];
+---
+
+<section id="inspirations" class="py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-white">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-xs font-mono text-slate-700 mb-3">
+        <span>LINEAGE & ECOSYSTEM</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
+        Standing on the Shoulders of Giants
+      </h2>
+      <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+        YAIBOS did not emerge in a vacuum. It synthesizes decades of collective breakthroughs in Personal Knowledge Management (PKM), asynchronous business operations, and local-first AI engineering. Here are the key pioneers whose work shaped these specifications.
+      </p>
+    </div>
+
+    <!-- Inspirations Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {INSPIRATIONS.map((item) => (
+        <div class="elegant-card rounded-xl p-6 border border-slate-200/90 bg-white flex flex-col justify-between hover:border-blue-300 transition-all group">
+          <div>
+            <!-- Top Avatar & Identity -->
+            <div class="flex items-start gap-4 mb-4">
+              <div class="relative shrink-0">
+                <img 
+                  src={item.avatar} 
+                  alt={item.name}
+                  class={`w-14 h-14 rounded-xl object-cover border border-slate-200 shadow-xs group-hover:border-blue-500 transition-colors ${item.isLogo ? 'p-1.5 bg-[#0866FF]/5' : ''}`}
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {item.name}
+                  </h3>
+                  <a 
+                    href={item.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="text-xs font-mono text-slate-400 hover:text-blue-600 transition-colors flex items-center gap-0.5 shrink-0"
+                    title={`Visit ${item.name}`}>
+                    <span>link</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+                <p class="text-[11px] text-slate-500 leading-snug mt-0.5">
+                  {item.role}
+                </p>
+              </div>
+            </div>
+
+            <!-- Contribution Description -->
+            <p class="text-xs text-slate-600 leading-relaxed font-sans mb-4">
+              {item.contribution}
+            </p>
+          </div>
+
+          <!-- Specific Perspective / Takeaway -->
+          {item.quoteOrTake && (
+            <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 text-xs font-mono text-slate-700">
+              <span class="text-blue-600 font-bold block text-[10px] uppercase mb-0.5">Key Insight:</span>
+              <span class="italic text-slate-600 text-[11px]">"{item.quoteOrTake}"</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note on ecosystem collaboration -->
+    <div class="mt-12 p-6 rounded-xl border border-blue-100 bg-blue-50/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-600 leading-relaxed">
+        <strong class="text-slate-900 font-semibold block mb-0.5">Notice an inspiration or project missing?</strong>
+        YAIBOS is maintained as an open community specification under CC-BY-4.0. We actively invite creators and researchers to contribute case studies and comparative benchmarks.
+      </div>
+      <a
+        href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-4 py-2 rounded-lg bg-white border border-slate-200 text-slate-800 font-mono text-xs font-semibold hover:bg-slate-50 transition-colors shrink-0 shadow-xs">
+        PROPOSE A REFERENCE ↗
+      </a>
+    </div>
+
+  </div>
+</section>

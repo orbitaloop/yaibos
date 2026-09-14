@@ -1,73 +1,84 @@
 ---
+import NewsletterSignup from './NewsletterSignup.astro';
 const year = 2026;
 ---
 
-<footer class="border-t border-white/10 bg-[#06070a] py-12 px-4 sm:px-6 lg:px-8 font-mono text-xs text-slate-400">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-    <!-- Brand column -->
-    <div class="md:col-span-2 space-y-3">
+<footer class="border-t border-slate-200 bg-slate-50/80 py-16 px-4 sm:px-6 lg:px-8 font-mono text-xs text-slate-500">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+    
+    <!-- Brand column (4 cols) -->
+    <div class="md:col-span-4 space-y-3">
       <div class="flex items-center gap-2">
-        <div class="w-6 h-6 rounded border border-[#00f2fe]/40 bg-[#00f2fe]/10 flex items-center justify-center font-mono font-bold text-xs text-[#00f2fe]">
+        <div class="w-6 h-6 rounded-md border border-blue-600/30 bg-blue-50 flex items-center justify-center font-mono font-bold text-xs text-blue-700">
           Y
         </div>
-        <span class="text-white font-bold tracking-wider">YAIBOS.COM</span>
+        <span class="text-slate-900 font-bold tracking-wider">YAIBOS.COM</span>
       </div>
-      <p class="text-slate-400 font-sans text-xs leading-relaxed max-w-md">
+      <p class="text-slate-600 font-sans text-xs leading-relaxed max-w-sm">
         Your AI Business Operating System. An open specification for sovereign agent harnesses, 1-click SOP execution, and plain Markdown team second brains.
       </p>
-      <div class="text-[11px] text-slate-500 pt-2">
-        <span>Specification licensed under </span>
+      <div class="text-[11px] text-slate-400 pt-2 font-sans">
+        Specification licensed under 
         <a 
           href="https://creativecommons.org/licenses/by/4.0/" 
           target="_blank" 
           rel="noopener noreferrer" 
-          class="text-slate-300 hover:text-[#00f2fe] underline">
+          class="text-slate-700 hover:text-blue-600 underline">
           Creative Commons Attribution 4.0 (CC-BY-4.0)
         </a>
       </div>
     </div>
 
-    <!-- Quick navigation -->
-    <div class="space-y-2">
-      <div class="text-white font-semibold text-[11px] uppercase tracking-wider mb-2">
+    <!-- Quick navigation (2 cols) -->
+    <div class="md:col-span-2 space-y-2">
+      <div class="text-slate-900 font-semibold text-[11px] uppercase tracking-wider mb-2">
         Specification
       </div>
-      <div><a href="/spec" class="hover:text-[#00f2fe] transition-colors">Full Spec (RFC-01)</a></div>
-      <div><a href="/#principles" class="hover:text-[#00f2fe] transition-colors">Six Pillars</a></div>
-      <div><a href="/#cockpit" class="hover:text-[#00f2fe] transition-colors">1-Click Cockpit Demo</a></div>
-      <div><a href="/implementations" class="hover:text-[#00f2fe] transition-colors">Market Scorecard</a></div>
-      <div><a href="https://github.com/orbitaloop/yaibos" target="_blank" rel="noopener noreferrer" class="hover:text-[#00f2fe] transition-colors">GitHub Repository ↗</a></div>
+      <div><a href="/spec" class="hover:text-blue-600 transition-colors">Full Spec (RFC-01)</a></div>
+      <div><a href="/#how-it-works" class="hover:text-blue-600 transition-colors">How It Works</a></div>
+      <div><a href="/#principles" class="hover:text-blue-600 transition-colors">Six Pillars</a></div>
+      <div><a href="/#cockpit" class="hover:text-blue-600 transition-colors">1-Click Cockpit</a></div>
+      <div><a href="/#inspirations" class="hover:text-blue-600 transition-colors">Inspirations</a></div>
+      <div><a href="/implementations" class="hover:text-blue-600 transition-colors">Scorecard (10 Tools)</a></div>
+      <div><a href="https://github.com/orbitaloop/yaibos" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">GitHub Repository ↗</a></div>
     </div>
 
-    <!-- Ecosystem & Founder -->
-    <div class="space-y-2">
-      <div class="text-white font-semibold text-[11px] uppercase tracking-wider mb-2">
-        Ecosystem
+    <!-- Ecosystem & Founder (2 cols) -->
+    <div class="md:col-span-2 space-y-2">
+      <div class="text-slate-900 font-semibold text-[11px] uppercase tracking-wider mb-2">
+        About & Projects
       </div>
+      <div><a href="/about" class="hover:text-blue-600 transition-colors font-semibold text-slate-700">About Samuel Michelot</a></div>
       <div>
-        <a href="https://simpleaistudio.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00f2fe] transition-colors">
+        <a href="https://simpleaistudio.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">
           Simple AI Studio ↗
         </a>
       </div>
       <div>
-        <a href="https://samuelmichelot.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00f2fe] transition-colors">
+        <a href="https://samuelmichelot.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">
           Samuel Michelot ↗
         </a>
       </div>
       <div>
-        <a href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos" target="_blank" rel="noopener noreferrer" class="hover:text-[#00f2fe] transition-colors">
-          MyVideoAsk Channel ↗
+        <a href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">
+          MyVideoAsk Line ↗
         </a>
       </div>
     </div>
+
+    <!-- Newsletter column (4 cols) -->
+    <div class="md:col-span-4">
+      <NewsletterSignup variant="compact" />
+    </div>
+
   </div>
 
-  <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+  <div class="max-w-6xl mx-auto pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 font-sans">
     <div>
       © {year} Samuel Michelot & Community Contributors. Built with intentional simplicity.
     </div>
-    <div class="flex items-center gap-4">
-      <span>NO VENDOR LOCK-IN</span>
+    <div class="flex items-center gap-4 font-mono text-[10px] text-slate-500">
+      <span>ZERO LOCK-IN</span>
       <span>•</span>
       <span>LOCAL MARKDOWN</span>
       <span>•</span>

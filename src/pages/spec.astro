@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import MyVideoAskSection from '../components/MyVideoAskSection.astro';
 import Footer from '../components/Footer.astro';
 import { PILLARS, ARCHITECTURE_LAYERS } from '../data/spec';
@@ -48,18 +49,18 @@ const telemetryJsonSnippet = `{
   description="Open specification for YAIBOS: Sovereign AI harness, 1-click SOP manifests, BYOS session auth, Markdown second brain, and RBAC governance.">
   <Header activePage="spec" />
 
-  <main class="py-12 px-4 sm:px-6 lg:px-8">
+  <main class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-5xl mx-auto">
       <!-- Breadcrumb & Document Meta -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-8 border-b border-white/10 font-mono text-xs">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200 font-mono text-xs">
         <div class="flex items-center gap-3">
-          <a href="/" class="text-slate-400 hover:text-[#00f2fe]">← Back to Overview</a>
-          <span class="text-slate-600">/</span>
-          <span class="text-white font-semibold">SPEC.md (Draft RFC-01)</span>
+          <a href="/" class="text-blue-600 hover:underline">← Back to Overview</a>
+          <span class="text-slate-300">/</span>
+          <span class="text-slate-800 font-semibold">SPEC.md (Draft RFC-01)</span>
         </div>
 
-        <div class="flex items-center gap-3 text-slate-400">
-          <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <div class="flex items-center gap-3 text-slate-500">
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">
             STATUS: PUBLIC DRAFT
           </span>
           <span>VERSION: 1.0.0</span>
@@ -69,10 +70,10 @@ const telemetryJsonSnippet = `{
 
       <!-- Title & Document Header -->
       <div class="mb-12">
-        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans">
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans">
           YAIBOS: The Sovereign AI Operating System Specification
         </h1>
-        <p class="mt-4 text-slate-400 text-lg font-light leading-relaxed">
+        <p class="mt-4 text-slate-600 text-lg font-light leading-relaxed">
           An open architectural standard for an integrated, sovereign AI harness designed for small businesses, founders, and non-technical teams.
         </p>
 
@@ -81,14 +82,14 @@ const telemetryJsonSnippet = `{
           <button
             id="copy-spec-btn"
             type="button"
-            class="px-4 py-2 rounded bg-white text-black font-semibold hover:bg-slate-200 transition-colors flex items-center gap-2">
+            class="px-4 py-2.5 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2 shadow-xs">
             <span>📋 COPY SPEC.MD RAW</span>
           </button>
           <a
             href="https://github.com/orbitaloop/yaibos/blob/main/SPEC.md"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-4 py-2 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-colors flex items-center gap-1.5">
+            class="px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 transition-colors flex items-center gap-1.5 shadow-xs">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
@@ -98,53 +99,53 @@ const telemetryJsonSnippet = `{
             href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-4 py-2 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-slate-300 transition-colors">
+            class="px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-colors shadow-xs">
             PROPOSE AMENDMENT (MYVIDEOASK) ↗
           </a>
         </div>
-        <p id="copy-status" class="hidden text-emerald-400 font-mono text-xs mt-2">
+        <p id="copy-status" class="hidden text-emerald-700 font-mono text-xs mt-2">
           ✓ SPEC.md copied to clipboard!
         </p>
       </div>
 
       <!-- Spec Content Body -->
-      <div class="space-y-16 text-slate-300 font-sans leading-relaxed text-sm sm:text-base">
+      <div class="space-y-12 text-slate-700 font-sans leading-relaxed text-base">
         
         <!-- Section 1: Executive Summary -->
-        <section id="executive-summary" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14]">
-          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono mb-4 flex items-center gap-3">
-            <span class="text-[#00f2fe]">01.</span> Executive Summary & Problem Statement
+        <section id="executive-summary" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono mb-4 flex items-center gap-2.5">
+            <span class="text-blue-600">01.</span> Executive Summary & Problem Statement
           </h2>
-          <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+          <div class="space-y-4 text-sm sm:text-base leading-relaxed">
             <p>
-              Current autonomous AI agent frameworks (e.g. CrewAI, AutoGPT, OpenManus) are engineered exclusively for software developers. They demand terminal fluency, package managers, virtual environment maintenance, and unmetered API keys.
+              Current autonomous AI agent frameworks (such as CrewAI, AutoGPT, and raw CLI agents) are engineered exclusively for software developers. They demand terminal fluency, package managers, virtual environment maintenance, and unmetered API keys.
             </p>
             <p>
               Conversely, consumer chat interfaces (ChatGPT, Claude, Gemini) isolate team members in conversational silos. They lack persistent company memory, cannot execute business procedures with verifiable status telemetry, and fail to prevent API token bill shock for the organization.
             </p>
-            <p class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs text-slate-200">
-              <strong class="text-[#00f2fe] block mb-1 uppercase font-bold">The Core Mission:</strong>
+            <div class="p-4 rounded-xl bg-blue-50/60 border border-blue-100 text-xs sm:text-sm text-slate-800 font-sans">
+              <strong class="text-blue-900 block mb-1 uppercase font-bold font-mono">The Core Mission:</strong>
               YAIBOS bridges this gap by decoupling the execution runtime from developer tooling. It provides a visual 1-click execution cockpit over standard plain text Markdown files, authenticated via individual team members' existing consumer AI subscriptions.
-            </p>
+            </div>
           </div>
         </section>
 
         <!-- Section 2: Architecture Layers -->
-        <section id="architecture-layers" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14]">
-          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono mb-4 flex items-center gap-3">
-            <span class="text-[#00f2fe]">02.</span> System Layer Architecture
+        <section id="architecture-layers" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono mb-4 flex items-center gap-2.5">
+            <span class="text-blue-600">02.</span> System Layer Architecture
           </h2>
           <div class="grid sm:grid-cols-2 gap-4">
             {ARCHITECTURE_LAYERS.map((layer, index) => (
-              <div class="p-4 rounded-xl border border-white/10 bg-[#08090d]">
-                <span class="text-xs font-mono text-[#00f2fe] uppercase block mb-1">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                <span class="text-xs font-mono text-blue-600 uppercase block mb-1 font-semibold">
                   Layer 0{index + 1}
                 </span>
-                <h3 class="font-bold text-white text-base mb-2">{layer.name}</h3>
-                <ul class="space-y-1.5 font-mono text-xs text-slate-400">
+                <h3 class="font-bold text-slate-900 text-base mb-2">{layer.name}</h3>
+                <ul class="space-y-1.5 font-mono text-xs text-slate-600">
                   {layer.items.map((item) => (
                     <li class="flex items-start gap-1.5">
-                      <span class="text-slate-600">›</span>
+                      <span class="text-slate-400">›</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -155,39 +156,39 @@ const telemetryJsonSnippet = `{
         </section>
 
         <!-- Section 3: The Six Pillars Deep-Dive -->
-        <section id="pillars-spec" class="space-y-8">
-          <div class="border-b border-white/10 pb-4">
-            <h2 class="text-xl sm:text-2xl font-bold text-white font-mono flex items-center gap-3">
-              <span class="text-[#00f2fe]">03.</span> The Six Architectural Pillars
+        <section id="pillars-spec" class="space-y-6">
+          <div class="border-b border-slate-200 pb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono flex items-center gap-2.5">
+              <span class="text-blue-600">03.</span> The Six Architectural Pillars
             </h2>
-            <p class="text-xs font-mono text-slate-400 mt-1">
+            <p class="text-xs font-mono text-slate-500 mt-1">
               Detailed normative requirements and architectural specifications.
             </p>
           </div>
 
           <div class="space-y-6">
             {PILLARS.map((pillar) => (
-              <div class="tech-card p-6 rounded-xl border border-white/10 bg-[#0c0e14]">
-                <div class="flex items-center justify-between gap-4 mb-3">
-                  <span class="text-xs font-mono text-[#00f2fe] uppercase">
+              <div class="elegant-card p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
+                <div class="flex items-center justify-between gap-4 mb-2">
+                  <span class="text-xs font-mono text-blue-600 uppercase font-semibold">
                     Pillar {pillar.number} // {pillar.badge}
                   </span>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2">{pillar.title}</h3>
-                <p class="text-xs font-mono text-slate-400 mb-4">{pillar.tagline}</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-1">{pillar.title}</h3>
+                <p class="text-xs font-mono text-slate-500 mb-3">{pillar.tagline}</p>
 
-                <div class="space-y-3 mb-4 text-xs">
-                  <p class="text-slate-300 leading-relaxed">{pillar.solution}</p>
+                <div class="space-y-2 mb-4 text-xs leading-relaxed text-slate-700">
+                  <p>{pillar.solution}</p>
                 </div>
 
-                <div class="pt-3 border-t border-white/5">
-                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-2">
+                <div class="pt-3 border-t border-slate-100">
+                  <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
                     Normative Requirements:
                   </span>
-                  <ul class="space-y-1.5 text-xs font-mono text-slate-400">
+                  <ul class="space-y-1.5 text-xs font-mono text-slate-600">
                     {pillar.technicalRequirements.map((req) => (
                       <li class="flex items-start gap-2">
-                        <span class="text-emerald-400 shrink-0">✓</span>
+                        <span class="text-emerald-600 shrink-0 font-bold">✓</span>
                         <span>{req}</span>
                       </li>
                     ))}
@@ -195,11 +196,11 @@ const telemetryJsonSnippet = `{
                 </div>
 
                 {pillar.codeSample && (
-                  <div class="mt-4 pt-3 border-t border-white/5">
-                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-2">
+                  <div class="mt-4 pt-3 border-t border-slate-100">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
                       Reference Schema:
                     </span>
-                    <pre class="p-3 rounded bg-[#06070a] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto">
+                    <pre class="p-3.5 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto shadow-inner">
                       <code>{pillar.codeSample.code}</code>
                     </pre>
                   </div>
@@ -210,54 +211,54 @@ const telemetryJsonSnippet = `{
         </section>
 
         <!-- Section 4: Schemas & Manifests -->
-        <section id="schemas" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14] space-y-6">
-          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono flex items-center gap-3">
-            <span class="text-[#00f2fe]">04.</span> Data Formats & Manifest Schemas
+        <section id="schemas" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs space-y-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono flex items-center gap-2.5">
+            <span class="text-blue-600">04.</span> Data Formats & Manifest Schemas
           </h2>
 
           <!-- Schema 1: SOP Frontmatter -->
           <div>
-            <h3 class="font-mono text-xs font-bold text-[#00f2fe] uppercase mb-2">
+            <h3 class="font-mono text-xs font-bold text-blue-600 uppercase mb-2">
               4.1 SOP Manifest Frontmatter (YAML)
             </h3>
-            <p class="text-xs text-slate-400 mb-3">
-              Stored at the top of any SOP Markdown note inside the workspace (e.g. in <code class="text-slate-300">5 SOP/</code>).
+            <p class="text-xs text-slate-500 mb-3">
+              Stored at the top of any SOP Markdown note inside the workspace (for example in <code class="text-slate-800">5 SOP/</code>).
             </p>
-            <pre class="p-4 rounded-xl bg-[#06070a] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed">
+            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
               <code>{sopYamlSnippet}</code>
             </pre>
           </div>
 
           <!-- Schema 2: Execution Telemetry -->
           <div>
-            <h3 class="font-mono text-xs font-bold text-emerald-400 uppercase mb-2">
+            <h3 class="font-mono text-xs font-bold text-emerald-700 uppercase mb-2">
               4.2 Execution Telemetry Schema (JSON)
             </h3>
-            <p class="text-xs text-slate-400 mb-3">
+            <p class="text-xs text-slate-500 mb-3">
               Emitted upon completion of an SOP execution to generate the audit log and output manifest.
             </p>
-            <pre class="p-4 rounded-xl bg-[#06070a] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed">
+            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
               <code>{telemetryJsonSnippet}</code>
             </pre>
           </div>
         </section>
 
         <!-- Section 5: Security & Sovereignty -->
-        <section id="security" class="tech-card p-6 sm:p-8 rounded-2xl border border-white/10 bg-[#0c0e14]">
-          <h2 class="text-xl sm:text-2xl font-bold text-white font-mono mb-4 flex items-center gap-3">
-            <span class="text-[#00f2fe]">05.</span> Security & Sovereignty Guarantees
+        <section id="security" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono mb-4 flex items-center gap-2.5">
+            <span class="text-blue-600">05.</span> Security & Sovereignty Guarantees
           </h2>
-          <div class="space-y-4 text-xs font-mono text-slate-300">
-            <div class="p-3.5 rounded bg-white/5 border border-white/5">
-              <strong class="text-white block mb-1">1. Zero Third-Party Secret Relays</strong>
+          <div class="space-y-3 text-xs font-mono text-slate-700">
+            <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 block mb-1">1. Zero Third-Party Secret Relays</strong>
               Credentials, session tokens, and keys are stored in encrypted client-side storage only. No proprietary cloud proxy broker mediates agent requests.
             </div>
-            <div class="p-3.5 rounded bg-white/5 border border-white/5">
-              <strong class="text-white block mb-1">2. Sandboxed File Operations</strong>
+            <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 block mb-1">2. Sandboxed File Operations</strong>
               Agent execution loops operate inside strictly defined filesystem scopes declared in the SOP frontmatter.
             </div>
-            <div class="p-3.5 rounded bg-white/5 border border-white/5">
-              <strong class="text-white block mb-1">3. Immutable Local Audit Trail</strong>
+            <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 block mb-1">3. Immutable Local Audit Trail</strong>
               Every agent filesystem modification, tool invocation, and token consumption trace is appended to an immutable local Git log.
             </div>
           </div>
@@ -267,6 +268,7 @@ const telemetryJsonSnippet = `{
     </div>
   </main>
 
+  <NewsletterSignup variant="card" />
   <MyVideoAskSection />
   <Footer />
 </BaseLayout>
@@ -285,7 +287,6 @@ const telemetryJsonSnippet = `{
           copyStatus.classList.remove('hidden');
           setTimeout(() => copyStatus.classList.add('hidden'), 4000);
         } catch (err) {
-          // Fallback
           copyBtn.textContent = 'COPIED TO CLIPBOARD';
         }
       });

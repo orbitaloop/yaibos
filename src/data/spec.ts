@@ -104,13 +104,13 @@ mcp_tools: ["extract_pdf_tables", "reconcile_bank_csv"]
   {
     id: "modular-plugins",
     number: "06",
-    title: "Modular Micro-Kernel Architecture",
+    title: "Modular Sovereign Engine Architecture",
     tagline: "Everything is a plugin. Zero vendor lock-in, swappable models and tools.",
-    badge: "Kernel Design",
+    badge: "Engine Design",
     problem: "Monolithic agent frameworks tightly couple the model provider, database, and UI, forcing painful rewrites whenever underlying tech shifts.",
-    solution: "A minimal, resilient micro-kernel where model connectors, MCP tool providers, storage layers, and UI themes are swappable, hot-reloadable plugins.",
+    solution: "A minimal, resilient pluggable engine where model connectors, MCP tool providers, storage layers, and UI themes are swappable, hot-reloadable plugins.",
     technicalRequirements: [
-      "Lightweight micro-kernel inspired by Cordis / DeepSeek Harness architecture.",
+      "Lightweight modular engine with swappable components.",
       "Open plugin manifest standard for tools, memory, and model providers.",
       "Model Context Protocol (MCP) native integration."
     ]
@@ -135,7 +135,7 @@ export const ARCHITECTURE_LAYERS = [
     ]
   },
   {
-    name: "Execution Micro-Kernel",
+    name: "Execution Engine Layer",
     items: [
       "Deterministic Agent Execution Loop & Context Window Assembler",
       "Persistent Semantic Memory Provider (Local Hybrid Search)",

@@ -12,11 +12,11 @@ YAIBOS (Your AI Business Operating System) is an open architectural specificatio
 
 Current autonomous agent frameworks are built for software engineers who are comfortable running terminal commands, managing Docker daemon processes, diagnosing Python virtual environments, and monitoring metered API key usage. Conversely, consumer AI chat interfaces (ChatGPT, Claude) isolate team members in siloed conversations without persistent company knowledge, shared standard procedures (SOPs), or execution telemetry.
 
-YAIBOS bridges this divide by establishing a lightweight, micro-kernel specification where:
+YAIBOS bridges this divide by establishing a lightweight, modular sovereign engine specification where:
 1. **Business procedures (SOPs)** are surfaced as visual 1-click execution cards.
 2. **Team memory** lives in sovereign, human-readable Markdown files with role-based access control.
 3. **Execution costs** are decoupled from the host through Bring Your Own Subscription (BYOS) authentication.
-4. **All capabilities** are swappable through an open plugin architecture inspired by micro-kernel designs.
+4. **All capabilities** are swappable through an open plugin architecture inspired by modular plugin architectures.
 
 ```
 +-----------------------------------------------------------------------+
@@ -32,7 +32,7 @@ YAIBOS bridges this divide by establishing a lightweight, micro-kernel specifica
 |    - BYOS Auth Engine (OAuth, Session Bridge, Zero-Token Shock)       |
 |    - Lifespan Stage Gates (Assisted -> Supervised -> Autonomous)      |
 |                                                                       |
-|  [ Execution Micro-Kernel ]                                           |
+|  [ Execution Engine Layer ]                                           |
 |    - Agent Execution Loop & Context Window Assembler                  |
 |    - Persistent Semantic Memory Provider (Local Vector / BM25)        |
 |    - Tool & Skill Dispatcher                                          |
@@ -98,7 +98,7 @@ YAIBOS bridges this divide by establishing a lightweight, micro-kernel specifica
   * **Immutable Audit Trail**: All file modifications and agent write operations are logged to a tamper-resistant local Git history or append-only audit file.
 
 ### Pillar 6: Modular "Everything is a Plugin" Architecture
-* **Requirement**: Keep the core micro-kernel minimal, resilient, and independent of any single model provider or integration vendor.
+* **Requirement**: Keep the core execution engine minimal, resilient, and independent of any single model provider or integration vendor.
 * **Specification**:
   * **Core Responsibilities**: The kernel manages event dispatching, process lifecycle, session authentication, and file I/O permissions.
   * **Extensibility via Plugins**:

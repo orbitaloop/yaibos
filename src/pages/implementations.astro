@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import ImplementationsScorecard from '../components/ImplementationsScorecard.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import MyVideoAskSection from '../components/MyVideoAskSection.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -13,30 +14,30 @@ import Footer from '../components/Footer.astro';
 
   <main>
     <!-- Top Hero Section -->
-    <section class="pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#08090d]">
-      <div class="max-w-7xl mx-auto">
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-white">
+      <div class="max-w-6xl mx-auto">
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00f2fe]/30 bg-[#00f2fe]/10 text-xs font-mono text-[#00f2fe] mb-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-4 shadow-xs">
             <span>LIVE COMPARATIVE RADAR</span>
           </div>
 
-          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans">
+          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
             Market Implementations & Gap Analysis
           </h1>
 
-          <p class="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed font-light">
-            We evaluate active agent harnesses, visual LLM orchestrators, and AI second-brain systems against the YAIBOS sovereign criteria. Why does no single tool on the market yet satisfy all six pillars?
+          <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+            We evaluate active agent harnesses, visual agent platforms (such as Obsidian AI and LoopSuit AI), and AI second-brain systems against the YAIBOS sovereign criteria. Why does no single tool on the market yet satisfy all six pillars?
           </p>
 
-          <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-slate-400">
-            <span class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              8 Core Projects Graded
+          <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-slate-500">
+            <span class="flex items-center gap-1.5 font-semibold text-slate-700">
+              <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+              10 Core Projects Graded
             </span>
             <span>•</span>
             <span>Last Updated: September 2026</span>
             <span>•</span>
-            <a href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos" class="text-[#00f2fe] hover:underline">
+            <a href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos" class="text-blue-600 hover:underline">
               Submit a Project for Grading ↗
             </a>
           </div>
@@ -48,36 +49,44 @@ import Footer from '../components/Footer.astro';
     <ImplementationsScorecard />
 
     <!-- Strategic Takeaways -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 border-b border-white/10 bg-[#06070a]">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold text-white font-mono mb-8">
-          // KEY STRATEGIC TAKEAWAYS
-        </h2>
+    <section class="py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-slate-50">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl mb-8">
+          <h2 class="text-2xl font-bold text-slate-900 font-mono">
+            // KEY STRATEGIC TAKEAWAYS
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Why existing tools fall short for founder-led small businesses.
+          </p>
+        </div>
 
         <div class="grid md:grid-cols-3 gap-6 text-xs font-mono">
-          <div class="p-6 rounded-xl border border-white/10 bg-[#0c0e14]">
-            <span class="text-[#00f2fe] font-bold block mb-2">1. The Developer Bias</span>
-            <p class="text-slate-300 leading-relaxed font-sans text-sm">
+          <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
+            <span class="text-blue-600 font-bold block mb-2 text-sm">1. The Developer Bias</span>
+            <p class="text-slate-600 leading-relaxed font-sans text-sm">
               Most frameworks assume users are software engineers with Git workflows, Docker, and terminal comfort. Non-technical staff are completely alienated by current agent tooling.
             </p>
           </div>
 
-          <div class="p-6 rounded-xl border border-white/10 bg-[#0c0e14]">
-            <span class="text-emerald-400 font-bold block mb-2">2. The Token Shock Trap</span>
-            <p class="text-slate-300 leading-relaxed font-sans text-sm">
+          <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
+            <span class="text-emerald-700 font-bold block mb-2 text-sm">2. The Token Shock Trap</span>
+            <p class="text-slate-600 leading-relaxed font-sans text-sm">
               Metered API architectures force founders to shoulder uncapped financial liabilities when team members trigger agent loops. BYOS authentication is an existential requirement.
             </p>
           </div>
 
-          <div class="p-6 rounded-xl border border-white/10 bg-[#0c0e14]">
-            <span class="text-amber-400 font-bold block mb-2">3. The Knowledge Island</span>
-            <p class="text-slate-300 leading-relaxed font-sans text-sm">
+          <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
+            <span class="text-amber-800 font-bold block mb-2 text-sm">3. The Knowledge Island</span>
+            <p class="text-slate-600 leading-relaxed font-sans text-sm">
               Tools either store context in black-box vector databases that humans cannot inspect, or in personal note-taking apps that lack multi-user team permissions and agent runners.
             </p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Newsletter Card -->
+    <NewsletterSignup variant="card" />
 
     <MyVideoAskSection />
   </main>

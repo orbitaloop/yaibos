@@ -19,7 +19,7 @@ const cleanDescription = description.replace(/—/g, ',').replace(/–/g, '-');
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-[#08090d] text-slate-100">
+<html lang="en" class="scroll-smooth bg-white text-slate-900">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,10 +45,10 @@ const cleanDescription = description.replace(/—/g, ',').replace(/–/g, '-');
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-[#08090d] text-slate-200 antialiased selection:bg-[#00f2fe] selection:text-black">
-    <!-- Subtle technical grid background -->
-    <div class="pointer-events-none fixed inset-0 tech-grid opacity-60 z-0"></div>
-    <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[radial-gradient(ellipse_at_top,rgba(0,242,254,0.06),transparent_70%)] z-0"></div>
+  <body class="min-h-screen bg-white text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+    <!-- Subtle architectural paper grid background -->
+    <div class="pointer-events-none fixed inset-0 paper-grid opacity-70 z-0"></div>
+    <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[450px] bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.04),transparent_70%)] z-0"></div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />

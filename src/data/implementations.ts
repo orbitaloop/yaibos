@@ -20,10 +20,10 @@ export interface ImplementationScore {
 export const IMPLEMENTATIONS: ImplementationScore[] = [
   {
     name: "DeepSeek Harness (dsh + Cordis)",
-    category: "Micro-Kernel & Agent Runtime",
+    category: "Modular Agent Engine & Runtime",
     grade: "B+",
-    summary: "High-performance modular agent runtime built on the Cordis micro-kernel with swappable memory and execution plugins.",
-    verdict: "The closest architectural match for the execution kernel, but currently lacks a non-technical UI and multi-user RBAC.",
+    summary: "High-performance modular agent runtime built on a lightweight plugin engine with swappable memory and execution plugins.",
+    verdict: "The closest architectural match for the execution engine, but currently lacks a non-technical UI and multi-user RBAC.",
     scores: {
       zeroInstallUI: 2,
       oneClickSOP: 4,
@@ -33,16 +33,68 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 5
     },
     strengths: [
-      "World-class micro-kernel plugin architecture (Cordis).",
+      "World-class modular plugin architecture.",
       "Robust telemetry, duration counting, and audit trace logging.",
       "Growing community ecosystem of open plugins (dsh-mnemon, web runners)."
     ],
     gaps: [
-      "Strictly developer-oriented; requires terminal knowledge to deploy.",
+      "Strictly developer-oriented: requires terminal knowledge to deploy.",
       "No native multi-user RBAC or folder permissions.",
       "Requires bridging for consumer subscription auth (ChatGPT/Claude web auth)."
     ],
     repoUrl: "https://github.com/deepseek-ai"
+  },
+  {
+    name: "Obsidian AI (sup3rus3r/obsidian-ai)",
+    category: "Visual Agent Canvas & Self-Hosted Platform",
+    grade: "B+",
+    summary: "Self-hosted, open-source platform for orchestrating AI agents through a visual drag-and-drop canvas with native MCP support, prompt vault, and team RBAC.",
+    verdict: "Superb self-hosted visual orchestration with strong secrets management and multi-provider LLM support, though its node canvas is more complex than 1-click business SOP buttons and it lacks a native bi-directional Markdown note editor.",
+    scores: {
+      zeroInstallUI: 4,
+      oneClickSOP: 4,
+      byosAuth: 3,
+      teamSecondBrain: 3,
+      teamRBAC: 4,
+      modularPlugins: 4
+    },
+    strengths: [
+      "Drag-and-drop visual canvas for agent teams and DAG execution workflows.",
+      "Production security: Fernet secrets vault, AES encryption, JWT auth, and role-based access control.",
+      "Native Model Context Protocol (MCP) support and multi-provider model switching without config changes."
+    ],
+    gaps: [
+      "Node-and-wire visual canvas still demands workflow logic design rather than simple 1-click SOP cards for business staff.",
+      "Does not provide an integrated, human-editable Markdown second-brain note vault.",
+      "Self-hosting requires Docker or server deployment before non-technical staff can use it."
+    ],
+    repoUrl: "https://github.com/sup3rus3r/obsidian-ai"
+  },
+  {
+    name: "LoopSuit AI",
+    category: "Custom AI Systems & Automation Studio",
+    grade: "B",
+    summary: "AI-native product studio and automation agency deploying custom autonomous agents, onboarding pipelines, and bespoke operational workflows for business operators.",
+    verdict: "Strong operational design and rapid production-ready MVP delivery, but structured as custom agency deployments rather than a sovereign, self-hosted open-source second brain operating system.",
+    scores: {
+      zeroInstallUI: 4,
+      oneClickSOP: 4,
+      byosAuth: 2,
+      teamSecondBrain: 2,
+      teamRBAC: 2,
+      modularPlugins: 3
+    },
+    strengths: [
+      "Custom autonomous agent workflows for lead intake, client onboarding, and operational procedures.",
+      "High-end product design and rapid two-week delivery for operators.",
+      "Emphasizes client ownership of the final deployed automation system."
+    ],
+    gaps: [
+      "Bespoke agency delivery rather than a standardized, open-source sovereign software harness.",
+      "No integrated, bi-directional Markdown second-brain knowledge layer.",
+      "Auth and pricing models vary per client setup rather than standardized BYOS session auth."
+    ],
+    repoUrl: "https://loopsuitai.com"
   },
   {
     name: "OpenDesign / DSHKer",
@@ -194,7 +246,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Broad model support including local Ollama runners."
     ],
     gaps: [
-      "Purely conversational; no 1-click execution cards or task duration telemetry.",
+      "Purely conversational: no 1-click execution cards or task duration telemetry.",
       "Lacks a bi-directional Markdown second brain.",
       "Not designed to automate repetitive business processes."
     ],
@@ -215,11 +267,11 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 4
     },
     strengths: [
-      "Flexible multi-agent role delegation in Python / TypeScript.",
+      "Flexible multi-agent role delegation in Python or TypeScript.",
       "Rapidly adopting open standards like Model Context Protocol (MCP)."
     ],
     gaps: [
-      "Zero graphical UI; requires terminal execution and virtual environments.",
+      "Zero graphical UI: requires terminal execution and virtual environments.",
       "Metered API consumption causes severe token bill shock.",
       "No persistent human-readable knowledge layer or team permissions."
     ]
@@ -227,10 +279,10 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
 ];
 
 export const SCORING_CRITERIA = [
-  { key: "zeroInstallUI", label: "Zero-Install UI", description: "Clean web/desktop interface without terminal commands or Git hurdles." },
+  { key: "zeroInstallUI", label: "Zero-Install UI", description: "Clean web or desktop interface without terminal commands or Git hurdles." },
   { key: "oneClickSOP", label: "1-Click SOPs", description: "Procedures rendered as visual buttons with telemetry and duration tracking." },
   { key: "byosAuth", label: "BYOS Auth", description: "Team members use existing subscriptions with zero host token bill shock." },
   { key: "teamSecondBrain", label: "Team Second Brain", description: "Plain Markdown storage with bi-directional in-app editing and semantic search." },
   { key: "teamRBAC", label: "Team RBAC", description: "Granular folder-level and file-level permissions with area ownership." },
-  { key: "modularPlugins", label: "Modular Plugins", description: "Micro-kernel design where tools, models, and memory are swappable." }
+  { key: "modularPlugins", label: "Modular Engine", description: "Pluggable engine design where tools, models, and memory are swappable." }
 ];

@@ -2,31 +2,31 @@
 import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
 ---
 
-<section id="scorecard" class="py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10">
-  <div class="max-w-7xl mx-auto">
+<section id="scorecard" class="py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-white">
+  <div class="max-w-6xl mx-auto">
     <!-- Header -->
     <div class="max-w-3xl mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-xs font-mono text-purple-400 mb-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-200 bg-purple-50 text-xs font-mono text-purple-700 mb-3">
         <span>MARKET LANDSCAPE & GAP ANALYSIS</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
         YAIBOS Implementation Scorecard
       </h2>
-      <p class="mt-4 text-slate-400 text-base sm:text-lg">
-        Evaluating the current market of AI harnesses, autonomous frameworks, and second-brain systems against the YAIBOS sovereign small-business standard.
+      <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+        Evaluating active AI agent platforms, second-brain frameworks, and visual orchestrators against the YAIBOS sovereign small-business standard.
       </p>
     </div>
 
     <!-- Scoring Criteria Summary Legend -->
-    <div class="mb-10 p-5 rounded-xl border border-white/10 bg-[#0c0e14] tech-card">
-      <h3 class="font-mono text-xs uppercase tracking-wider text-[#00f2fe] mb-3">
+    <div class="mb-10 p-6 rounded-xl border border-slate-200 bg-slate-50">
+      <h3 class="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold mb-3">
         Evaluation Criteria (Rated 0 to 5):
       </h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-mono">
         {SCORING_CRITERIA.map((criterion) => (
-          <div class="p-2.5 rounded bg-white/5 border border-white/5">
-            <span class="text-white font-semibold block">{criterion.label}</span>
-            <span class="text-slate-400 text-[11px] leading-relaxed block mt-0.5">{criterion.description}</span>
+          <div class="p-3 rounded-lg bg-white border border-slate-200 shadow-2xs">
+            <span class="text-slate-900 font-bold block">{criterion.label}</span>
+            <span class="text-slate-500 text-[11px] leading-relaxed block mt-0.5">{criterion.description}</span>
           </div>
         ))}
       </div>
@@ -35,103 +35,116 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
     <!-- Implementation Cards Grid -->
     <div class="space-y-6">
       {IMPLEMENTATIONS.map((tool) => (
-        <div class="tech-card rounded-xl p-6 border border-white/10 bg-[#0c0e14] hover:border-white/20 transition-all">
+        <div class="elegant-card rounded-xl p-6 border border-slate-200/90 bg-white hover:border-slate-300 transition-all">
           <div class="grid lg:grid-cols-12 gap-6 items-start">
             <!-- Col 1: Identity & Grade (4 cols) -->
             <div class="lg:col-span-4">
               <div class="flex items-center justify-between gap-4 mb-2">
-                <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                <span class="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
                   {tool.category}
                 </span>
                 <!-- Grade Badge -->
-                <span class={`px-3 py-1 rounded font-mono font-bold text-sm border ${
-                  tool.grade.startsWith('A') ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40' :
-                  tool.grade.startsWith('B') ? 'bg-cyan-500/20 text-[#00f2fe] border-cyan-500/40' :
-                  tool.grade.startsWith('C') ? 'bg-amber-500/20 text-amber-400 border-amber-500/40' :
-                  'bg-red-500/20 text-red-400 border-red-500/40'
+                <span class={`px-2.5 py-0.5 rounded-full font-mono font-bold text-xs border ${
+                  tool.grade.startsWith('A') ? 'bg-emerald-50 text-emerald-800 border-emerald-300' :
+                  tool.grade.startsWith('B') ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                  tool.grade.startsWith('C') ? 'bg-amber-50 text-amber-800 border-amber-200' :
+                  'bg-red-50 text-red-700 border-red-200'
                 }`}>
                   GRADE: {tool.grade}
                 </span>
               </div>
 
-              <h3 class="text-xl font-bold text-white mb-2">
-                {tool.name}
-              </h3>
-              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-lg font-bold text-slate-900">
+                  {tool.name}
+                </h3>
+                {tool.repoUrl && (
+                  <a 
+                    href={tool.repoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="text-slate-400 hover:text-blue-600 text-xs font-mono" 
+                    title="Visit site or repo">
+                    ↗
+                  </a>
+                )}
+              </div>
+
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
                 {tool.summary}
               </p>
 
               <!-- Verdict Block -->
-              <div class="p-3 rounded bg-white/5 border border-white/10 text-xs font-mono">
-                <span class="text-[#00f2fe] block text-[10px] uppercase font-bold mb-1">// VERDICT:</span>
-                <span class="text-slate-200">{tool.verdict}</span>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-100 text-xs font-mono">
+                <span class="text-blue-700 block text-[10px] uppercase font-bold mb-1">// VERDICT:</span>
+                <span class="text-slate-700 font-sans text-xs">{tool.verdict}</span>
               </div>
             </div>
 
             <!-- Col 2: Scores Matrix (4 cols) -->
-            <div class="lg:col-span-4 space-y-2.5 font-mono text-xs p-4 rounded bg-[#08090d] border border-white/5">
-              <div class="flex items-center justify-between text-[11px] text-slate-400 pb-1 border-b border-white/5">
-                <span>CRITERIA SCORE</span>
-                <span>RATING (0-5)</span>
+            <div class="lg:col-span-4 space-y-2.5 font-mono text-xs p-4 rounded-lg bg-slate-50 border border-slate-200">
+              <div class="flex items-center justify-between text-[11px] text-slate-500 pb-1 border-b border-slate-200">
+                <span class="font-semibold uppercase">Criteria Score</span>
+                <span class="font-semibold uppercase">Rating (0-5)</span>
               </div>
-              <div class="space-y-2">
+              <div class="space-y-2 pt-1">
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Zero-Install UI:</span>
+                  <span class="text-slate-700">Zero-Install UI:</span>
                   <div class="flex items-center gap-1.5">
-                    <div class="w-16 bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-[#00f2fe] h-full rounded-full" style={`width: ${(tool.scores.zeroInstallUI / 5) * 100}%`}></div>
+                    <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.zeroInstallUI / 5) * 100}%`}></div>
                     </div>
-                    <span class="font-bold text-white w-4 text-right">{tool.scores.zeroInstallUI}</span>
+                    <span class="font-bold text-slate-900 w-4 text-right">{tool.scores.zeroInstallUI}</span>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300">1-Click SOPs:</span>
+                  <span class="text-slate-700">1-Click SOPs:</span>
                   <div class="flex items-center gap-1.5">
-                    <div class="w-16 bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-[#00f2fe] h-full rounded-full" style={`width: ${(tool.scores.oneClickSOP / 5) * 100}%`}></div>
+                    <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.oneClickSOP / 5) * 100}%`}></div>
                     </div>
-                    <span class="font-bold text-white w-4 text-right">{tool.scores.oneClickSOP}</span>
+                    <span class="font-bold text-slate-900 w-4 text-right">{tool.scores.oneClickSOP}</span>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300">BYOS Auth:</span>
+                  <span class="text-slate-700">BYOS Auth:</span>
                   <div class="flex items-center gap-1.5">
-                    <div class="w-16 bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-[#00f2fe] h-full rounded-full" style={`width: ${(tool.scores.byosAuth / 5) * 100}%`}></div>
+                    <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.byosAuth / 5) * 100}%`}></div>
                     </div>
-                    <span class="font-bold text-white w-4 text-right">{tool.scores.byosAuth}</span>
+                    <span class="font-bold text-slate-900 w-4 text-right">{tool.scores.byosAuth}</span>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Team Second Brain:</span>
+                  <span class="text-slate-700">Team Second Brain:</span>
                   <div class="flex items-center gap-1.5">
-                    <div class="w-16 bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-[#00f2fe] h-full rounded-full" style={`width: ${(tool.scores.teamSecondBrain / 5) * 100}%`}></div>
+                    <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.teamSecondBrain / 5) * 100}%`}></div>
                     </div>
-                    <span class="font-bold text-white w-4 text-right">{tool.scores.teamSecondBrain}</span>
+                    <span class="font-bold text-slate-900 w-4 text-right">{tool.scores.teamSecondBrain}</span>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Team RBAC:</span>
+                  <span class="text-slate-700">Team RBAC:</span>
                   <div class="flex items-center gap-1.5">
-                    <div class="w-16 bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-[#00f2fe] h-full rounded-full" style={`width: ${(tool.scores.teamRBAC / 5) * 100}%`}></div>
+                    <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.teamRBAC / 5) * 100}%`}></div>
                     </div>
-                    <span class="font-bold text-white w-4 text-right">{tool.scores.teamRBAC}</span>
+                    <span class="font-bold text-slate-900 w-4 text-right">{tool.scores.teamRBAC}</span>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Modular Plugins:</span>
+                  <span class="text-slate-700">Modular Engine:</span>
                   <div class="flex items-center gap-1.5">
-                    <div class="w-16 bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-[#00f2fe] h-full rounded-full" style={`width: ${(tool.scores.modularPlugins / 5) * 100}%`}></div>
+                    <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                      <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.modularPlugins / 5) * 100}%`}></div>
                     </div>
-                    <span class="font-bold text-white w-4 text-right">{tool.scores.modularPlugins}</span>
+                    <span class="font-bold text-slate-900 w-4 text-right">{tool.scores.modularPlugins}</span>
                   </div>
                 </div>
               </div>
@@ -139,28 +152,28 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
 
             <!-- Col 3: Strengths vs Gaps (4 cols) -->
             <div class="lg:col-span-4 space-y-3 text-xs">
-              <div class="p-3 rounded bg-emerald-950/20 border border-emerald-900/30">
-                <span class="text-emerald-400 font-mono text-[10px] uppercase font-bold block mb-1">
+              <div class="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+                <span class="text-emerald-800 font-mono text-[10px] uppercase font-bold block mb-1">
                   Key Strengths:
                 </span>
-                <ul class="space-y-1 text-slate-300">
+                <ul class="space-y-1 text-slate-700 font-sans">
                   {tool.strengths.map((str) => (
                     <li class="flex items-start gap-1.5">
-                      <span class="text-emerald-400">✓</span>
+                      <span class="text-emerald-600 font-bold shrink-0">✓</span>
                       <span>{str}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div class="p-3 rounded bg-red-950/20 border border-red-900/30">
-                <span class="text-red-400 font-mono text-[10px] uppercase font-bold block mb-1">
+              <div class="p-3 rounded-lg bg-red-50 border border-red-200">
+                <span class="text-red-800 font-mono text-[10px] uppercase font-bold block mb-1">
                   Gaps Relative to YAIBOS:
                 </span>
-                <ul class="space-y-1 text-slate-300">
+                <ul class="space-y-1 text-slate-700 font-sans">
                   {tool.gaps.map((gap) => (
                     <li class="flex items-start gap-1.5">
-                      <span class="text-red-400">✕</span>
+                      <span class="text-red-500 font-bold shrink-0">✕</span>
                       <span>{gap}</span>
                     </li>
                   ))}

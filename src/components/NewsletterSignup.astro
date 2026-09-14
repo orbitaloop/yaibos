@@ -1,0 +1,103 @@
+---
+interface Props {
+  variant?: 'card' | 'compact';
+}
+
+const { variant = 'card' } = Astro.props;
+---
+
+{variant === 'card' ? (
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50/70 border-b border-slate-200/80">
+    <div class="max-w-4xl mx-auto elegant-card rounded-2xl p-8 sm:p-12 border border-slate-200/90 bg-white shadow-sm">
+      <div class="max-w-2xl mx-auto text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-4">
+          <span>THE CONTEXT LAYER & YAIBOS DISPATCH</span>
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-sans">
+          Curated Intelligence on Sovereign AI & Second Brains
+        </h3>
+
+        <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
+          Get weekly, high-signal breakdowns of practical AI agent setups, Personal Knowledge Management (PKM) methods, team second brains, and open harness specifications. Curated directly by Samuel Michelot. No spam, zero AI fluff.
+        </p>
+
+        <!-- Form -->
+        <form class="newsletter-form mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            required
+            placeholder="your.email@company.com"
+            class="newsletter-input flex-1 px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent font-sans shadow-xs"
+          />
+          <button
+            type="submit"
+            class="newsletter-btn px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-bold transition-all shrink-0 shadow-xs">
+            SUBSCRIBE →
+          </button>
+        </form>
+
+        <div class="newsletter-message hidden mt-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono">
+          ✓ Thank you! You are subscribed to curated dispatches on sovereign AI & PKM.
+        </div>
+
+        <p class="mt-4 text-[11px] text-slate-400 font-mono">
+          Sent once a week. Unsubscribe anytime with one click.
+        </p>
+      </div>
+    </div>
+  </section>
+) : (
+  <div class="newsletter-compact space-y-3">
+    <div class="text-xs font-bold uppercase tracking-wider text-slate-900 font-mono">
+      Curated Newsletter
+    </div>
+    <p class="text-xs text-slate-600 leading-relaxed font-sans">
+      Weekly insights on sovereign AI, Personal Knowledge Management (PKM), and open agent harnesses.
+    </p>
+    <form class="newsletter-form flex gap-2">
+      <input
+        type="email"
+        required
+        placeholder="your.email@company.com"
+        class="newsletter-input flex-1 px-3 py-2 rounded-md border border-slate-200 bg-white text-slate-900 text-xs placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-600 font-sans"
+      />
+      <button
+        type="submit"
+        class="newsletter-btn px-3.5 py-2 rounded-md bg-slate-900 hover:bg-blue-600 text-white font-mono text-xs font-semibold transition-colors shrink-0">
+        JOIN
+      </button>
+    </form>
+    <div class="newsletter-message hidden p-2 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono">
+      ✓ Subscribed! Welcome aboard.
+    </div>
+  </div>
+)}
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('.newsletter-form');
+    forms.forEach((form) => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = form.querySelector('.newsletter-input');
+        const btn = form.querySelector('.newsletter-btn');
+        const parent = form.parentElement;
+        const msg = parent.querySelector('.newsletter-message');
+
+        if (!input || !input.value) return;
+
+        // Visual feedback
+        btn.disabled = true;
+        btn.textContent = '...';
+
+        setTimeout(() => {
+          form.classList.add('hidden');
+          if (msg) msg.classList.remove('hidden');
+          // In real production, this also dispatches to mail endpoint or AgentMail webhook
+        }, 500);
+      });
+    });
+  });
+</script>

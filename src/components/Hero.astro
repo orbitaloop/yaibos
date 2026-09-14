@@ -1,122 +1,145 @@
 ---
 ---
 
-<section class="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b border-white/10">
-  <div class="max-w-7xl mx-auto">
+<section class="relative pt-20 pb-24 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-white">
+  <div class="max-w-6xl mx-auto">
     <!-- Breadcrumb / Spec Status -->
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-xs font-mono text-slate-300 mb-8">
-      <span class="w-2 h-2 rounded-full bg-[#00f2fe] live-indicator"></span>
-      <span class="text-white font-medium">OPEN SPECIFICATION v1.0</span>
-      <span class="text-slate-500">|</span>
-      <span class="text-slate-400">SOVEREIGN AI HARNESS STANDARD</span>
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-8 shadow-xs">
+      <span class="w-2 h-2 rounded-full bg-blue-600 live-indicator"></span>
+      <span class="font-semibold">OPEN SPECIFICATION v1.0</span>
+      <span class="text-blue-300">|</span>
+      <span class="text-blue-600 font-normal">SOVEREIGN AI HARNESS STANDARD</span>
     </div>
 
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       <!-- Left Hero Text -->
-      <div class="lg:col-span-7">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-sans">
+      <div class="lg:col-span-7 space-y-6">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] font-sans">
           The Sovereign AI Operating System for Small Business.
         </h1>
 
-        <p class="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed font-light">
-          No terminal commands. No Git merge conflicts. No unpredictable API token bills. YAIBOS unites 1-click SOP execution, Bring Your Own Subscription auth, and a sovereign team second brain into a clean, zero-friction cockpit.
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-light">
+          No terminal commands. No Git merge conflicts. No unpredictable API token bills. YAIBOS bridges your <strong>Personal Knowledge Management (PKM)</strong> second brain with 1-click SOP execution and Bring Your Own Subscription auth into a calm, zero-friction cockpit.
         </p>
 
+        <!-- Explanatory Value Callout -->
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed font-sans">
+          <strong class="text-slate-900 block mb-1">Why a Second Brain + AI OS?</strong>
+          Your company knowledge lives in open Markdown files that you own forever. Instead of re-explaining context to AI in every chat, your autonomous agents read your rules, follow your standard operating procedures, and run safely on your own terms.
+        </div>
+
         <!-- CTAs -->
-        <div class="mt-8 flex flex-wrap gap-4 font-mono text-sm">
+        <div class="flex flex-wrap gap-3 font-mono text-xs sm:text-sm pt-2">
           <a
             href="/spec"
-            class="px-6 py-3 rounded bg-[#00f2fe] text-black font-semibold hover:bg-[#38bdf8] transition-all shadow-[0_0_20px_rgba(0,242,254,0.3)]">
-            READ SPECIFICATION v1.0 →
+            class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-xs flex items-center gap-2">
+            <span>READ SPECIFICATION v1.0</span>
+            <span aria-hidden="true">→</span>
           </a>
           <a
-            href="/implementations"
-            class="px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all">
-            MARKET SCORECARD
+            href="/#how-it-works"
+            class="px-5 py-3 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-medium transition-all shadow-xs">
+            HOW IT WORKS
           </a>
           <a
             href="#cockpit"
-            class="px-6 py-3 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-all flex items-center gap-2">
-            <span>▶ TEST COCKPIT</span>
+            class="px-5 py-3 rounded-lg border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold transition-all flex items-center gap-2">
+            <span>▶ TEST 1-CLICK COCKPIT</span>
           </a>
         </div>
 
-        <!-- Telemetry Attributes -->
-        <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
+        <!-- Attributes Strip -->
+        <div class="pt-8 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
           <div>
-            <span class="text-slate-500 block text-[11px]">// DATA LAYER</span>
-            <span class="text-slate-200 font-medium">Local Markdown</span>
+            <span class="text-slate-400 block text-[11px]">// DATA LAYER</span>
+            <span class="text-slate-800 font-semibold">Open Markdown PKM</span>
           </div>
           <div>
-            <span class="text-slate-500 block text-[11px]">// AUTH MODEL</span>
-            <span class="text-slate-200 font-medium">BYOS (0 Token Shock)</span>
+            <span class="text-slate-400 block text-[11px]">// AUTH MODEL</span>
+            <span class="text-slate-800 font-semibold">BYOS (Zero Token Debt)</span>
           </div>
           <div>
-            <span class="text-slate-500 block text-[11px]">// RUNTIME</span>
-            <span class="text-slate-200 font-medium">1-Click Micro-Kernel</span>
+            <span class="text-slate-400 block text-[11px]">// RUNTIME</span>
+            <span class="text-slate-800 font-semibold">1-Click Agent Engine</span>
           </div>
           <div>
-            <span class="text-slate-500 block text-[11px]">// LICENSE</span>
-            <span class="text-slate-200 font-medium">CC-BY-4.0 Open Spec</span>
+            <span class="text-slate-400 block text-[11px]">// LICENSE</span>
+            <span class="text-slate-800 font-semibold">CC-BY-4.0 Open Spec</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Architecture Visual Card -->
+      <!-- Right Architecture Blueprint Card -->
       <div class="lg:col-span-5">
-        <div class="tech-card rounded-xl p-5 border border-white/15 bg-[#0c0e14]/90 shadow-2xl relative overflow-hidden">
-          <!-- Terminal Title Bar -->
-          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4 font-mono text-xs">
-            <div class="flex items-center gap-2 text-slate-400">
-              <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 text-slate-300">yaibos-runtime-spec.arch</span>
+        <div class="elegant-card rounded-2xl p-6 border border-slate-200/90 bg-white shadow-md relative overflow-hidden">
+          <!-- Card Header Bar -->
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5 font-mono text-xs">
+            <div class="flex items-center gap-2 text-slate-500">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block"></span>
+              <span class="font-semibold text-slate-700">yaibos-system-blueprint.arch</span>
             </div>
-            <span class="text-[10px] text-emerald-400 font-mono">STATUS: VALIDATED</span>
+            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-medium font-mono">
+              SPEC v1.0 VALIDATED
+            </span>
           </div>
 
-          <!-- Architecture ASCII/Diagram -->
-          <div class="font-mono text-[12px] leading-relaxed text-slate-300 space-y-3">
-            <div class="p-2.5 rounded bg-white/5 border border-white/10">
-              <span class="text-[#00f2fe] font-semibold">[ 1. PRESENTATION LAYER ]</span>
-              <div class="text-slate-400 text-[11px] mt-1">
-                • 1-Click SOP Visual Cards & Telemetry<br />
-                • Rich Markdown Editor & Graph Navigator<br />
-                • Duration Tracker & Audit Logs
+          <!-- Architecture Visual Stack -->
+          <div class="space-y-3 font-mono text-xs">
+            
+            <div class="p-3 rounded-lg bg-blue-50/60 border border-blue-100">
+              <div class="flex items-center justify-between">
+                <span class="text-blue-700 font-bold">[ 1. PRESENTATION COCKPIT ]</span>
+                <span class="text-[10px] text-blue-600 uppercase">Non-Technical UI</span>
+              </div>
+              <div class="text-slate-600 text-[11px] mt-1 font-sans">
+                • 1-Click SOP Visual Cards with Duration Tracking<br />
+                • In-App Rich Markdown Second Brain Editor<br />
+                • Telemetry Counter & Output Artifact Manifests
               </div>
             </div>
 
-            <div class="p-2.5 rounded bg-white/5 border border-white/10">
-              <span class="text-emerald-400 font-semibold">[ 2. GOVERNANCE & AUTH ]</span>
-              <div class="text-slate-400 text-[11px] mt-1">
-                • Folder-level & File-level RBAC<br />
-                • BYOS Auth (ChatGPT / Claude OAuth Bridge)<br />
-                • Stage Gates: Assisted → Supervised → Autonomous
+            <div class="p-3 rounded-lg bg-emerald-50/60 border border-emerald-100">
+              <div class="flex items-center justify-between">
+                <span class="text-emerald-800 font-bold">[ 2. GOVERNANCE & AUTH ]</span>
+                <span class="text-[10px] text-emerald-700 uppercase">Zero Token Debt</span>
+              </div>
+              <div class="text-slate-600 text-[11px] mt-1 font-sans">
+                • Folder-level & File-level Team RBAC<br />
+                • BYOS Auth: ChatGPT / Claude Team Session Bridge<br />
+                • Lifespan Gates: Assisted → Supervised → Autonomous
               </div>
             </div>
 
-            <div class="p-2.5 rounded bg-white/5 border border-white/10">
-              <span class="text-amber-400 font-semibold">[ 3. EXECUTION MICRO-KERNEL ]</span>
-              <div class="text-slate-400 text-[11px] mt-1">
-                • Agent Loop & Context Window Assembler<br />
-                • Local Hybrid Memory (Vector + BM25)<br />
-                • MCP & Tool Protocol Dispatcher
+            <div class="p-3 rounded-lg bg-amber-50/60 border border-amber-100">
+              <div class="flex items-center justify-between">
+                <span class="text-amber-800 font-bold">[ 3. SOVEREIGN AGENT ENGINE ]</span>
+                <span class="text-[10px] text-amber-700 uppercase">Local Execution</span>
+              </div>
+              <div class="text-slate-600 text-[11px] mt-1 font-sans">
+                • Agent Loop & Deterministic Context Assembler<br />
+                • Local Hybrid Search (Lightweight Embeddings + BM25)<br />
+                • Model Context Protocol (MCP) Tool Dispatcher
               </div>
             </div>
 
-            <div class="p-2.5 rounded bg-white/5 border border-white/10">
-              <span class="text-purple-400 font-semibold">[ 4. STORAGE & SOVEREIGNTY ]</span>
-              <div class="text-slate-400 text-[11px] mt-1">
-                • Plain Markdown Files (Local Disk / Git)<br />
+            <div class="p-3 rounded-lg bg-slate-100/70 border border-slate-200">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-800 font-bold">[ 4. SOVEREIGN DATA LAYER ]</span>
+                <span class="text-[10px] text-slate-500 uppercase">File over App</span>
+              </div>
+              <div class="text-slate-600 text-[11px] mt-1 font-sans">
+                • Plain Markdown Files in Local Folders (<code class="text-slate-800 font-mono">5 SOP/</code>, <code class="text-slate-800 font-mono">2 Areas/</code>)<br />
                 • Zero proprietary cloud database lock-in
               </div>
             </div>
+
           </div>
 
-          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span>SPEC: RFC-2026-YAIBOS-01</span>
-            <a href="/spec" class="text-[#00f2fe] hover:underline">Full Spec & Schema →</a>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+            <span>RFC: 2026-YAIBOS-01</span>
+            <a href="/spec" class="text-blue-600 hover:underline font-semibold">
+              Read Complete Schemas →
+            </a>
           </div>
         </div>
       </div>

@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import MyVideoAskSection from '../components/MyVideoAskSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="About Samuel Michelot: Building Sovereign AI Systems & Second Brains"
+  description="The story behind YAIBOS: how Samuel Michelot runs multiple businesses with zero employees using an open Markdown second brain, and the invitation to build open AI operating systems together.">
+  <Header activePage="about" />
+
+  <main class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Top Profile Intro Header -->
+      <div class="grid md:grid-cols-12 gap-8 items-center pb-12 mb-12 border-b border-slate-200/80">
+        <div class="md:col-span-8 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700">
+            <span>FOUNDER & OPERATOR PERSPECTIVE</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
+            Hi, I'm Samuel Michelot.
+          </h1>
+
+          <p class="text-lg text-slate-600 font-light leading-relaxed">
+            I am a software engineer, former tech founder, and systems architect living in a cohousing community I renovated in the forest near Barcelona, Catalonia.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2 font-mono text-xs text-slate-500">
+            <span>• Co-founder of MosaLingua (Acquired)</span>
+            <span>• Founder of Simple AI Studio</span>
+            <span>• Creator of YAIBOS Open Spec</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 flex justify-center">
+          <div class="relative">
+            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md">
+              <img
+                src="/images/samuel.jpg"
+                alt="Samuel Michelot"
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+            <div class="absolute -bottom-3 -right-3 px-3 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 text-[11px] font-mono shadow-xs">
+              Forest Cohousing, Catalonia
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Narrative Body -->
+      <div class="space-y-12 text-slate-700 font-sans text-base sm:text-lg leading-relaxed">
+        
+        <!-- Section 1: Background -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold text-slate-900 font-sans">
+            From Scaling MosaLingua to Designing for Peace of Mind
+          </h2>
+          <p>
+            For over a decade, I built and scaled MosaLingua, a language learning platform that reached millions of learners worldwide. As a software engineer and founder, I experienced the full cycle of bootstrapping, scaling technical infrastructure, managing remote teams, and eventually selling the company.
+          </p>
+          <p>
+            After the acquisition, my priorities became razor sharp: low chronic stress, complete control over my time, intentional systems, and far more life outside glowing screens.
+          </p>
+          <p>
+            I chose to live in a shared cohousing space in the Catalan hills near Barcelona. Rather than building another traditional company with large management overhead, I wanted to explore a different question: <em>How much leverage can a single human achieve when systems, documentation, and autonomous AI agents work together in harmony?</em>
+          </p>
+        </section>
+
+        <!-- Section 2: How I built my AI OS -->
+        <section class="space-y-4 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
+          <h2 class="text-2xl font-bold text-slate-900 font-sans">
+            How I Run Multiple Businesses with Zero Employees
+          </h2>
+          <p>
+            Today, I operate several active projects simultaneously: <strong>Simple AI Studio</strong> (AI training and advisory for businesses), <strong>My Inner Center</strong> and <strong>MySleepExpert</strong> (health and wellness platforms), and asynchronous coaching initiatives.
+          </p>
+          <p>
+            I have zero full-time employees. Yet, client leads are qualified, invoice tables are matched against bank statements, codebases are tested, and research newsletters are drafted weekly.
+          </p>
+          <p>
+            The secret is not magic prompting. It is an **AI Operating System** built on three strict principles:
+          </p>
+          
+          <div class="grid sm:grid-cols-3 gap-4 pt-2 text-sm font-sans">
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <strong class="text-slate-900 block mb-1">1. Open Second Brain</strong>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Everything lives in plain text Markdown in Obsidian. No proprietary database lock-in. Full data sovereignty.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <strong class="text-slate-900 block mb-1">2. Executable SOPs</strong>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Every business workflow is documented as a standard procedure that both humans and AI agents can execute safely.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <strong class="text-slate-900 block mb-1">3. Local Sovereign Agents</strong>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Agents run locally on my machine. They read my context guidelines, use MCP tools, and never cause token bill shock.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Second Brain & PKM Deep-Dive -->
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold text-slate-900 font-sans">
+            The Power of Second Brains & Personal Knowledge Management (PKM)
+          </h2>
+          <p>
+            The concept of a <strong>Second Brain</strong>, pioneered by thinkers like Tiago Forte and Nick Milo, started as a way for individuals to capture notes, organize projects, and synthesize knowledge without overwhelming their working memory.
+          </p>
+          <p>
+            In the era of autonomous AI agents, <strong>Personal Knowledge Management (PKM)</strong> has evolved from passive note-taking into the active operating system of your business. When you store company policies, customer notes, and technical workflows in open Markdown files, your Second Brain becomes the persistent world model that AI assistants consult before taking any action.
+          </p>
+          <p>
+            Without a Second Brain, an AI agent is like a talented intern with amnesia: you must re-explain your business rules on every single conversation. With a structured Second Brain, the agent already knows your values, your boundaries, and your standard procedures.
+          </p>
+        </section>
+
+        <!-- Section 4: Simple AI Studio -->
+        <section class="space-y-4 p-6 sm:p-8 rounded-2xl bg-blue-50/40 border border-blue-100">
+          <div class="flex items-center gap-2 text-xs font-mono text-blue-700 uppercase font-semibold">
+            <span>Practical Training Offer</span>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 font-sans">
+            Simple AI Studio: Practical AI for Real Businesses
+          </h2>
+          <p>
+            Through <a href="https://simpleaistudio.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline">Simple AI Studio</a>, I run hands-on AI bootcamps and advisory cohorts for small businesses (under 100 people) and specialized vertical sectors, such as solar installation companies in Spain and France.
+          </p>
+          <p>
+            Most AI corporate training on the market is generic fluff: slides about ChatGPT prompt engineering that leave teams without durable systems. Simple AI Studio takes the opposite approach: we build actual operational systems on students' laptops, establishing local second brains, automating quote pipelines, and configuring repeatable workflows that team members own forever.
+          </p>
+          <p class="text-sm font-mono text-slate-600 pt-2">
+            Learn more at <a href="https://simpleaistudio.com" target="_blank" rel="noopener noreferrer" class="text-blue-700 underline">simpleaistudio.com ↗</a>
+          </p>
+        </section>
+
+        <!-- Section 5: The Invitation to Build with the Community -->
+        <section class="space-y-6">
+          <h2 class="text-2xl font-bold text-slate-900 font-sans">
+            Why YAIBOS Is Open: An Invitation to the Community
+          </h2>
+          <p>
+            I saw a frustrating divide in the market. On one hand, developers have powerful CLI tools (CrewAI, LangChain, raw Claude Code), but these tools are completely inaccessible to non-technical business operators. On the other hand, commercial SaaS startups are locking company data into proprietary cloud silos and charging unpredictable token markup fees.
+          </p>
+          <p>
+            I believe small business owners deserve a third path: <strong>a sovereign, local-first, zero-friction AI operating system</strong> where business procedures are 1-click buttons, team members bring their own subscriptions, and company data stays in open Markdown files.
+          </p>
+          <p class="p-6 rounded-xl bg-amber-50/50 border border-amber-200 text-slate-800 text-base font-sans">
+            <strong class="text-amber-900 block mb-1">Let's Build This Together:</strong>
+            I deliberately did not launch YAIBOS as a closed venture-backed SaaS. Instead, I published it as an <strong>open architectural specification</strong>. My dream is to gather a community of thoughtful founders, PKM geeks, open-source developers, and operators to build open implementations together upon these sovereign foundations.
+          </p>
+          <p>
+            Whether you want to implement a 1-click SOP runner, build a desktop client, improve the RBAC specification, or simply share how you organize your company second brain, you are warmly invited to join the conversation.
+          </p>
+        </section>
+
+        <!-- Section 6: Connect with Samuel -->
+        <section class="pt-6 border-t border-slate-200/80 space-y-4">
+          <h3 class="text-xl font-bold text-slate-900 font-sans">
+            How to Get Involved
+          </h3>
+          <ul class="space-y-2 text-sm font-mono text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 font-bold">1.</span>
+              <span>Read and star the open specification on <a href="https://github.com/orbitaloop/yaibos" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">GitHub ↗</a>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 font-bold">2.</span>
+              <span>Subscribe to the curated dispatch below for weekly breakdowns of sovereign AI and PKM workflows.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 font-bold">3.</span>
+              <span>Send me an asynchronous voice note, video, or message via <a href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">MyVideoAsk ↗</a>.</span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Newsletter Signup Block -->
+  <NewsletterSignup variant="card" />
+
+  <!-- Async VideoAsk Section -->
+  <MyVideoAskSection />
+
+  <Footer />
+</BaseLayout>
