@@ -40,9 +40,9 @@
       <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
         <div class="flex items-center gap-3">
           <span class="text-blue-700 font-bold">WORKSPACE: AI_ZONE (SMB-OPERATIONS-CORE)</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[11px] flex items-center gap-1.5">
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[11px] flex items-center gap-1.5 transition-all">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-            TOTAL SAVED THIS WEEK: 15h
+            <span>TOTAL SAVED THIS WEEK: <strong id="top-week-total" class="font-bold">15h</strong></span>
           </span>
         </div>
         <div class="flex items-center gap-4 text-slate-600">
@@ -197,8 +197,13 @@
 </section>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initSopCockpit() {
+    const cockpit = document.getElementById('cockpit');
+    if (!cockpit || cockpit.dataset.initialized === 'true') return;
+    cockpit.dataset.initialized = 'true';
+
     const runButtons = document.querySelectorAll('.run-sop-btn');
+    const sopCards = document.querySelectorAll('.sop-card');
     const statusBadge = document.getElementById('telemetry-status-badge');
     const timerDisplay = document.getElementById('telemetry-timer');
     const savedDisplay = document.getElementById('telemetry-saved');
@@ -206,14 +211,26 @@
     const manifestFilename = document.getElementById('manifest-filename');
     const activeJobs = document.getElementById('active-jobs-count');
     const weekTotalDisplay = document.getElementById('telemetry-week-total');
+    const topWeekTotalDisplay = document.getElementById('top-week-total');
 
     let timerInterval = null;
+    let activeTimeouts = [];
+    let currentTotalMinutes = 15 * 60; // Baseline: 15h (6h + 5h + 4h from the 3 SOPs)
+
+    function formatHoursMinutes(totalMinutes) {
+      const hours = Math.floor(totalMinutes / 60);
+      const mins = totalMinutes % 60;
+      if (mins === 0) {
+        return `${hours}h`;
+      }
+      return `${hours}h ${mins}m`;
+    }
 
     const sopScenarios = {
       'b2b-lead-enrichment': {
         title: 'B2B Lead Qualification',
+        savedMinutes: 45,
         timeSaved: '+45 min',
-        weekTotal: '15h 45m',
         artifact: 'Projects/Active Leads/2026-09-14-qualified-leads.csv',
         steps: [
           'Initializing sandboxed runner with role: sales_operator',
@@ -227,8 +244,8 @@
       },
       'invoices-audit': {
         title: 'Invoices & Bank Reconciliation',
+        savedMinutes: 60,
         timeSaved: '+60 min',
-        weekTotal: '16h 00m',
         artifact: 'Areas/Finance/Audit/2026-08-reconciled-statement.csv',
         steps: [
           'Initializing sandboxed runner with role: finance_viewer',
@@ -242,8 +259,8 @@
       },
       'support-triage': {
         title: 'Support Ticket Triage',
+        savedMinutes: 40,
         timeSaved: '+40 min',
-        weekTotal: '15h 40m',
         artifact: 'Roles/Support/2026-09-14-ticket-triage.md',
         steps: [
           'Initializing sandboxed runner with role: support_operator',
@@ -257,55 +274,90 @@
       }
     };
 
+    function runScenario(sopKey) {
+      const scenario = sopScenarios[sopKey];
+      if (!scenario) return;
+
+      // Clear any previous running simulation & timeouts
+      clearInterval(timerInterval);
+      activeTimeouts.forEach(clearTimeout);
+      activeTimeouts = [];
+
+      logStream.innerHTML = '';
+      statusBadge.textContent = 'RUNNING';
+      statusBadge.className = 'px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200 font-bold text-[11px] live-indicator';
+      activeJobs.textContent = '1';
+      manifestFilename.innerHTML = '<span class="text-slate-400">Generating output...</span>';
+      savedDisplay.textContent = '+0 min';
+
+      let seconds = 0;
+      timerDisplay.textContent = '00:00';
+      timerInterval = setInterval(() => {
+        seconds++;
+        const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+        const secs = String(seconds % 60).padStart(2, '0');
+        timerDisplay.textContent = `${mins}:${secs}`;
+      }, 1000);
+
+      // Play scenario steps
+      scenario.steps.forEach((step, index) => {
+        const timeoutId = setTimeout(() => {
+          const p = document.createElement('p');
+          const now = new Date();
+          const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+          p.innerHTML = `<span class="text-slate-500">[${timeStr}]</span> <span class="text-slate-200">${step}</span>`;
+          logStream.appendChild(p);
+          logStream.scrollTop = logStream.scrollHeight;
+
+          if (index === scenario.steps.length - 1) {
+            clearInterval(timerInterval);
+            statusBadge.textContent = 'SUCCESS';
+            statusBadge.className = 'px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[11px]';
+            activeJobs.textContent = '0';
+            savedDisplay.textContent = scenario.timeSaved;
+
+            // Always add saved time to running weekly cumulative total
+            currentTotalMinutes += scenario.savedMinutes;
+            const formattedTotal = formatHoursMinutes(currentTotalMinutes);
+
+            // Update both telemetry and top bar counters at the exact same time
+            if (weekTotalDisplay) {
+              weekTotalDisplay.textContent = formattedTotal;
+            }
+            if (topWeekTotalDisplay) {
+              topWeekTotalDisplay.textContent = formattedTotal;
+            }
+
+            manifestFilename.innerHTML = `<span class="text-blue-700 font-semibold">${scenario.artifact}</span>`;
+          }
+        }, (index + 1) * 650);
+
+        activeTimeouts.push(timeoutId);
+      });
+    }
+
     runButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const sopKey = btn.getAttribute('data-sop');
-        const scenario = sopScenarios[sopKey];
-        if (!scenario) return;
-
-        // Reset state
-        clearInterval(timerInterval);
-        logStream.innerHTML = '';
-        statusBadge.textContent = 'RUNNING';
-        statusBadge.className = 'px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200 font-bold text-[11px] live-indicator';
-        activeJobs.textContent = '1';
-        manifestFilename.innerHTML = '<span class="text-slate-400">Generating output...</span>';
-        savedDisplay.textContent = '+0 min';
-
-        let seconds = 0;
-        timerDisplay.textContent = '00:00';
-        timerInterval = setInterval(() => {
-          seconds++;
-          const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
-          const secs = String(seconds % 60).padStart(2, '0');
-          timerDisplay.textContent = `${mins}:${secs}`;
-        }, 1000);
-
-        // Play scenario steps
-        scenario.steps.forEach((step, index) => {
-          setTimeout(() => {
-            const p = document.createElement('p');
-            const now = new Date();
-            const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-            p.innerHTML = `<span class="text-slate-500">[${timeStr}]</span> <span class="text-slate-200">${step}</span>`;
-            logStream.appendChild(p);
-            logStream.scrollTop = logStream.scrollHeight;
-
-            if (index === scenario.steps.length - 1) {
-              clearInterval(timerInterval);
-              statusBadge.textContent = 'SUCCESS';
-              statusBadge.className = 'px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[11px]';
-              activeJobs.textContent = '0';
-              savedDisplay.textContent = scenario.timeSaved;
-              if (weekTotalDisplay && scenario.weekTotal) {
-                weekTotalDisplay.textContent = scenario.weekTotal;
-              }
-              manifestFilename.innerHTML = `<span class="text-blue-700 font-semibold">${scenario.artifact}</span>`;
-            }
-          }, (index + 1) * 650);
-        });
+        if (sopKey) runScenario(sopKey);
       });
     });
-  });
+
+    sopCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('.run-sop-btn')) {
+          const btn = card.querySelector('.run-sop-btn');
+          if (btn) btn.click();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSopCockpit);
+  } else {
+    initSopCockpit();
+  }
+  document.addEventListener('astro:page-load', initSopCockpit);
 </script>
