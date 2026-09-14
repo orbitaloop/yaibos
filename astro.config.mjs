@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://faibos.com',
+  site: 'https://yaibos.com',
   vite: {
     plugins: [tailwindcss()],
   },

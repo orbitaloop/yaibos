@@ -1,4 +1,4 @@
-# FAIBOS: The Sovereign AI Operating System Specification
+# YAIBOS: The Sovereign AI Operating System Specification
 **Version:** 1.0.0-draft  
 **Status:** Open Standard / Public Draft  
 **Reference Implementation Target:** TypeScript / Rust / Tauri / Web  
@@ -8,11 +8,11 @@
 
 ## 1. Executive Summary
 
-FAIBOS (Founder AI Business Operating System) is an open architectural specification for an integrated, sovereign AI harness designed specifically for small businesses, solo founders, and non-technical teams.
+YAIBOS (Your AI Business Operating System) is an open architectural specification for an integrated, sovereign AI harness designed specifically for small businesses, solo founders, and non-technical teams.
 
 Current autonomous agent frameworks are built for software engineers who are comfortable running terminal commands, managing Docker daemon processes, diagnosing Python virtual environments, and monitoring metered API key usage. Conversely, consumer AI chat interfaces (ChatGPT, Claude) isolate team members in siloed conversations without persistent company knowledge, shared standard procedures (SOPs), or execution telemetry.
 
-FAIBOS bridges this divide by establishing a lightweight, micro-kernel specification where:
+YAIBOS bridges this divide by establishing a lightweight, micro-kernel specification where:
 1. **Business procedures (SOPs)** are surfaced as visual 1-click execution cards.
 2. **Team memory** lives in sovereign, human-readable Markdown files with role-based access control.
 3. **Execution costs** are decoupled from the host through Bring Your Own Subscription (BYOS) authentication.
@@ -20,7 +20,7 @@ FAIBOS bridges this divide by establishing a lightweight, micro-kernel specifica
 
 ```
 +-----------------------------------------------------------------------+
-|                       FAIBOS Runtime Architecture                     |
+|                       YAIBOS Runtime Architecture                     |
 |                                                                       |
 |  [ Presentation Layer ]                                               |
 |    - 1-Click SOP Visual Cockpit                                       |
@@ -82,7 +82,7 @@ FAIBOS bridges this divide by establishing a lightweight, micro-kernel specifica
 * **Requirement**: Company knowledge, client records, and institutional procedures must be simultaneously legible to human team members and ingestible by autonomous agents.
 * **Specification**:
   * **Local Markdown Storage**: Notes are organized in a standard directory structure (Projects, Areas, Resources, Archives) readable by any Markdown reader.
-  * **Bi-directional In-App Editor**: Team members can create, browse, and edit documentation directly within FAIBOS with real-time formatting.
+  * **Bi-directional In-App Editor**: Team members can create, browse, and edit documentation directly within YAIBOS with real-time formatting.
   * **Persistent Semantic Memory**: The system indexes notes using local embedding models or lightweight hybrid search (BM25 + vector embeddings), exposing relevant contextual snippets to the agent execution loop.
   * **Memory Hygiene Daemon**: Background maintenance checks detect stale procedures, flag conflicting documentation, and suggest consolidation to the workspace owner.
 
@@ -116,7 +116,7 @@ FAIBOS bridges this divide by establishing a lightweight, micro-kernel specifica
 
 ```markdown
 ---
-faibos_version: "1.0"
+yaibos_version: "1.0"
 id: "sop-solar-lead-qualification"
 title: "Solar Prospect Qualification & Catastro Review"
 area: "Lead Generation"
@@ -173,4 +173,4 @@ mcp_tools:
 
 ---
 
-*FAIBOS Specification v1.0.0-draft — Published for founders, engineers, and independent business operators.*
+*YAIBOS Specification v1.0.0-draft: Published for founders, engineers, and independent business operators.*

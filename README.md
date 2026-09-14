@@ -1,6 +1,6 @@
-# FAIBOS Website & Open Specification 🤖
+# YAIBOS Website & Open Specification 🤖
 
-Official website, interactive implementation scorecard, and open specification for **FAIBOS** (Founder AI Business OS).
+Official website, interactive implementation scorecard, and open specification for **YAIBOS** (Your AI Business OS).
 
 Sovereign, zero-friction AI operating system specification and harness tailored for founders, small businesses, and non-technical teams.
 
@@ -43,9 +43,9 @@ npm run preview
 ## Repository Structure
 
 ```
-faibos-site/
+yaibos-site/
 ├── README.md                  # Project overview and developer instructions
-├── SPEC.md                    # Complete standalone FAIBOS Open Specification v1.0
+├── SPEC.md                    # Complete standalone YAIBOS Open Specification v1.0
 ├── astro.config.mjs           # Astro configuration
 ├── package.json               # Dependencies and scripts
 ├── public/                    # Static assets, favicon, robots.txt

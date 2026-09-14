@@ -46,7 +46,7 @@ export const PILLARS: Pillar[] = [
     codeSample: {
       language: "yaml",
       code: `---
-faibos_version: "1.0"
+yaibos_version: "1.0"
 id: "sop-invoices-audit"
 title: "Monthly Invoices Audit & Statement Reconciliation"
 area: "Finance"
