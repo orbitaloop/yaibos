@@ -129,8 +129,8 @@ timeout_seconds: 600
 permissions:
   required_role: "operations"
   fs_scope:
-    - "read: 3 RESOURCES/Market Data/"
-    - "write: 1 PROJECTS/Active Leads/"
+    - "read: Resources/Market Data/"
+    - "write: Projects/Active Leads/"
 mcp_tools:
   - "business_registry_lookup"
   - "email_verification"
@@ -160,7 +160,7 @@ mcp_tools:
   "steps_total": 4,
   "steps_completed": 4,
   "artifacts_produced": [
-    "1 PROJECTS/Active Leads/2026-09-14-qualified-leads.csv"
+    "Projects/Active Leads/2026-09-14-qualified-leads.csv"
   ],
   "estimated_human_minutes_saved": 45
 }

@@ -55,7 +55,7 @@ maturity_stage: "supervised"
 timeout_seconds: 300
 permissions:
   required_role: "finance_viewer"
-  fs_scope: ["read: 2 Areas/Finance/Invoices/"]
+  fs_scope: ["read: Areas/Finance/Invoices/"]
 mcp_tools: ["extract_pdf_tables", "reconcile_bank_csv"]
 ---`
     }
@@ -91,7 +91,7 @@ mcp_tools: ["extract_pdf_tables", "reconcile_bank_csv"]
   {
     id: "team-rbac",
     number: "05",
-    title: "Granular Team RBAC & Ownership",
+    title: "Granular Team Permissions (RBAC) & Ownership",
     tagline: "Selective folder permissions with designated area responsibility.",
     badge: "Security & Governance",
     problem: "Traditional personal second brains lack multi-user security. Giving agents blanket workspace access risks accidental modification of payroll or accounting files.",

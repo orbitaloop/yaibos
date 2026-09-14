@@ -17,8 +17,8 @@ timeout_seconds: 600
 permissions:
   required_role: "operations"
   fs_scope:
-    - "read: 3 RESOURCES/Market Data/"
-    - "write: 1 PROJECTS/Active Leads/"
+    - "read: Resources/Market Data/"
+    - "write: Projects/Active Leads/"
 mcp_tools:
   - "business_registry_lookup"
   - "email_verification"
@@ -38,7 +38,7 @@ const telemetryJsonSnippet = `{
   "steps_total": 4,
   "steps_completed": 4,
   "artifacts_produced": [
-    "1 PROJECTS/Active Leads/2026-09-14-qualified-leads.csv"
+    "Projects/Active Leads/2026-09-14-qualified-leads.csv"
   ],
   "estimated_human_minutes_saved": 45
 }`;
@@ -171,7 +171,7 @@ const telemetryJsonSnippet = `{
               <div class="elegant-card p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
                 <div class="flex items-center justify-between gap-4 mb-2">
                   <span class="text-xs font-mono text-blue-600 uppercase font-semibold">
-                    Pillar {pillar.number} // {pillar.badge}
+                    Pillar {pillar.number} · {pillar.badge}
                   </span>
                 </div>
                 <h3 class="text-xl font-bold text-slate-900 mb-1">{pillar.title}</h3>
@@ -222,7 +222,7 @@ const telemetryJsonSnippet = `{
               4.1 SOP Manifest Frontmatter (YAML)
             </h3>
             <p class="text-xs text-slate-500 mb-3">
-              Stored at the top of any SOP Markdown note inside the workspace (for example in <code class="text-slate-800">5 SOP/</code>).
+              Stored at the top of any SOP Markdown note inside the workspace (for example in <code class="text-slate-800">SOP/</code>).
             </p>
             <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
               <code>{sopYamlSnippet}</code>
