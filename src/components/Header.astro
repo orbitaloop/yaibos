@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'spec' | 'implementations' | 'about' | 'why';
+  activePage?: 'home' | 'spec' | 'implementations' | 'about' | 'why' | 'inspirations';
 }
 
 const { activePage = 'home' } = Astro.props;
@@ -80,6 +80,15 @@ const { activePage = 'home' } = Astro.props;
             : 'hover:text-blue-600 hover:bg-slate-50'
         }`}>
         Open Spec
+      </a>
+      <a 
+        href="/inspirations" 
+        class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+          activePage === 'inspirations' 
+            ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
+            : 'hover:text-blue-600 hover:bg-slate-50'
+        }`}>
+        Inspirations
       </a>
       <a 
         href="/#bootcamp" 
@@ -164,6 +173,11 @@ const { activePage = 'home' } = Astro.props;
       href="/spec" 
       class={`block px-3 py-2 rounded-lg ${activePage === 'spec' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
       Open Specification (RFC-01)
+    </a>
+    <a 
+      href="/inspirations" 
+      class={`block px-3 py-2 rounded-lg ${activePage === 'inspirations' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
+      Inspirations & Lineage
     </a>
     <a 
       href="/#bootcamp" 

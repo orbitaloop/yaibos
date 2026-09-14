@@ -1,0 +1,373 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import MyVideoAskSection from '../components/MyVideoAskSection.astro';
+import Footer from '../components/Footer.astro';
+
+interface InspirationItem {
+  id: string;
+  name: string;
+  category: 'pkm' | 'agents' | 'async';
+  categoryLabel: string;
+  role: string;
+  avatar: string;
+  isLogo?: boolean;
+  link: string;
+  frameworkBadge: string;
+  contribution: string;
+  keyInsight: string;
+  yaibosConnection: string;
+}
+
+const INSPIRATIONS: InspirationItem[] = [
+  {
+    id: "tiago-forte",
+    name: "Tiago Forte",
+    category: "pkm",
+    categoryLabel: "Personal Knowledge Management",
+    role: "Author of 'Building a Second Brain' and Founder of Forte Labs",
+    avatar: "/images/inspirations/tiago-forte.jpg",
+    link: "https://fortelabs.com",
+    frameworkBadge: "PARA Method & CODE Framework",
+    contribution: "Pioneered mainstream Personal Knowledge Management (PKM). Proved that externalizing human memory into structured digital categories (Projects, Areas, Resources, Archives) liberates working memory for creative synthesis.",
+    keyInsight: "Your mind is for having ideas, not holding them. A second brain turns transient thoughts into durable knowledge assets.",
+    yaibosConnection: "YAIBOS adopts PARA folder structures directly. Agents read and write to human-legible Projects and Areas without creating opaque proprietary silos."
+  },
+  {
+    id: "nick-milo",
+    name: "Nick Milo",
+    category: "pkm",
+    categoryLabel: "Personal Knowledge Management",
+    role: "Founder of Linking Your Thinking (LYT) and Creator of Maps of Content",
+    avatar: "/images/inspirations/nick-milo.jpg",
+    link: "https://nickmilo.org",
+    frameworkBadge: "File Over App & Maps of Content",
+    contribution: "Championed the sovereign 'File over App' philosophy. Demonstrated that enduring knowledge must be stored in open, future-proof plain Markdown files rather than rented inside proprietary cloud database apps.",
+    keyInsight: "When you own the files, you own the thoughts. Never let a vendor lock your life's work inside their database.",
+    yaibosConnection: "YAIBOS guarantees absolute data sovereignty. All company directives, SOPs, and agent logs are plain Markdown files that can be edited in any text editor."
+  },
+  {
+    id: "eliott-meunier",
+    name: "Eliott Meunier",
+    category: "pkm",
+    categoryLabel: "Personal Knowledge Management",
+    role: "Author of 'Le Deuxième Cerveau', Creator of Evocative and Prisme One",
+    avatar: "/images/inspirations/eliott-meunier.jpg",
+    link: "https://eliottmeunier.com",
+    frameworkBadge: "IPCRA & Sovereign Agent Execution",
+    contribution: "Early pioneer bridging sovereign Markdown second brains directly with autonomous agent execution. Demonstrated how Obsidian notes can function as the central operating system dispatching AI tasks.",
+    keyInsight: "A second brain is not just a passive digital archive: it is the nervous core that directs agent execution.",
+    yaibosConnection: "YAIBOS formalizes the bridge between local Markdown vaults and sandboxed agent runners, transforming static notes into 1-click executable actions."
+  },
+  {
+    id: "nate-herk",
+    name: "Nate Herk",
+    category: "agents",
+    categoryLabel: "Agent Engineering & Skills",
+    role: "AI Automation Educator and Architect of Claude Code AIOS",
+    avatar: "/images/inspirations/nate-herk.jpg",
+    link: "https://www.nateherk.com",
+    frameworkBadge: "The 4 C's Architecture",
+    contribution: "Formulated the practical 4 C's architecture for AI operations: Context (rules, directives, voice), Connections (MCP tools and APIs), Capabilities (reusable skills and SOPs), and Cadence (scheduled recurring automations).",
+    keyInsight: "AI models are commodities: predictable business results come from engineering the 4 C's around them.",
+    yaibosConnection: "YAIBOS structures company workspaces around the 4 C's: AGENTS.md provides Context, MCP provides Connections, and SOP/ provides Capabilities."
+  },
+  {
+    id: "meta-analytics",
+    name: "Meta Analytics Team",
+    category: "agents",
+    categoryLabel: "Agent Engineering & Skills",
+    role: "Enterprise Second Brain Case Study (60,000 Knowledge Workers)",
+    avatar: "/images/inspirations/meta-logo.svg",
+    isLogo: true,
+    link: "https://medium.com/@AnalyticsAtMeta/how-we-built-an-ai-second-brain-for-60k-knowledge-workers-78c507dd795b",
+    frameworkBadge: "Enterprise Context Grounding",
+    contribution: "Published the landmark case study documenting how Meta deployed an AI second brain across 60,000 employees. Proved at enterprise scale that grounding agents in structured internal documentation drastically outperforms generic conversational chatbots.",
+    keyInsight: "Internal company context is the single greatest multiplier for enterprise AI adoption and accuracy.",
+    yaibosConnection: "YAIBOS brings enterprise context grounding down to small businesses, eliminating six-figure enterprise SaaS contracts in favor of sovereign local files."
+  },
+  {
+    id: "andrej-karpathy",
+    name: "Andrej Karpathy",
+    category: "agents",
+    categoryLabel: "Agent Engineering & Skills",
+    role: "Former Director of AI at Tesla, Co-Founder of OpenAI",
+    avatar: "/images/inspirations/andrej-karpathy.jpg",
+    link: "https://karpathy.ai",
+    frameworkBadge: "The LLM OS & Continuous Synthesis",
+    contribution: "Popularized the concept of the 'LLM OS', viewing the language model as a CPU coordinating memory, tools, and disk access. Also conceptualized the 'LLM Wiki' where background agents continuously refine raw clips into knowledge.",
+    keyInsight: "LLMs are the central processing units of modern computation, orchestrating context, tools, and storage.",
+    yaibosConnection: "YAIBOS takes the conceptual LLM OS and packages it for small businesses, adding a non-technical 1-click cockpit, team role permissions, and zero-terminal UX."
+  },
+  {
+    id: "iwo-szapar",
+    name: "Iwo Szapar",
+    category: "async",
+    categoryLabel: "Async Operations & Culture",
+    role: "Second Brain Architect and Co-Founder of Remote-how",
+    avatar: "/images/inspirations/iwo-szapar.jpg",
+    link: "https://www.iwoszapar.com",
+    frameworkBadge: "Async-First Operating Systems",
+    contribution: "Global champion of asynchronous company operations and documentation-first cultures. Showed that remote teams thrive when processes are written down clearly rather than coordinated through endless meetings.",
+    keyInsight: "Async-first operations replace reactive meeting chaos with calm, deliberate, documentation-driven progress.",
+    yaibosConnection: "YAIBOS is designed specifically for asynchronous teams: SOPs run autonomously with verified output manifests and zero synchronous babysitting."
+  },
+  {
+    id: "dan-harrison",
+    name: "Dan Harrison",
+    category: "async",
+    categoryLabel: "Async Operations & Culture",
+    role: "Founder of Claude for Coaches and Systems Architect",
+    avatar: "/images/inspirations/dan-harrison.jpg",
+    link: "https://danharrison.co.uk",
+    frameworkBadge: "Pragmatic Systems Leverage",
+    contribution: "Developer and educator creating pragmatic AI operating frameworks for solo founders and boutique service businesses. Focused on eliminating administrative drag so founders can reclaim genuine time freedom.",
+    keyInsight: "True business leverage means building systems that work without demanding your constant physical presence.",
+    yaibosConnection: "YAIBOS embodies the minimalist founder philosophy: automate repetitive work, keep operational stress low, and retain complete control over your time."
+  }
+];
+---
+
+<BaseLayout
+  title="Inspirations & Lineage: The Pioneers Behind YAIBOS"
+  description="Discover the intellectual lineage behind YAIBOS: synthesis of Personal Knowledge Management, sovereign local-first software, and autonomous agent engineering.">
+  <Header activePage="inspirations" />
+
+  <main class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-6xl mx-auto space-y-16">
+
+      <!-- Hero Header -->
+      <div class="max-w-3xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 shadow-2xs">
+          <span class="w-2 h-2 rounded-full bg-blue-600 live-indicator"></span>
+          <span class="font-semibold">ARCHITECTURAL LINEAGE</span>
+          <span class="text-blue-300">|</span>
+          <span class="text-blue-600 font-normal">INTELLECTUAL FOUNDATIONS</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
+          Standing on the Shoulders of Giants.
+        </h1>
+
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-light font-sans">
+          YAIBOS did not emerge in a vacuum. It represents the deliberate synthesis of four distinct movements: <strong>Personal Knowledge Management (PKM)</strong>, <strong>sovereign local-first data</strong>, <strong>asynchronous business systems</strong>, and <strong>autonomous agent architectures</strong>.
+        </p>
+
+        <p class="text-sm text-slate-600 leading-relaxed font-sans bg-slate-50 p-4 rounded-xl border border-slate-200">
+          This page credits the key thinkers, educators, and engineering teams whose concepts, books, and frameworks directly shaped the YAIBOS open specification.
+        </p>
+      </div>
+
+      <!-- Conceptual Synthesis Pillars Strip -->
+      <div class="grid md:grid-cols-3 gap-6 pt-4">
+        <div class="p-6 rounded-2xl bg-blue-50/50 border border-blue-200/80 space-y-3">
+          <span class="text-xs font-mono text-blue-700 uppercase font-bold tracking-wider block">
+            01 · Sovereign Memory
+          </span>
+          <h3 class="text-lg font-bold text-slate-900 font-sans">
+            Second Brains & Open Files
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-sans">
+            From Tiago Forte, Nick Milo, and Eliott Meunier: company memory must live in open Markdown files that you own forever, never locked inside a proprietary SaaS database.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-3">
+          <span class="text-xs font-mono text-emerald-800 uppercase font-bold tracking-wider block">
+            02 · Executable Skills
+          </span>
+          <h3 class="text-lg font-bold text-slate-900 font-sans">
+            Context Grounding & The 4 C's
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-sans">
+            From Nate Herk, Meta Analytics, and Andrej Karpathy: AI models perform best when grounded in structured rules, external tools (MCP), and repeatable SOPs.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-3">
+          <span class="text-xs font-mono text-amber-900 uppercase font-bold tracking-wider block">
+            03 · Operational Freedom
+          </span>
+          <h3 class="text-lg font-bold text-slate-900 font-sans">
+            Async Systems & Low Friction
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-sans">
+            From Iwo Szapar and Dan Harrison: business systems should work asynchronously without demanding constant human presence, lowering stress and boosting leverage.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pioneers Detailed Directory -->
+      <section class="space-y-8 pt-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
+              The Eight Primary Inspirations
+            </h2>
+            <p class="text-xs text-slate-500 mt-1 font-sans">
+              Ordered by domain contribution across knowledge management, agent architecture, and async leverage.
+            </p>
+          </div>
+          <span class="text-xs font-mono text-slate-400">8 PIONEERS DOCUMENTED</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          {INSPIRATIONS.map((item) => (
+            <div class="elegant-card rounded-2xl p-6 sm:p-7 border border-slate-200/90 bg-white flex flex-col justify-between hover:border-blue-300 transition-all group shadow-xs hover:shadow-md">
+              <div class="space-y-4">
+                
+                <!-- Profile Header -->
+                <div class="flex items-start gap-4">
+                  <img 
+                    src={item.avatar} 
+                    alt={item.name}
+                    class={`w-16 h-16 rounded-2xl object-cover border border-slate-200 shadow-xs group-hover:border-blue-500 transition-colors shrink-0 ${item.isLogo ? 'p-2 bg-[#0866FF]/5' : ''}`}
+                    loading="lazy"
+                  />
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors font-sans">
+                        {item.name}
+                      </h3>
+                      <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="text-xs font-mono text-blue-600 hover:underline flex items-center gap-0.5 shrink-0"
+                        title={`Visit ${item.name}`}>
+                        <span>website</span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-snug mt-1 font-sans">
+                      {item.role}
+                    </p>
+                    <div class="mt-2">
+                      <span class="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                        {item.frameworkBadge}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Contribution & Background -->
+                <div class="text-xs text-slate-600 leading-relaxed font-sans space-y-2 pt-1">
+                  <p>{item.contribution}</p>
+                </div>
+
+                <!-- Key Quote / Core Insight -->
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700">
+                  <span class="text-blue-700 font-bold block text-[10px] uppercase mb-1">Pioneer's Core Insight:</span>
+                  <p class="italic text-slate-700 font-sans text-xs">"{item.keyInsight}"</p>
+                </div>
+              </div>
+
+              <!-- Direct Connection to YAIBOS Spec -->
+              <div class="mt-4 pt-4 border-t border-slate-100 font-mono text-[11px] text-slate-600 bg-blue-50/30 -mx-6 -mb-6 p-4 rounded-b-2xl border-t border-blue-100/50">
+                <span class="text-blue-700 font-semibold block uppercase text-[10px] mb-0.5">Direct Translation in YAIBOS:</span>
+                <span class="font-sans text-slate-700 text-xs">{item.yaibosConnection}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Synthesis Map Box -->
+      <section class="p-8 sm:p-10 rounded-3xl bg-slate-900 text-slate-200 space-y-6 shadow-xl">
+        <div class="max-w-2xl space-y-2">
+          <span class="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">
+            Architectural Synthesis
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white font-sans">
+            How the Four Threads Converge in YAIBOS
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+            Each movement solved one critical piece of the puzzle. YAIBOS is the unified specification that binds them into a single, cohesive operating system for small teams.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs pt-2">
+          <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-2">
+            <span class="text-[10px] text-blue-400 uppercase font-bold">1. Sovereign Memory</span>
+            <div class="font-bold text-white text-sm">Open Markdown Files</div>
+            <p class="text-[11px] text-slate-400 font-sans">
+              Human-editable in Obsidian. Permanent company ownership. Zero SaaS database lock-in.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-2">
+            <span class="text-[10px] text-emerald-400 uppercase font-bold">2. Skills for Business</span>
+            <div class="font-bold text-white text-sm">1-Click SOP Manifests</div>
+            <p class="text-[11px] text-slate-400 font-sans">
+              Procedures declared in Markdown with timeout caps, role permissions, and output manifests.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-2">
+            <span class="text-[10px] text-amber-400 uppercase font-bold">3. Cost Predictability</span>
+            <div class="font-bold text-white text-sm">Bring Your Own Account</div>
+            <p class="text-[11px] text-slate-400 font-sans">
+              Staff use ChatGPT or Claude team sessions directly. Zero host token markup bills.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-2">
+            <span class="text-[10px] text-purple-400 uppercase font-bold">4. Calm Presentation</span>
+            <div class="font-bold text-white text-sm">Non-Technical Cockpit</div>
+            <p class="text-[11px] text-slate-400 font-sans">
+              Visual buttons, real-time duration tracking, and clean telemetry. Zero terminal friction.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+          <span class="text-slate-400">Published under Creative Commons CC-BY-4.0</span>
+          <a
+            href="/spec"
+            class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all flex items-center gap-2">
+            <span>READ RFC-01 SCHEMAS</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Propose an Inspiration Callout -->
+      <section class="p-8 rounded-2xl border border-blue-200 bg-blue-50/40 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 max-w-2xl">
+          <h3 class="text-xl font-bold text-slate-900 font-sans">
+            Notice a pioneer, research paper, or framework missing?
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-sans">
+            YAIBOS is maintained collaboratively. If you have built an open-source tool, published research on agent context management, or designed a novel SOP workflow, we welcome your references and benchmarks.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0 font-mono text-xs">
+          <a
+            href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-center shadow-xs">
+            PROPOSE A REFERENCE ↗
+          </a>
+          <a
+            href="https://github.com/orbitaloop/yaibos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-center font-semibold shadow-xs">
+            GITHUB REPO ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <NewsletterSignup variant="card" />
+
+      <!-- Async VideoAsk Line -->
+      <MyVideoAskSection />
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
