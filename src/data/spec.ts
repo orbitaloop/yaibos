@@ -32,11 +32,11 @@ export const PILLARS: Pillar[] = [
   {
     id: "one-click-sop",
     number: "02",
-    title: "1-Click SOP Execution",
-    tagline: "Turn company procedures into instant, autonomous action buttons.",
+    title: "1-Click SOP Execution (~ Skills for Business)",
+    tagline: "Turn company procedures into instant, autonomous action buttons (= skills for business).",
     badge: "Operations Engine",
     problem: "Standard operating procedures typically sit dead in company wikis. Even when turned into agent prompts, executing them requires technical engineering guidance.",
-    solution: "Every business SOP is declared as a structured Markdown file with frontmatter parameters, rendered as a 1-click execution button with duration, telemetry, and output manifests.",
+    solution: "Every business SOP (~ skill for business) is declared as a structured Markdown file with frontmatter parameters, rendered as a 1-click execution button with duration, telemetry, and output manifests.",
     technicalRequirements: [
       "Structured SOP Markdown schema with frontmatter parameters and tool scopes.",
       "Visual catalog grouped by business area (Marketing, Sales, Accounting, Ops).",

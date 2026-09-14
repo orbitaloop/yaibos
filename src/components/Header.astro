@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'spec' | 'implementations' | 'about';
+  activePage?: 'home' | 'spec' | 'implementations' | 'about' | 'why';
 }
 
 const { activePage = 'home' } = Astro.props;
@@ -32,7 +32,12 @@ const { activePage = 'home' } = Astro.props;
     </div>
 
     <!-- Navigation links -->
-    <nav class="hidden lg:flex items-center gap-6 font-mono text-xs text-slate-600">
+    <nav class="hidden xl:flex items-center gap-5 font-mono text-xs text-slate-600">
+      <a 
+        href="/why" 
+        class={`hover:text-blue-600 transition-colors py-1 ${activePage === 'why' ? 'text-blue-600 font-semibold border-b-2 border-blue-600' : ''}`}>
+        // WHY YAIBOS
+      </a>
       <a 
         href="/#how-it-works" 
         class="hover:text-blue-600 transition-colors py-1">
@@ -73,9 +78,9 @@ const { activePage = 'home' } = Astro.props;
     <!-- CTAs -->
     <div class="flex items-center gap-2.5">
       <a
-        href="/about"
+        href="/why"
         class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-mono text-xs font-medium transition-colors">
-        ABOUT SAMUEL
+        THE EQUATION
       </a>
 
       <a
