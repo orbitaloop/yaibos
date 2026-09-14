@@ -70,6 +70,9 @@ YAIBOS bridges this divide by establishing a lightweight, modular sovereign engi
     * *Stage 1 (Assisted)*: Agent proposes actions and halts at each step for manual human confirmation.
     * *Stage 2 (Supervised)*: Agent executes steps autonomously, pausing only before external writes or irreversible actions.
     * *Stage 3 (Autonomous)*: Agent executes end-to-end on a schedule or event trigger, alerting humans only upon exceptions or anomaly detection.
+  * **REST API & Workflow Interoperability**:
+    * In addition to visual 1-click execution in the harness, every SOP exposes a REST endpoint (`POST /api/v1/sop/{id}/run`) and deep-link URI (`yaibos://run?sop={id}`).
+    * **Hybrid Human/AI Workflows**: Integrates with project tools (Asana, Trello, Linear, ERP) for multi-stage workflows combining human and AI tasks. A human team member can click an SOP execution URL directly from an Asana or Trello task card to execute the SOP in 1 click in their harness, or an ERP webhook triggers the REST endpoint automatically once a previous human task is completed.
 
 ### Pillar 3: BYOS (Bring Your Own Subscription) Auth
 * **Requirement**: Prevent catastrophic API token bill shock for the workspace owner when multiple team members run intensive agent workloads.
@@ -117,47 +120,47 @@ YAIBOS bridges this divide by establishing a lightweight, modular sovereign engi
 ```markdown
 ---
 yaibos_version: "1.0"
-id: "sop-solar-lead-qualification"
-title: "Solar Prospect Qualification & Catastro Review"
-area: "Lead Generation"
+id: "sop-inbound-lead-qualification"
+title: "Inbound Lead Qualification & CRM Enrichment"
+area: "Sales & Marketing"
 owner: "Operations Lead"
 maturity_stage: "supervised"
 timeout_seconds: 600
 permissions:
   required_role: "operations"
   fs_scope:
-    - "read: 3 RESOURCES/Solar Data/"
+    - "read: 3 RESOURCES/Market Data/"
     - "write: 1 PROJECTS/Active Leads/"
 mcp_tools:
-  - "catastro_lookup"
-  - "pnoa_satellite_view"
-  - "nocodb_update"
+  - "business_registry_lookup"
+  - "email_verification"
+  - "crm_update"
 ---
 
 # Operational Procedure Description
-1. Ingest qualified address list from input source.
-2. Query Spanish Catastro API for rooftop square footage.
-3. Fetch high-resolution PNOA aerial imagery.
-4. Calculate photovoltaic potential and update NocoDB pipeline.
+1. Ingest qualified address and company list from inbound lead queue.
+2. Query business registry API for company headcount and status.
+3. Verify domain, contact email, and ICP scoring criteria.
+4. Update CRM pipeline stage and generate summary artifact.
 ```
 
 ### 3.2 Execution Telemetry Schema (JSON)
 
 ```json
 {
-  "execution_id": "exec-20260913-982341",
-  "sop_id": "sop-solar-lead-qualification",
+  "execution_id": "exec-20260914-982341",
+  "sop_id": "sop-inbound-lead-qualification",
   "trigger": "manual_1click",
-  "triggered_by": "maria@solarinstaller.es",
+  "triggered_by": "alex@company.com",
   "auth_mode": "byos_session",
-  "started_at": "2026-09-13T13:42:10Z",
-  "completed_at": "2026-09-13T13:43:08Z",
+  "started_at": "2026-09-14T13:42:10Z",
+  "completed_at": "2026-09-14T13:43:08Z",
   "duration_seconds": 58,
   "status": "success",
   "steps_total": 4,
   "steps_completed": 4,
   "artifacts_produced": [
-    "1 PROJECTS/Active Leads/2026-09-13-qualified-leads.csv"
+    "1 PROJECTS/Active Leads/2026-09-14-qualified-leads.csv"
   ],
   "estimated_human_minutes_saved": 45
 }

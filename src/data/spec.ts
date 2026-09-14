@@ -41,7 +41,8 @@ export const PILLARS: Pillar[] = [
       "Structured SOP Markdown schema with frontmatter parameters and tool scopes.",
       "Visual catalog grouped by business area (Marketing, Sales, Accounting, Ops).",
       "Live execution telemetry: status, elapsed duration, human minutes saved.",
-      "Lifespan progression: Assisted (step-by-step) -> Supervised -> Fully Autonomous."
+      "Lifespan progression: Assisted (step-by-step) -> Supervised -> Fully Autonomous.",
+      "REST API endpoint (POST /api/v1/sop/run) and deep-link URL (yaibos://run?sop=...) for integration into Asana, Trello, and ERP workflows with hybrid human/AI tasks."
     ],
     codeSample: {
       language: "yaml",

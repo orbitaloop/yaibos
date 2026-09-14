@@ -8,37 +8,37 @@ import { PILLARS, ARCHITECTURE_LAYERS } from '../data/spec';
 
 const sopYamlSnippet = `---
 yaibos_version: "1.0"
-id: "sop-solar-lead-qualification"
-title: "Solar Prospect Qualification & Catastro Review"
-area: "Lead Generation"
+id: "sop-inbound-lead-qualification"
+title: "Inbound Lead Qualification & CRM Enrichment"
+area: "Sales & Marketing"
 owner: "Operations Lead"
 maturity_stage: "supervised"  # assisted | supervised | autonomous
 timeout_seconds: 600
 permissions:
   required_role: "operations"
   fs_scope:
-    - "read: 3 RESOURCES/Solar Data/"
+    - "read: 3 RESOURCES/Market Data/"
     - "write: 1 PROJECTS/Active Leads/"
 mcp_tools:
-  - "catastro_lookup"
-  - "pnoa_satellite_view"
-  - "nocodb_update"
+  - "business_registry_lookup"
+  - "email_verification"
+  - "crm_update"
 ---`;
 
 const telemetryJsonSnippet = `{
-  "execution_id": "exec-20260913-982341",
-  "sop_id": "sop-solar-lead-qualification",
+  "execution_id": "exec-20260914-982341",
+  "sop_id": "sop-inbound-lead-qualification",
   "trigger": "manual_1click",
-  "triggered_by": "maria@solarinstaller.es",
+  "triggered_by": "alex@company.com",
   "auth_mode": "byos_session",
-  "started_at": "2026-09-13T13:42:10Z",
-  "completed_at": "2026-09-13T13:43:08Z",
+  "started_at": "2026-09-14T13:42:10Z",
+  "completed_at": "2026-09-14T13:43:08Z",
   "duration_seconds": 58,
   "status": "success",
   "steps_total": 4,
   "steps_completed": 4,
   "artifacts_produced": [
-    "1 PROJECTS/Active Leads/2026-09-13-qualified-leads.csv"
+    "1 PROJECTS/Active Leads/2026-09-14-qualified-leads.csv"
   ],
   "estimated_human_minutes_saved": 45
 }`;

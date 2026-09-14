@@ -33,46 +33,91 @@
         </div>
       </div>
 
-      <!-- The Harness Window Mockup -->
+      <!-- The Desktop Harness Window Mockup (Codex / Antigravity Style) -->
       <div class="max-w-3xl mx-auto mb-10">
-        <div class="rounded-xl border border-slate-200 bg-slate-900 text-slate-100 shadow-lg overflow-hidden font-mono text-xs">
-          <!-- Window Header -->
-          <div class="px-4 py-3 bg-slate-800/90 border-b border-slate-700 flex items-center justify-between">
+        <div class="rounded-2xl border border-slate-200/90 bg-slate-50/70 p-4 sm:p-6 shadow-md font-sans">
+          
+          <!-- App Header Strip -->
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/80">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-red-400/80 inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-amber-400/80 inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-emerald-400/80 inline-block"></span>
-              <span class="ml-2 text-slate-300 font-medium">AI Harness Chat Session (Claude Code / Antigravity / DSH)</span>
+              <span class="w-3 h-3 rounded-full bg-slate-300 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-slate-300 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-slate-300 inline-block"></span>
+              <span class="ml-2 text-xs font-mono font-bold text-slate-700">Desktop AI Harness</span>
             </div>
-            <span class="text-[11px] text-emerald-400 font-mono">STATUS: CONNECTED</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 live-indicator"></span>
+                ACTIVE WORKSPACE
+              </span>
+            </div>
           </div>
 
-          <!-- Terminal / Chat Body -->
-          <div class="p-5 space-y-3 bg-slate-950">
-            <div class="flex items-center gap-2 text-slate-400">
-              <span class="text-blue-400">user@laptop:~$</span>
-              <span class="text-white font-bold">cd ~/AI_OS && antigravity run</span>
-            </div>
-            
-            <!-- Highlight Box: Single Directory Root -->
-            <div class="p-3.5 rounded-lg border-2 border-dashed border-blue-400/70 bg-blue-950/40 text-blue-200 space-y-1">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-white flex items-center gap-1.5">
-                  <span class="text-blue-400">★</span> Working Directory Set to AI_OS Root:
-                </span>
-                <span class="text-[10px] uppercase tracking-wider bg-blue-600/30 text-blue-300 px-2 py-0.5 rounded">
-                  Root Workspace Link
-                </span>
-              </div>
-              <p class="text-xs text-blue-100/90 leading-relaxed font-sans">
-                By specifying only this project folder path (<code class="font-mono text-white bg-blue-900/60 px-1 py-0.5 rounded">~/AI_ZONE</code> or <code class="font-mono text-white bg-blue-900/60 px-1 py-0.5 rounded">/AI_OS/</code>), the agent immediately loads your entire operating nervous system.
-              </p>
+          <!-- Project Directory Selector (Desktop Codex Style) -->
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="text-slate-500 font-medium">Change the project for this chat</span>
+              <span class="px-2 py-0.5 rounded bg-slate-200/80 border border-slate-300 text-[11px] font-mono text-slate-600 font-medium">⌥⇧⌘O</span>
             </div>
 
-            <div class="text-slate-400 pt-1 text-[11px]">
-              <span class="text-emerald-400">✓</span> Loaded context directives from <code class="text-slate-300">AGENTS.md</code><br/>
-              <span class="text-emerald-400">✓</span> Mounted 3 tool groups via Model Context Protocol (MCP)<br/>
-              <span class="text-emerald-400">✓</span> Indexed 14 standard operating procedures in <code class="text-slate-300">5 SOP/</code>
+            <!-- Active Project Directory Pill Badge -->
+            <div class="flex items-center">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-200/90 border border-slate-300 text-slate-800 font-mono text-xs font-semibold shadow-2xs">
+                <span class="w-4 h-4 rounded-full bg-slate-400/50 text-slate-700 flex items-center justify-center text-[10px] font-bold">✕</span>
+                <span>AI_ZONE</span>
+              </div>
+            </div>
+
+            <!-- Desktop Prompt Box -->
+            <div class="rounded-xl border border-slate-300 bg-white p-4 shadow-sm space-y-4">
+              <div class="text-slate-400 text-sm font-sans flex items-center gap-1">
+                <span class="text-slate-700 font-normal">Do anything</span>
+                <span class="w-0.5 h-4 bg-slate-800 animate-pulse inline-block"></span>
+              </div>
+
+              <!-- Prompt Bottom Toolbar -->
+              <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
+                <div class="flex items-center gap-3">
+                  <button type="button" class="w-7 h-7 rounded-lg border border-slate-200 hover:bg-slate-50 flex items-center justify-center text-slate-600 font-bold text-sm">
+                    +
+                  </button>
+                  <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 font-mono text-[11px]">
+                    <span>⏱</span>
+                    <span>Approve for me</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div class="px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50 text-slate-700 font-mono text-[11px] font-medium flex items-center gap-1">
+                    <span>5.6 Terra High</span>
+                    <span class="text-[9px] text-slate-400">▼</span>
+                  </div>
+                  <div class="w-7 h-7 rounded-lg border border-slate-200 hover:bg-slate-50 flex items-center justify-center text-slate-600 text-xs">
+                    🎙️
+                  </div>
+                  <div class="w-7 h-7 rounded-full bg-slate-700 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                    ↑
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workspace Mounted Telemetry Banner -->
+            <div class="p-3.5 rounded-xl border border-blue-200 bg-blue-50/70 text-blue-900 font-mono text-xs space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="font-bold flex items-center gap-1.5 text-blue-950">
+                  <span class="text-blue-600">✓</span> Workspace Mounted: <code class="bg-blue-100 px-1.5 py-0.5 rounded text-blue-900">~/AI_ZONE</code>
+                </span>
+                <span class="text-[10px] uppercase font-semibold text-blue-700 bg-blue-100/80 px-2 py-0.5 rounded">
+                  Root Nervous System Loaded
+                </span>
+              </div>
+              <div class="text-[11px] text-slate-600 space-y-0.5 pt-1">
+                <div>• Ingested operating directives from <code class="text-slate-800 font-semibold">AGENTS.md</code></div>
+                <div>• Discovered 1-click business procedures in <code class="text-slate-800 font-semibold">5 SOP/</code> (~ skills for business)</div>
+                <div>• Mounted external tools from <code class="text-slate-800 font-semibold">0 AI Tools Lists.md</code> via MCP</div>
+                <div>• Connected to Team Second Brain in <code class="text-slate-800 font-semibold">MD_VAULTS/sam-vault</code></div>
+              </div>
             </div>
           </div>
         </div>
@@ -269,7 +314,7 @@
             <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">SCOPED ACCESS</span>
           </div>
           <p class="text-[11px] text-slate-600 font-sans leading-relaxed mb-2">
-            Runs Lead Gen and Rooftop Catastro SOPs. Writes leads to pipeline CSVs only.
+            Runs Lead Qualification and CRM Enrichment SOPs. Writes qualified contacts to CRM only.
           </p>
           <div class="text-[10px] text-slate-500">
             • Scope: <code class="text-slate-800">1 PROJECTS/Leads/</code><br/>
