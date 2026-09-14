@@ -6,6 +6,7 @@ interface Props {
 const { activePage = 'home' } = Astro.props;
 ---
 
+<!-- Top Announcement Banner -->
 <aside aria-label="Announcement" class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white font-mono text-[11px] sm:text-xs py-1.5 px-4 text-center border-b border-blue-600/60">
   <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
     <span class="px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-semibold uppercase text-[10px] tracking-wider border border-amber-400/30">AI Bootcamp</span>
@@ -16,94 +17,95 @@ const { activePage = 'home' } = Astro.props;
   </div>
 </aside>
 
-<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <!-- Brand / Wordmark -->
-    <div class="flex items-center gap-3">
-      <a href="/" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg border border-blue-600/30 bg-blue-50 flex items-center justify-center font-mono font-bold text-sm text-blue-600 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-xs">
-          Y
-        </div>
+<!-- Main Header Bar -->
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    
+    <!-- Brand / Logo -->
+    <a href="/" class="flex items-center gap-2.5 group shrink-0">
+      <div class="w-8 h-8 rounded-lg border border-blue-600/30 bg-blue-50 flex items-center justify-center font-mono font-bold text-sm text-blue-600 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-2xs">
+        Y
+      </div>
+      <div class="flex items-center gap-2">
         <div class="flex flex-col">
-          <span class="font-mono font-bold text-base tracking-wider text-slate-900 group-hover:text-blue-600 transition-colors">
+          <span class="font-mono font-bold text-base tracking-wider text-slate-900 group-hover:text-blue-600 transition-colors leading-none">
             YAIBOS
           </span>
-          <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest leading-none">
+          <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest leading-tight mt-0.5 hidden sm:block">
             Your AI Business OS
           </span>
         </div>
-      </a>
-
-      <!-- Status badge -->
-      <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-emerald-200 bg-emerald-50 font-mono text-[11px] text-emerald-700">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 live-indicator"></span>
-        <span class="font-medium">SPEC v1.0 ACTIVE</span>
+        <span class="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-emerald-200 bg-emerald-50 font-mono text-[10px] text-emerald-700 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 live-indicator"></span>
+          <span>v1.0</span>
+        </span>
       </div>
-    </div>
+    </a>
 
-    <!-- Navigation links -->
-    <nav class="hidden xl:flex items-center gap-5 font-mono text-xs text-slate-600">
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 font-mono text-xs text-slate-600">
       <a 
         href="/why" 
-        class={`hover:text-blue-600 transition-colors py-1 ${activePage === 'why' ? 'text-blue-600 font-semibold border-b-2 border-blue-600' : ''}`}>
-        WHY YAIBOS
+        class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+          activePage === 'why' 
+            ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
+            : 'hover:text-blue-600 hover:bg-slate-50'
+        }`}>
+        Why Sovereign
       </a>
       <a 
         href="/#how-it-works" 
-        class="hover:text-blue-600 transition-colors py-1">
-        HOW IT WORKS
-      </a>
-      <a 
-        href="/#principles" 
-        class="hover:text-blue-600 transition-colors py-1">
-        PRINCIPLES
+        class="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-slate-50 transition-colors whitespace-nowrap">
+        How It Works
       </a>
       <a 
         href="/#cockpit" 
-        class="hover:text-blue-600 transition-colors py-1">
-        1-CLICK COCKPIT
-      </a>
-      <a 
-        href="/#inspirations" 
-        class="hover:text-blue-600 transition-colors py-1">
-        INSPIRATIONS
+        class="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-slate-50 transition-colors whitespace-nowrap">
+        Cockpit
       </a>
       <a 
         href="/implementations" 
-        class={`hover:text-blue-600 transition-colors py-1 ${activePage === 'implementations' ? 'text-blue-600 font-semibold border-b-2 border-blue-600' : ''}`}>
-        IMPLEMENTATIONS
+        class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+          activePage === 'implementations' 
+            ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
+            : 'hover:text-blue-600 hover:bg-slate-50'
+        }`}>
+        Implementations
       </a>
       <a 
         href="/spec" 
-        class={`hover:text-blue-600 transition-colors py-1 ${activePage === 'spec' ? 'text-blue-600 font-semibold border-b-2 border-blue-600' : ''}`}>
-        OPEN SPEC
-      </a>
-      <a 
-        href="/about" 
-        class={`hover:text-blue-600 transition-colors py-1 ${activePage === 'about' ? 'text-blue-600 font-semibold border-b-2 border-blue-600' : ''}`}>
-        ABOUT
+        class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+          activePage === 'spec' 
+            ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
+            : 'hover:text-blue-600 hover:bg-slate-50'
+        }`}>
+        Open Spec
       </a>
       <a 
         href="/#bootcamp" 
-        class="hover:text-blue-600 transition-colors py-1 text-blue-700 font-semibold">
-        AI BOOTCAMP
+        class="px-2.5 py-1.5 rounded-lg text-blue-700 font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+        <span>Bootcamp</span>
+      </a>
+      <a 
+        href="/about" 
+        class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+          activePage === 'about' 
+            ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
+            : 'hover:text-blue-600 hover:bg-slate-50'
+        }`}>
+        About
       </a>
     </nav>
 
-    <!-- CTAs -->
-    <div class="flex items-center gap-2.5">
-      <a
-        href="/why"
-        class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-mono text-xs font-medium transition-colors">
-        THE EQUATION
-      </a>
-
+    <!-- CTAs & Actions -->
+    <div class="flex items-center gap-2 shrink-0">
       <a
         href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-3.5 py-1.5 rounded-lg border border-blue-600/30 bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-700 font-mono text-xs font-semibold transition-all flex items-center gap-1.5 shadow-xs">
-        <span>TALK TO SAMUEL</span>
+        class="px-3.5 py-1.5 rounded-lg border border-blue-600/30 bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-700 font-mono text-xs font-semibold transition-all flex items-center gap-1.5 shadow-2xs whitespace-nowrap">
+        <span>Talk to Samuel</span>
         <span class="text-[10px]" aria-hidden="true">↗</span>
       </a>
 
@@ -111,12 +113,123 @@ const { activePage = 'home' } = Astro.props;
         href="https://github.com/orbitaloop/yaibos"
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-mono text-xs transition-colors">
+        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-mono text-xs transition-colors whitespace-nowrap"
+        title="View on GitHub">
         <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
         </svg>
-        <span>GITHUB</span>
+        <span>GitHub</span>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="lg:hidden p-2 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false">
+        <svg id="menu-open-icon" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-close-icon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white/95 px-4 pt-3 pb-5 space-y-1 font-mono text-xs shadow-lg backdrop-blur-md">
+    <a 
+      href="/why" 
+      class={`block px-3 py-2 rounded-lg ${activePage === 'why' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
+      Why Sovereign
+    </a>
+    <a 
+      href="/#how-it-works" 
+      class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">
+      How It Works
+    </a>
+    <a 
+      href="/#cockpit" 
+      class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">
+      1-Click Cockpit
+    </a>
+    <a 
+      href="/implementations" 
+      class={`block px-3 py-2 rounded-lg ${activePage === 'implementations' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
+      Implementations Scorecard
+    </a>
+    <a 
+      href="/spec" 
+      class={`block px-3 py-2 rounded-lg ${activePage === 'spec' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
+      Open Specification (RFC-01)
+    </a>
+    <a 
+      href="/#bootcamp" 
+      class="block px-3 py-2 rounded-lg text-blue-700 font-bold bg-blue-50/60 hover:bg-blue-50 flex items-center justify-between">
+      <span>AI Bootcamp (Simple AI Studio)</span>
+      <span class="text-[10px]">→</span>
+    </a>
+    <a 
+      href="/about" 
+      class={`block px-3 py-2 rounded-lg ${activePage === 'about' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
+      About Samuel
+    </a>
+
+    <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+      <a
+        href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-1 text-center py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition-colors">
+        Talk to Samuel ↗
+      </a>
+      <a
+        href="https://github.com/orbitaloop/yaibos"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-4 py-2.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold transition-colors">
+        GitHub
       </a>
     </div>
   </div>
 </header>
+
+<script>
+  function setupMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
+
+    if (!menuBtn || !mobileMenu || !openIcon || !closeIcon) return;
+
+    menuBtn.onclick = () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.onclick = () => {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      };
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>
