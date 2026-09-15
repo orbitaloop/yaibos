@@ -82,8 +82,3 @@ We actively welcome contributions to the specification, RFC amendments, and new 
 - Read [`SPEC.md`](SPEC.md) for the complete normative standard.
 - Specification license: [Creative Commons Attribution 4.0 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
 - Code license: [MIT License](LICENSE).
-
-## Relationship to Second Brain
-
-- Specification source: `MD_VAULTS/sam-vault/3 RESOURCES/Tech & AI Experimenter/MAIBOS - MyAIBusinessOS.md`
-- Market research radar: `MD_VAULTS/sam-vault/3 RESOURCES/Tech & AI Experimenter/AI Business Harness & Tools Radar 🤖.md`

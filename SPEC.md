@@ -81,13 +81,17 @@ YAIBOS bridges this divide by establishing a lightweight, modular sovereign engi
   * Session credentials are encrypted on the client machine and never transmitted to an intermediary SaaS broker.
   * The execution runtime consumes models directly through authenticated client sessions, ensuring transparent personal usage tracking.
 
-### Pillar 4: Integrated Team Second Brain & Memory
-* **Requirement**: Company knowledge, client records, and institutional procedures must be simultaneously legible to human team members and ingestible by autonomous agents.
+### Pillar 4: Living, Auto-Improving Team Second Brain & Memory
+* **Requirement**: Company knowledge, client records, and institutional procedures must be simultaneously legible to human team members and ingestible by autonomous agents, with autonomous self-healing to eliminate stale rules, contradictory advice, and knowledge decay.
 * **Specification**:
   * **Local Markdown Storage**: Notes are organized in a standard directory structure (Projects, Areas, Resources, Archives) readable by any Markdown reader.
   * **Bi-directional In-App Editor**: Team members can create, browse, and edit documentation directly within YAIBOS with real-time formatting.
   * **Persistent Semantic Memory**: The system indexes notes using local embedding models or lightweight hybrid search (BM25 + vector embeddings), exposing relevant contextual snippets to the agent execution loop.
-  * **Memory Hygiene Daemon**: Background maintenance checks detect stale procedures, flag conflicting documentation, and suggest consolidation to the workspace owner.
+  * **Continuous Knowledge Health Monitoring**: Multi-dimension health scoring audits documentation freshness, orphan references, broken wiki-links, formatting hygiene, and context pressure (token bloat across system prompts and directives).
+  * **Decay Detection (Brain Rot Prevention)**: Automated tracking flags procedures, pricing schedules, or client notes that have not been validated within a configurable decay window (default: 60 days). Notes enter a review pipeline with explicit actions: validate (mark confirmed), refresh (update stale facts), or archive (retire outdated content).
+  * **Semantic Contradiction & Inconsistency Auditing**: The engine performs cross-document semantic comparisons to detect direct contradictions (such as conflicting pricing, incompatible SOP parameters, or conflicting policy rules), alerting area owners with precise file citations before agents act on bad data.
+  * **Autonomous Experience Learning & Decision Logging**: After agent runs, the system distills repeatable patterns from execution traces (`knowledge_learn`) and records architectural or operational decisions with evaluated alternatives (`knowledge_decide`), preventing repeated debates over settled decisions.
+  * **Idle-Token Self-Healing Daemon**: During off-peak windows or when unused subscription quotas (BYOS) would otherwise expire, background hygiene routines generate proposed consolidations, outline clarifications, and fix suggestions, submitted as atomic visual diffs for human sign-off.
 
 ### Pillar 5: Team Permissions & Role-Based Access Control (RBAC)
 * **Requirement**: Protect sensitive operational data (payroll, financial records, client personal data) from unauthorized viewing or agent mutation.
