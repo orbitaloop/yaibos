@@ -77,16 +77,33 @@ mcp_tools: ["extract_pdf_tables", "reconcile_bank_csv"]
   {
     id: "team-second-brain",
     number: "04",
-    title: "Integrated Team Second Brain",
-    tagline: "Human-legible company memory that autonomous agents can read and update.",
+    title: "Living, Auto-Improving Team Second Brain",
+    tagline: "Human-legible company memory that detects contradictions, flags decay, and auto-heals.",
     badge: "Knowledge Layer",
-    problem: "Vector databases and agent memory silos remain opaque black boxes that human team members cannot inspect, verify, or casually edit.",
-    solution: "Company memory lives in standard, open Markdown files. Staff can read and edit documentation in a built-in rich editor, while agents leverage local hybrid search.",
+    problem: "Company documentation silently decays. Outdated pricing, obsolete guidelines, and contradictory procedures confuse both human staff and autonomous agents, leading to expensive operational errors.",
+    solution: "Company memory lives in standard open Markdown files powered by an active health engine. The system scores knowledge freshness, flags decay before it causes damage, detects semantic contradictions across notes, and extracts proven patterns from daily runs.",
     technicalRequirements: [
       "Standard open Markdown storage with bi-directional in-app editing.",
       "Local hybrid semantic search (lightweight vector embeddings + BM25 keyword matching).",
-      "Background memory hygiene: stale note detection and duplicate resolution."
-    ]
+      "Continuous health scoring: audits freshness, broken references, and context pressure.",
+      "Decay detection (brain rot prevention) flagging unvalidated notes older than threshold (default: 60 days).",
+      "Semantic contradiction detector alerting area owners to conflicting rules, pricing, or procedures.",
+      "Autonomous experience learning (knowledge_learn) and decision tracking with alternatives (knowledge_decide).",
+      "Idle-token self-healing daemon proposing atomic Markdown diff updates during off-peak windows."
+    ],
+    codeSample: {
+      language: "yaml",
+      code: `---
+yaibos_health:
+  health_score: 94
+  last_validated: "2026-09-01"
+  decay_threshold_days: 60
+  decay_status: "fresh" # fresh | decaying | stale
+  contradictions_detected: 0
+  owner: "ops@company.com"
+  auto_improve: true
+---`
+    }
   },
   {
     id: "team-rbac",
@@ -124,7 +141,8 @@ export const ARCHITECTURE_LAYERS = [
     items: [
       "1-Click SOP Visual Cockpit with Area Filtering",
       "Embedded Rich Markdown Editor and Knowledge Graph Viewer",
-      "Real-time Telemetry, Duration Counter & Run Audit Logs"
+      "Real-time Telemetry, Duration Counter & Run Audit Logs",
+      "Knowledge Health Scorecard & Contradiction Alert Center"
     ]
   },
   {
@@ -140,6 +158,7 @@ export const ARCHITECTURE_LAYERS = [
     items: [
       "Deterministic Agent Execution Loop & Context Window Assembler",
       "Persistent Semantic Memory Provider (Local Hybrid Search)",
+      "Autonomous Knowledge Health Scanner, Decay Daemon & Contradiction Auditing",
       "Tool, Skill & MCP Dispatcher with Timeout Management"
     ]
   },
@@ -147,6 +166,7 @@ export const ARCHITECTURE_LAYERS = [
     name: "Storage & Protocol Layer",
     items: [
       "Plain-text Markdown Files on Local Filesystem or Git Repository",
+      "Health & Validation Frontmatter Engine with Atomic Diff Proposals",
       "Model Context Protocol (MCP) Connectors & Local CLI Adapters"
     ]
   }

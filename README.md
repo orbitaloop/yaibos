@@ -9,7 +9,7 @@ Sovereign, zero-friction AI operating system specification and harness tailored 
 1. **Zero-Install / All-in-One Simple UI**: Non-technical team members interact through a clean web or desktop dashboard without terminal hurdles, git conflicts, or complex setups.
 2. **1-Click SOP & Skills Execution Dashboard**: Visual business procedures (SOPs) runnable in one click with live telemetry, status indicators, and logs.
 3. **BYOS (Bring Your Own Subscription) Auth**: Team members authenticate using their existing subscriptions (ChatGPT Plus/Team/Pro, Claude Pro/Team, DeepSeek web auth) with zero host API token bill shock.
-4. **Integrated Team Second Brain & Memory**: Markdown-first knowledge base with persistent semantic memory, readable and editable without vendor lock-in.
+4. **Living, Auto-Improving Team Second Brain**: Markdown-first knowledge base with continuous health scoring, decay alerts, semantic contradiction checks, and automated pattern extraction.
 5. **Team Permissions & Role-Based Access Control (RBAC)**: Folder-level and file-level permissions with area responsibility.
 6. **Modular "Everything is a Plugin" Architecture**: Lightweight micro-kernel allowing swappable tools, models, and connectors.
 

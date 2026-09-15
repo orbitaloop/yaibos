@@ -170,6 +170,41 @@ mcp_tools:
 }
 ```
 
+### 3.3 Knowledge Note Health Metadata (YAML Frontmatter Standard)
+
+Every core knowledge note, directive, or SOP in the second brain can optionally carry health and validation frontmatter to enable automated audit tracking:
+
+```yaml
+---
+yaibos_health:
+  health_score: 92              # 0-100 score computed from freshness, link validity, and style
+  last_validated: "2026-09-01"   # ISO date when a human owner confirmed accuracy
+  decay_threshold_days: 60      # Days before note is flagged as stale
+  decay_status: "fresh"         # fresh | decaying | stale | archived
+  contradictions_detected: 0    # Number of unresolved cross-note conflicts
+  owner: "operations@company.com"
+  auto_improve: true            # Allow idle-token daemon to propose diff updates
+---
+```
+
+### 3.4 Knowledge Audit & Contradiction Alert Schema (JSON)
+
+Emitted by the background health scanner when detecting contradictions or stale information:
+
+```json
+{
+  "audit_id": "audit-20260915-0042",
+  "audit_type": "contradiction_detected",
+  "severity": "high",
+  "detected_at": "2026-09-15T09:12:00Z",
+  "primary_file": "Areas/Finance/Pricing-Rules.md",
+  "conflicting_file": "SOP/Inbound-Sales-Quote.md",
+  "summary": "Hourly rate mismatch: Pricing-Rules.md states $250/hr (updated 2026-08-15), while Inbound-Sales-Quote.md specifies $200/hr.",
+  "recommended_action": "Update Inbound-Sales-Quote.md line 34 to reflect approved $250/hr rate.",
+  "status": "pending_human_review"
+}
+```
+
 ---
 
 ## 4. Security & Sovereignty Principles

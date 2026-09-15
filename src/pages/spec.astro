@@ -42,6 +42,29 @@ const telemetryJsonSnippet = `{
   ],
   "estimated_human_minutes_saved": 45
 }`;
+
+const knowledgeHealthYamlSnippet = `---
+yaibos_health:
+  health_score: 92              # 0-100 score (freshness, link validity, syntax)
+  last_validated: "2026-09-01"   # ISO date confirmed by human area owner
+  decay_threshold_days: 60      # Days before note is flagged as stale
+  decay_status: "fresh"         # fresh | decaying | stale | archived
+  contradictions_detected: 0    # Number of unresolved cross-note conflicts
+  owner: "operations@company.com"
+  auto_improve: true            # Allow idle-token daemon to propose diff updates
+---`;
+
+const contradictionJsonSnippet = `{
+  "audit_id": "audit-20260915-0042",
+  "audit_type": "contradiction_detected",
+  "severity": "high",
+  "detected_at": "2026-09-15T09:12:00Z",
+  "primary_file": "Areas/Finance/Pricing-Rules.md",
+  "conflicting_file": "SOP/Inbound-Sales-Quote.md",
+  "summary": "Hourly rate mismatch: Pricing-Rules.md states $250/hr, while Inbound-Sales-Quote.md specifies $200/hr.",
+  "recommended_action": "Update Inbound-Sales-Quote.md line 34 to reflect approved $250/hr rate.",
+  "status": "pending_human_review"
+}`;
 ---
 
 <BaseLayout
@@ -239,6 +262,32 @@ const telemetryJsonSnippet = `{
             </p>
             <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
               <code>{telemetryJsonSnippet}</code>
+            </pre>
+          </div>
+
+          <!-- Schema 3: Knowledge Health Metadata -->
+          <div>
+            <h3 class="font-mono text-xs font-bold text-blue-600 uppercase mb-2">
+              4.3 Knowledge Note Health Metadata (YAML)
+            </h3>
+            <p class="text-xs text-slate-500 mb-3">
+              Stored in frontmatter of core company directives, SOPs, and memory notes to enable continuous health audits and decay tracking.
+            </p>
+            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
+              <code>{knowledgeHealthYamlSnippet}</code>
+            </pre>
+          </div>
+
+          <!-- Schema 4: Contradiction & Decay Audit Alert -->
+          <div>
+            <h3 class="font-mono text-xs font-bold text-amber-700 uppercase mb-2">
+              4.4 Knowledge Audit & Contradiction Alert Schema (JSON)
+            </h3>
+            <p class="text-xs text-slate-500 mb-3">
+              Emitted by background health daemons when detecting conflicting rules, obsolete pricing, or decaying procedures.
+            </p>
+            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
+              <code>{contradictionJsonSnippet}</code>
             </pre>
           </div>
         </section>
