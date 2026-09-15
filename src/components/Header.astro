@@ -22,16 +22,22 @@ const { activePage = 'home' } = Astro.props;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
     
     <!-- Brand / Logo -->
-    <a href="/" class="flex items-center gap-2.5 group shrink-0">
-      <div class="w-8 h-8 rounded-lg border border-blue-600/30 bg-blue-50 flex items-center justify-center font-mono font-bold text-sm text-blue-600 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-2xs">
-        Y
-      </div>
+    <a href="/" class="flex items-center gap-2.5 group shrink-0" aria-label="YAIBOS - Your AI Business OS">
+      <img
+        src="/images/yaibos-icon.webp"
+        alt="YAIBOS Icon"
+        width="36"
+        height="36"
+        class="w-9 h-9 rounded-xl shadow-2xs group-hover:scale-105 transition-transform shrink-0"
+        loading="eager"
+        decoding="async"
+      />
       <div class="flex items-center gap-2">
         <div class="flex flex-col">
-          <span class="font-mono font-bold text-base tracking-wider text-slate-900 group-hover:text-blue-600 transition-colors leading-none">
+          <span class="font-sans font-black text-lg tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors leading-none">
             YAIBOS
           </span>
-          <span class="text-[9px] font-mono text-slate-500 font-medium tracking-wide leading-tight mt-0.5 hidden sm:block">
+          <span class="text-[9.5px] font-mono text-slate-500 font-medium tracking-wider leading-tight mt-0.5 hidden sm:block">
             Your AI Business OS
           </span>
         </div>
