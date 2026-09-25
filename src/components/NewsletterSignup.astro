@@ -79,7 +79,7 @@ const { variant = 'card' } = Astro.props;
   document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('.newsletter-form');
     forms.forEach((form) => {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const input = form.querySelector('.newsletter-input');
         const btn = form.querySelector('.newsletter-btn');
@@ -87,16 +87,60 @@ const { variant = 'card' } = Astro.props;
         const msg = parent.querySelector('.newsletter-message');
 
         if (!input || !input.value) return;
+        const email = input.value.trim();
 
         // Visual feedback
         btn.disabled = true;
         btn.textContent = '...';
 
-        setTimeout(() => {
+        try {
+          const res = await fetch('https://contact.samuelmichelot.com/api/newsletter/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email: email,
+              source_site: 'yaibos',
+              source_page: window.location.pathname
+            })
+          });
+
+          if (!res.ok) {
+            // Fallback attempt via form-data submission
+            const fd = new FormData();
+            fd.append('name', email.split('@')[0]);
+            fd.append('email', email);
+            fd.append('type', 'Texto');
+            fd.append('flow', 'yaibos-newsletter');
+            fd.append('source_site', 'yaibos');
+            fd.append('source_page', window.location.pathname);
+            fd.append('message', 'Subscribed to YAIBOS Newsletter (The Context Layer / AI Business Harness Radar)');
+            await fetch('https://contact.samuelmichelot.com/api/submit', {
+              method: 'POST',
+              body: fd
+            });
+          }
+
           form.classList.add('hidden');
           if (msg) msg.classList.remove('hidden');
-          // In real production, this also dispatches to mail endpoint or AgentMail webhook
-        }, 500);
+        } catch (err) {
+          console.error('Subscription error:', err);
+          // Show success anyway so user experience is smooth, and retry via background beacon
+          try {
+            const fd = new FormData();
+            fd.append('name', email.split('@')[0]);
+            fd.append('email', email);
+            fd.append('type', 'Texto');
+            fd.append('flow', 'yaibos-newsletter');
+            fd.append('source_site', 'yaibos');
+            fd.append('source_page', window.location.pathname);
+            navigator.sendBeacon && navigator.sendBeacon('https://contact.samuelmichelot.com/api/submit', fd);
+          } catch (_) {}
+
+          form.classList.add('hidden');
+          if (msg) msg.classList.remove('hidden');
+        }
       });
     });
   });
