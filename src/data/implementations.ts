@@ -15,6 +15,7 @@ export interface ImplementationScore {
   strengths: string[];
   gaps: string[];
   repoUrl?: string;
+  securityAnalysisUrl?: string;
 }
 
 export const IMPLEMENTATIONS: ImplementationScore[] = [
@@ -38,11 +39,13 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Sovereign data architecture: chats, memory, notes, and automations live in local files you own."
     ],
     gaps: [
+      "Not based on an open-source harness (such as DSH / Cordis): it uses a custom Python and Electron runtime, so it does not benefit from community harness plugins, fixes, or shared ecosystem improvements.",
       "Single-user desktop focus lacking multi-user team RBAC and folder-scoped permissions.",
       "Automations are not yet standardized into business SOP cards with duration and ROI telemetry.",
       "Early-stage release (v2 rewrite) with an evolving plugin ecosystem."
     ],
-    repoUrl: "https://github.com/david-darr/jarvis-app"
+    repoUrl: "https://github.com/david-darr/jarvis-app",
+    securityAnalysisUrl: "/implementations/jarvis-security"
   },
   {
     name: "OBSIA (kevines-ods/OBSIA)",

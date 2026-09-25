@@ -1,0 +1,376 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Security & Harness Audit: JARVIS (david-darr/jarvis-app) | YAIBOS"
+  description="Independent security evaluation and architectural provenance audit of david-darr/jarvis-app v1.14.0: sandbox isolation, shell execution risks, and open-source harness analysis.">
+  <Header activePage="implementations" />
+
+  <main class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+        <span>/</span>
+        <a href="/implementations/" class="hover:text-blue-600 transition-colors">Implementations</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">JARVIS Security Audit</span>
+      </nav>
+
+      <!-- Top Header & Target Metadata -->
+      <div class="space-y-4 pb-10 mb-12 border-b border-slate-200/80">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-300 bg-amber-50 text-xs font-mono text-amber-900 font-semibold shadow-xs">
+          <span>INDEPENDENT SECURITY AUDIT & HARNESS ANALYSIS</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
+          JARVIS (david-darr/jarvis-app): Security Review & Harness Provenance
+        </h1>
+
+        <p class="text-lg text-slate-600 font-light leading-relaxed">
+          An in-depth code audit of JARVIS v1.14.0. We examine whether the application is safe to run on local workstations, inspect its Electron sandbox and backend boundaries, evaluate shell execution risks, and verify whether it builds upon an open-source agent harness like DeepSeek Harness (DSH).
+        </p>
+
+        <!-- Audit Metadata Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-6 font-mono text-xs">
+          <div class="p-3.5 rounded-lg border border-slate-200 bg-slate-50">
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Audited Target</span>
+            <a href="https://github.com/david-darr/jarvis-app" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-600 hover:underline break-all">
+              david-darr/jarvis-app ↗
+            </a>
+          </div>
+
+          <div class="p-3.5 rounded-lg border border-slate-200 bg-slate-50">
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Target Version</span>
+            <span class="font-bold text-slate-800">v1.14.0 (commit 6fa4252)</span>
+          </div>
+
+          <div class="p-3.5 rounded-lg border border-slate-200 bg-slate-50">
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Audit Date</span>
+            <span class="font-bold text-slate-800">September 25, 2026</span>
+          </div>
+
+          <div class="p-3.5 rounded-lg border border-slate-200 bg-slate-50">
+            <span class="text-slate-500 block text-[10px] uppercase font-semibold">Safety Assessment</span>
+            <span class="font-bold text-emerald-700">Safe with Config Caveats</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Executive Summary -->
+      <section class="space-y-6 mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 font-sans">
+          Executive Summary
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6 text-sm">
+          <div class="p-5 rounded-xl border border-blue-200 bg-blue-50/50 space-y-2">
+            <span class="font-mono text-xs font-bold text-blue-800 uppercase block">1. Is it based on DSH or an open harness?</span>
+            <p class="text-slate-700 leading-relaxed font-sans">
+              <strong class="text-slate-900 font-semibold">No.</strong> JARVIS is not built on DeepSeek Harness (DSH) or Cordis. It uses a bespoke Python (FastAPI) and Electron engine. While it borrows architectural patterns from Odysseus, Hermes Agent, and OpenClaw, it runs on a proprietary-style custom harness, so it does not benefit from community harness plugins or shared ecosystem improvements.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-2">
+            <span class="font-mono text-xs font-bold text-emerald-900 uppercase block">2. Is the code safe to install?</span>
+            <p class="text-slate-700 leading-relaxed font-sans">
+              <strong class="text-slate-900 font-semibold">Yes, but with default privilege caveats.</strong> There is zero malicious code, backdoor logic, or hidden telemetry. However, pre-built binaries are not code-signed, and single-user installations automatically grant connected AI models terminal shell execution privileges unless manually revoked in permissions settings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Harness Provenance Analysis -->
+      <section class="space-y-6 mb-16 pb-16 border-b border-slate-200/80">
+        <div class="space-y-2">
+          <span class="text-xs font-mono text-blue-600 font-semibold uppercase tracking-wider block">
+            Provenance & Runtime Architecture
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
+            Harness Provenance: Why JARVIS is Not Built on DSH
+          </h2>
+        </div>
+
+        <p class="text-slate-600 leading-relaxed text-base">
+          A common question is whether JARVIS leverages DeepSeek Harness (DSH), the plugin-based open-source agent runtime maintained by DeepSeek AI. A full dependency and code scan confirms that <strong class="text-slate-900 font-semibold">JARVIS has zero DSH packages, zero Cordis meta-framework code, and zero DeepSeek runtime dependencies</strong>.
+        </p>
+
+        <p class="text-slate-600 leading-relaxed text-base">
+          Instead, JARVIS was built from the ground up by its author, incorporating patterns from three separate agent systems referenced throughout the source code:
+        </p>
+
+        <div class="space-y-4 pt-2">
+          <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-mono font-bold text-sm text-slate-900">Odysseus Architecture Patterns</h3>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Application Design</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Influenced the slim FastAPI router layout, the session state manager, the ring-buffer event bus (<code class="font-mono text-slate-800">core/events.py</code>), the loopback internal-tool token design, and the single-user versus multi-user authentication model.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-mono font-bold text-sm text-slate-900">Hermes Agent (Nous Research) Patterns</h3>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Supply Chain & Security</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Adopted Hermes's strict supply chain policy (<code class="font-mono text-slate-800">requirements.lock</code> with pinned SHA-256 hashes per wheel), scheduled vulnerability scanning (<code class="font-mono text-slate-800">osv-scanner.yml</code>), and the static skill security scanner (<code class="font-mono text-slate-800">services/skills_guard.py</code>) used to inspect externally-sourced SKILL.md workflows.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-mono font-bold text-sm text-slate-900">OpenClaw Patterns</h3>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Untrusted Input Fencing</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Adopted the "trusted gateway, untrusted execution" principle. External incoming data (like emails, calendar entries, and fetched web pages) is delimited using randomized cryptographic nonces (<code class="font-mono text-slate-800">core/untrusted.py</code>) so third-party text cannot forge system instructions.
+            </p>
+          </div>
+        </div>
+
+        <!-- The Ecosystem Trade-Off -->
+        <div class="p-5 rounded-xl border border-amber-200 bg-amber-50/60 text-xs font-sans space-y-2">
+          <span class="font-mono text-[11px] font-bold text-amber-900 uppercase tracking-wide block">
+            The Small Business Trade-Off: Custom Harness vs Open Ecosystem
+          </span>
+          <p class="text-slate-700 leading-relaxed">
+            Because JARVIS relies on its own custom runtime rather than an open harness standard like DeepSeek Harness (DSH) or the file-based OBSIA harness standard, <strong class="text-slate-900 font-semibold">it is an isolated software silo</strong>. Improvements, new tool drivers, and bug fixes must be authored specifically for JARVIS rather than inherited automatically from the wider open-source agent community.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2: Deep Security Code Audit -->
+      <section class="space-y-8 mb-16 pb-16 border-b border-slate-200/80">
+        <div class="space-y-2">
+          <span class="text-xs font-mono text-emerald-600 font-semibold uppercase tracking-wider block">
+            Technical Audit
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
+            In-Depth Security Audit: Strengths & Weaknesses
+          </h2>
+        </div>
+
+        <p class="text-slate-600 leading-relaxed text-base">
+          Our security assessment examined the codebase across four primary attack surfaces: network telemetry, desktop Electron boundaries, backend API authorization, and AI tool execution policies.
+        </p>
+
+        <!-- Subsection A: Strengths -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-slate-900 font-mono">
+            A. Verified Defensive Strengths
+          </h3>
+
+          <div class="grid sm:grid-cols-2 gap-4 text-xs">
+            <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-1.5">
+              <span class="font-mono font-bold text-emerald-700 block">Zero Telemetry or Phoning Home</span>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                The application does not phone home to any central analytics service. Outbound HTTP requests are strictly confined to user-configured LLM endpoints, local Ollama ports, Hugging Face (only when the user clicks download on a local GGUF model), and GitHub for release checking.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-1.5">
+              <span class="font-mono font-bold text-emerald-700 block">Strict Electron Sandboxing</span>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                The main window enforces <code class="font-mono text-slate-800">contextIsolation: true</code> and <code class="font-mono text-slate-800">nodeIntegration: false</code>. The preload bridge in <code class="font-mono text-slate-800">electron/preload.js</code> exposes only explicit, high-level functions rather than arbitrary IPC channels.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-1.5">
+              <span class="font-mono font-bold text-emerald-700 block">Side Browser Isolation & Loopback Block</span>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                The in-app side browser runs in a separate Chromium partition (<code class="font-mono text-slate-800">persist:jarvis-browser</code>) with no preload script, denies media and camera permissions, and explicitly blocks loopback IPs (<code class="font-mono text-slate-800">127.0.0.1</code> and <code class="font-mono text-slate-800">localhost</code>) to prevent external websites from reaching the backend.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-1.5">
+              <span class="font-mono font-bold text-emerald-700 block">Per-Launch UI Secret Cookie</span>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                When Electron launches the backend, it passes an ephemeral cryptographic secret via environment variable and immediately purges it from the process table. Only requests carrying the <code class="font-mono text-slate-800">jarvis_ui</code> HttpOnly cookie are accepted as the trusted local user.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-1.5">
+              <span class="font-mono font-bold text-emerald-700 block">Encrypted Secrets Storage</span>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                Email passwords, API keys, and bot tokens are encrypted at rest using Fernet symmetric encryption (<code class="font-mono text-slate-800">core/secret_storage.py</code>). The encryption key is generated locally on first launch and restricted to <code class="font-mono text-slate-800">0o600</code> file permissions.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-1.5">
+              <span class="font-mono font-bold text-emerald-700 block">Supply Chain Hash Verification</span>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                The bundled runtime packaging script (<code class="font-mono text-slate-800">scripts/build_runtime.py</code>) verifies SHA-256 digests of all downloaded Python runtimes and installs packages using <code class="font-mono text-slate-800">--require-hashes</code> against <code class="font-mono text-slate-800">requirements.lock</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subsection B: Critical Caveats -->
+        <div class="space-y-4 pt-4">
+          <h3 class="text-lg font-bold text-red-900 font-mono">
+            B. Critical Operational Risks & Default Caveats
+          </h3>
+
+          <div class="space-y-4 text-xs">
+            <!-- Risk 1 -->
+            <div class="p-5 rounded-xl border border-red-200 bg-red-50/50 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-mono font-bold text-sm text-red-800">1. Unsigned Application Binaries</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-100 text-red-700 font-semibold">High Friction</span>
+              </div>
+              <p class="text-slate-700 leading-relaxed font-sans text-sm">
+                Neither the macOS DMG (<code class="font-mono text-slate-800">JARVIS-arm64.dmg</code>) nor the Windows installer (<code class="font-mono text-slate-800">JARVIS-Setup.exe</code>) is code-signed with an Apple Developer or Microsoft Authenticode certificate. On macOS, Gatekeeper blocks the app by default. On Windows, SmartScreen raises an untrusted publisher warning.
+              </p>
+              <p class="text-slate-600 font-mono text-[11px] pt-1">
+                Recommendation: For security-conscious operators, clone the repository and run from source using verified lockfiles rather than running unsigned pre-compiled binaries.
+              </p>
+            </div>
+
+            <!-- Risk 2 -->
+            <div class="p-5 rounded-xl border border-amber-300 bg-amber-50/60 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-mono font-bold text-sm text-amber-950">2. Automatic Admin Shell Execution by Default</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">Action Required</span>
+              </div>
+              <p class="text-slate-700 leading-relaxed font-sans text-sm">
+                In standard single-user desktop mode (<code class="font-mono text-slate-800">AUTH_ENABLED=false</code>), the local user is granted full administrative status. As of commit <code class="font-mono text-slate-800">b41c0fb</code>, <strong class="text-slate-900 font-semibold">Bash and PowerShell tools are pre-seeded into Claude Agent SDK's allowed list without asking for user approval per command</strong>.
+              </p>
+              <p class="text-slate-700 leading-relaxed font-sans text-sm">
+                Furthermore, for external models (OpenAI, DeepSeek, Ollama, local models), <code class="font-mono text-slate-800">core/external_brain.py</code> exposes a <code class="font-mono text-slate-800">run_shell</code> tool that executes commands directly via <code class="font-mono text-slate-800">asyncio.create_subprocess_shell</code> with no user prompt if the user is admin. If an external email, document, or prompt injection bypasses the untrusted fence, the model has direct command-line execution capability on your workstation.
+              </p>
+              <p class="text-slate-600 font-mono text-[11px] pt-1">
+                Recommendation: Open <strong>Settings → Permissions</strong> immediately after first launch, find the standing grants for shell tools (<code class="font-mono text-slate-800">Bash</code>, <code class="font-mono text-slate-800">PowerShell</code>), and revoke them so the application prompts you before executing terminal commands.
+              </p>
+            </div>
+
+            <!-- Risk 3 -->
+            <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-mono font-bold text-sm text-slate-900">3. Dynamic Module Execution in Developer Mode</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold">Architecture Detail</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed font-sans">
+                Developer Mode allows models or users to create custom tabs stored in <code class="font-mono text-slate-800">&lt;data-dir&gt;/tabs/routes/tab_*.py</code>. On startup, the backend automatically imports these Python modules dynamically via <code class="font-mono text-slate-800">importlib</code>. While powerful for customization, any file written to that directory executes inside the backend process on subsequent runs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Safe Installation Guide -->
+      <section class="space-y-6 mb-16 pb-16 border-b border-slate-200/80">
+        <div class="space-y-2">
+          <span class="text-xs font-mono text-blue-600 font-semibold uppercase tracking-wider block">
+            Hardened Setup
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
+            Recommended Safe Installation Checklist
+          </h2>
+        </div>
+
+        <p class="text-slate-600 leading-relaxed text-sm">
+          If you are testing JARVIS on your personal machine or within a business evaluation environment, follow these four defensive practices:
+        </p>
+
+        <div class="space-y-3 font-mono text-xs">
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 font-bold text-xs">1</span>
+            <div>
+              <span class="font-bold text-slate-900 block mb-1">Revoke Standing Shell Permissions Post-Launch</span>
+              <p class="text-slate-600 font-sans text-xs leading-relaxed">
+                Navigate to <strong>Settings → Permissions</strong> and revoke the pre-approved rule for <code class="font-mono text-slate-800">Bash</code> and <code class="font-mono text-slate-800">PowerShell</code>. This forces the agent to prompt you interactively with an "Allow once / Reject" dialog before any command executes.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 font-bold text-xs">2</span>
+            <div>
+              <span class="font-bold text-slate-900 block mb-1">Turn on Real Accounts for Network Reachability</span>
+              <p class="text-slate-600 font-sans text-xs leading-relaxed">
+                If configuring Tailscale remote access to reach the app from your mobile device or another computer, set <code class="font-mono text-slate-800">AUTH_ENABLED=true</code>. Configure a strong password and enable TOTP two-factor authentication so the administrative API cannot be reached over the network unauthenticated.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 font-bold text-xs">3</span>
+            <div>
+              <span class="font-bold text-slate-900 block mb-1">Audit Third-Party Skills Before Importing</span>
+              <p class="text-slate-600 font-sans text-xs leading-relaxed">
+                Although JARVIS includes a static Skills Guard scanner, never import untrusted <code class="font-mono text-slate-800">SKILL.md</code> files without reviewing their instructions and external tool requirements.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 font-bold text-xs">4</span>
+            <div>
+              <span class="font-bold text-slate-900 block mb-1">Keep Your Vault Under Version Control</span>
+              <p class="text-slate-600 font-sans text-xs leading-relaxed">
+                Because connected models have write access to your chosen Markdown vault folder, initialize a local Git repository inside the vault directory. This ensures you can inspect diffs and roll back any unexpected file edits immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Comparison with YAIBOS Standard -->
+      <section class="space-y-6 mb-16">
+        <div class="space-y-2">
+          <span class="text-xs font-mono text-purple-600 font-semibold uppercase tracking-wider block">
+            Architectural Scorecard
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
+            How JARVIS Compares to the YAIBOS Standard
+          </h2>
+        </div>
+
+        <p class="text-slate-600 leading-relaxed text-sm">
+          JARVIS receives a <strong class="text-slate-900 font-semibold">B+ grade</strong> on the YAIBOS implementation radar. It excels at sovereign desktop custody and Markdown memory visualization, but exhibits clear gaps when evaluated for founder-led small business operations:
+        </p>
+
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50 space-y-4 text-xs font-mono">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <span class="text-emerald-700 font-bold block">YAIBOS Alignment:</span>
+              <ul class="space-y-1 text-slate-600 font-sans text-xs">
+                <li>• Chats, notes, memory, and automations live in local plain Markdown files you own.</li>
+                <li>• No proprietary database lock-in: your vault remains readable in Obsidian or standard text editors.</li>
+                <li>• Zero-install desktop installers available for non-technical users.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-red-700 font-bold block">YAIBOS Gaps:</span>
+              <ul class="space-y-1 text-slate-600 font-sans text-xs">
+                <li>• Proprietary-style harness: does not participate in the shared open-source harness ecosystem (DSH / OBSIA).</li>
+                <li>• Single-workstation design: lacks multi-user team RBAC and granular folder permissions.</li>
+                <li>• Automations are prompt scripts rather than standard business SOP cards with duration and ROI telemetry.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+            <a href="/implementations/" class="text-blue-600 hover:underline">
+              ← Return to Full Implementation Scorecard
+            </a>
+            <a href="/spec/" class="text-slate-700 hover:text-blue-600 hover:underline">
+              Read the YAIBOS Open Specification →
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

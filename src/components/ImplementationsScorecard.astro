@@ -79,6 +79,16 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
                 <span class="text-blue-700 block text-[10px] uppercase font-bold mb-1">VERDICT:</span>
                 <span class="text-slate-700 font-sans text-xs">{tool.verdict}</span>
               </div>
+
+              {tool.securityAnalysisUrl && (
+                <div class="mt-3">
+                  <a 
+                    href={tool.securityAnalysisUrl} 
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-mono font-medium transition-colors shadow-2xs">
+                    <span>🛡️ Security & Harness Audit (v1.14.0) →</span>
+                  </a>
+                </div>
+              )}
             </div>
 
             <!-- Col 2: Scores Matrix (4 cols) -->
