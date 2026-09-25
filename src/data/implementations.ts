@@ -19,6 +19,58 @@ export interface ImplementationScore {
 
 export const IMPLEMENTATIONS: ImplementationScore[] = [
   {
+    name: "JARVIS (david-darr/jarvis-app)",
+    category: "Sovereign Desktop AI Workspace & Vault UI",
+    grade: "B+",
+    summary: "Self-hosted, open-source AI workspace packaging multi-model chat, automations, and an embedded Markdown vault visualization into native cross-platform desktop installers.",
+    verdict: "Superb alignment with YAIBOS on sovereign local file custody and cross-platform desktop delivery (Windows PC + Mac), but single-workstation oriented without team RBAC.",
+    scores: {
+      zeroInstallUI: 5,
+      oneClickSOP: 3,
+      byosAuth: 4,
+      teamSecondBrain: 4,
+      teamRBAC: 1,
+      modularPlugins: 4
+    },
+    strengths: [
+      "Packaged desktop releases for Windows PC, macOS, and Linux with zero terminal friction.",
+      "Embedded Markdown vault graph visualization directly inside the agent interface.",
+      "Sovereign data architecture: chats, memory, notes, and automations live in local files you own."
+    ],
+    gaps: [
+      "Single-user desktop focus lacking multi-user team RBAC and folder-scoped permissions.",
+      "Automations are not yet standardized into business SOP cards with duration and ROI telemetry.",
+      "Early-stage release (v2 rewrite) with an evolving plugin ecosystem."
+    ],
+    repoUrl: "https://github.com/david-darr/jarvis-app"
+  },
+  {
+    name: "OBSIA (kevines-ods/OBSIA)",
+    category: "Obsidian Multi-Agent Harness & SOP Standard",
+    grade: "B+",
+    summary: "An AI agent orchestration framework where agents, reusable skills, scheduled tasks, and memory live directly inside an Obsidian vault as plain Markdown files.",
+    verdict: "The primary structural reference for YAIBOS file-based architecture: proves that agents, skills, and memory can live 100% in open Markdown files across any harness with zero database lock-in.",
+    scores: {
+      zeroInstallUI: 2,
+      oneClickSOP: 4,
+      byosAuth: 5,
+      teamSecondBrain: 5,
+      teamRBAC: 2,
+      modularPlugins: 5
+    },
+    strengths: [
+      "100% Markdown architecture: agents, skills, MCP configs, and memory live in an open Obsidian vault with zero database lock-in.",
+      "Intelligent lazy-loading: indexes available skills in system prompt, loading full procedural instructions only on demand.",
+      "True multi-harness interoperability: works identically across Claude Code, OpenCode, Aider, and Goose."
+    ],
+    gaps: [
+      "Requires Obsidian or terminal setup: lacks a zero-install standalone web dashboard for non-technical staff.",
+      "Team permissions rely on external Git worktrees or OS filesystem permissions rather than integrated UI RBAC.",
+      "Early alpha release with documentation currently in French."
+    ],
+    repoUrl: "https://github.com/kevines-ods/OBSIA"
+  },
+  {
     name: "DeepSeek Harness (dsh + Cordis)",
     category: "Modular Agent Engine & Runtime",
     grade: "B+",
