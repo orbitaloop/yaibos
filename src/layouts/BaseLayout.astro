@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import PostHog from '../components/PostHog.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
   title?: string;
@@ -50,6 +52,7 @@ const cleanDescription = description.replace(/—/g, ',').replace(/–/g, '-');
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <PostHog />
   </head>
   <body class="min-h-screen bg-white text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
     <!-- Subtle architectural paper grid background -->
@@ -59,5 +62,6 @@ const cleanDescription = description.replace(/—/g, ',').replace(/–/g, '-');
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />
     </div>
+    <CookieBanner />
   </body>
 </html>

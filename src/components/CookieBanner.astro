@@ -1,0 +1,41 @@
+---
+// 🤖 Consent control for optional PostHog analytics.
+---
+
+  <aside id="cookie-banner" class="fixed bottom-4 left-4 right-4 z-50 mx-auto hidden max-w-sm rounded-xl border border-slate-200 bg-white p-5 shadow-xl sm:left-auto sm:right-5 sm:mx-0" aria-label="Analytics preferences">
+    <h2 class="text-sm font-semibold text-slate-900">Analytics preferences</h2>
+    <p class="mt-2 text-xs leading-relaxed text-slate-600">
+      With your permission, we use PostHog to understand visits and improve YAIBOS. We do not record sessions. See our <a class="underline hover:text-blue-600" href="/privacy">privacy notice</a>.
+    </p>
+    <div class="mt-4 flex justify-end gap-2 text-xs font-semibold">
+      <button id="cookie-decline" type="button" class="rounded-lg border border-slate-300 px-3 py-2 text-slate-700 hover:bg-slate-50">Essential only</button>
+      <button id="cookie-accept" type="button" class="rounded-lg bg-blue-600 px-3 py-2 text-white hover:bg-blue-700">Accept analytics</button>
+    </div>
+  </aside>
+
+  <script is:inline>
+    (function () {
+      var banner = document.getElementById('cookie-banner');
+      window.addEventListener('yaibos_open_preferences', function () { banner.classList.remove('hidden'); });
+      var saved;
+      try {
+        saved = localStorage.getItem('yaibos_cookie_consent');
+      } catch (e) {
+        return;
+      }
+      if (!saved) banner.classList.remove('hidden');
+
+      function choose(value) {
+        try {
+          localStorage.setItem('yaibos_cookie_consent', value);
+        } catch (e) {
+          return;
+        }
+        banner.classList.add('hidden');
+        window.dispatchEvent(new CustomEvent('yaibos_consent_updated', { detail: value }));
+      }
+
+      document.getElementById('cookie-decline').addEventListener('click', function () { choose('declined'); });
+      document.getElementById('cookie-accept').addEventListener('click', function () { choose('accepted'); });
+    })();
+  </script>

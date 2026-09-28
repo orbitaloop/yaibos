@@ -19,6 +19,7 @@ Sovereign, zero-friction AI operating system specification and harness tailored 
 - **Styling**: Tailwind CSS v4 with `@tailwindcss/vite` and `@tailwindcss/typography`
 - **Design Language**: Dark cyber-minimalist engineering interface, high-contrast monospace accents, no generic AI slope
 - **Integrations**: MyVideoAsk asynchronous contact (`contact.samuelmichelot.com`)
+- **Analytics**: PostHog EU, loaded after visitor consent, with session recording disabled. YAIBOS uses the existing Simple AI Studio project and tags every event with `source_site: yaibos`; filter the PostHog dashboard by that event property or by `yaibos.com` in Current URL.
 - **Deployment Target**: Cloudflare Pages
 
 ## Project Commands
