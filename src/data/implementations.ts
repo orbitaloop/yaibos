@@ -52,26 +52,28 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
   {
     name: "OBSIA (kevines-ods/OBSIA)",
     category: "Obsidian Multi-Agent Harness & SOP Standard",
-    harnessStatus: "Multi-Harness Layer (OpenCode / Claude / Aider)",
+    harnessStatus: "Multi-Harness Layer (Claude Code native / OpenCode / Aider)",
     grade: "B+",
-    summary: "An open file-based multi-agent harness specification where agents, reusable skills, scheduled tasks, and memory live in plain Markdown, interoperating directly with open CLI harnesses like OpenCode.",
-    verdict: "The primary structural reference for YAIBOS file-based architecture: rather than reinventing a custom closed runtime, it proves skills and memory can interoperate across vibrant open-source harnesses like OpenCode with zero database lock-in.",
+    summary: "An open file-based multi-agent harness specification where agents, reusable skills, scheduled tasks, and memory live in plain Markdown, featuring a context-aware modular installer and per-agent security contracts.",
+    verdict: "The primary structural reference for YAIBOS file-based architecture: rather than reinventing a custom closed runtime, it proves skills, agent permissions, and memory can operate on top of open CLI harnesses with zero database lock-in.",
     scores: {
       zeroInstallUI: 2,
-      oneClickSOP: 4,
+      oneClickSOP: 3,
       byosAuth: 5,
-      teamSecondBrain: 5,
+      teamSecondBrain: 4,
       teamRBAC: 2,
       modularPlugins: 5
     },
     strengths: [
-      "100% Markdown architecture: agents, skills, MCP configs, and memory live in an open Obsidian vault with zero database lock-in.",
-      "True multi-harness interoperability: works identically across vibrant open harnesses like OpenCode, Claude Code, Aider, and Goose.",
-      "Intelligent lazy-loading: indexes available skills in system prompt, loading full procedural instructions only on demand."
+      "100% Markdown architecture: agents, skills, and memory live in an open Obsidian vault with zero database lock-in.",
+      "Per-agent RBAC security contract: declared read-only agents and bounded write zones, with unlisted mutations requiring human-reviewed Git patches.",
+      "Context-aware modular installation: detects host tools (Docker, Proxmox, browser) to provision only relevant skills and agents, avoiding context window bloat.",
+      "Native Claude Code integration, with portable prompt-generation scripts for other CLI harnesses (OpenCode, Aider, Goose)."
     ],
     gaps: [
-      "Requires Obsidian or terminal setup: lacks a zero-install standalone web dashboard for non-technical staff.",
-      "Team permissions rely on external Git worktrees or OS filesystem permissions rather than integrated UI RBAC.",
+      "Lacks a zero-install standalone web dashboard for non-technical team members (requires terminal or Obsidian setup).",
+      "Permissions model is agent-level rather than multi-user team RBAC: currently designed for a single user/workstation.",
+      "Scheduled tasks use versioned registries and timers, but lack 1-click UI execution buttons and duration telemetry.",
       "Early alpha release with documentation currently in French."
     ],
     repoUrl: "https://github.com/kevines-ods/OBSIA"
