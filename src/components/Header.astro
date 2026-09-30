@@ -56,23 +56,13 @@ const { activePage = 'home' } = Astro.props;
         Why Sovereign
       </a>
       <a 
-        href="/#how-it-works" 
-        class="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-slate-50 transition-colors whitespace-nowrap">
-        How It Works
-      </a>
-      <a 
-        href="/#cockpit" 
-        class="px-2.5 py-1.5 rounded-lg hover:text-blue-600 hover:bg-slate-50 transition-colors whitespace-nowrap">
-        Cockpit
-      </a>
-      <a 
         href="/implementations" 
         class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
           activePage === 'implementations' 
             ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
             : 'hover:text-blue-600 hover:bg-slate-50'
         }`}>
-        Implementations
+        Scorecard
       </a>
       <a 
         href="/spec" 
@@ -91,12 +81,6 @@ const { activePage = 'home' } = Astro.props;
             : 'hover:text-blue-600 hover:bg-slate-50'
         }`}>
         Inspirations
-      </a>
-      <a 
-        href="/#bootcamp" 
-        class="px-2.5 py-1.5 rounded-lg text-blue-700 font-semibold hover:bg-blue-50 transition-colors whitespace-nowrap flex items-center gap-1.5">
-        <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-        <span>Bootcamp</span>
       </a>
       <a 
         href="/about" 
@@ -157,35 +141,19 @@ const { activePage = 'home' } = Astro.props;
       Why Sovereign
     </a>
     <a 
-      href="/#how-it-works" 
-      class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">
-      How It Works
-    </a>
-    <a 
-      href="/#cockpit" 
-      class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50">
-      1-Click Cockpit
-    </a>
-    <a 
       href="/implementations" 
       class={`block px-3 py-2 rounded-lg ${activePage === 'implementations' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
-      Implementations Scorecard
+      Scorecard
     </a>
     <a 
       href="/spec" 
       class={`block px-3 py-2 rounded-lg ${activePage === 'spec' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
-      Open Specification (RFC-01)
+      Open Spec
     </a>
     <a 
       href="/inspirations" 
       class={`block px-3 py-2 rounded-lg ${activePage === 'inspirations' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
-      Inspirations & Lineage
-    </a>
-    <a 
-      href="/#bootcamp" 
-      class="block px-3 py-2 rounded-lg text-blue-700 font-bold bg-blue-50/60 hover:bg-blue-50 flex items-center justify-between">
-      <span>AI Bootcamp (Simple AI Studio)</span>
-      <span class="text-[10px]">→</span>
+      Inspirations
     </a>
     <a 
       href="/about" 

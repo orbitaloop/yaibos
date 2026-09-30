@@ -17,6 +17,7 @@ export interface ImplementationScore {
   gaps: string[];
   repoUrl?: string;
   securityAnalysisUrl?: string;
+  screenshots?: { src: string; alt: string }[]; // taken from the project's own README
 }
 
 export const IMPLEMENTATIONS: ImplementationScore[] = [
@@ -47,6 +48,10 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Early-stage release (v2 rewrite) with an evolving plugin ecosystem."
     ],
     repoUrl: "https://github.com/david-darr/jarvis-app",
+    screenshots: [
+      { src: "/images/implementations/jarvis-tasks.webp", alt: "JARVIS Tasks screen: scheduled daily briefing and an automation library of recurring routines" },
+      { src: "/images/implementations/jarvis-vault.webp", alt: "JARVIS Brain screen: graph view of the Markdown vault grouped by Projects, Resources, Personal, Learning and Daily notes" }
+    ],
     securityAnalysisUrl: "/implementations/jarvis-security"
   },
   {
@@ -186,7 +191,10 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Single-user desktop focus with zero role-based permissions.",
       "Early stage with evolving API stability."
     ],
-    repoUrl: "https://github.com/nexu-io/open-design"
+    repoUrl: "https://github.com/nexu-io/open-design",
+    screenshots: [
+      { src: "/images/implementations/open-design.webp", alt: "Open Design home screen: prompt box with output types (slide deck, UI mockup, document) and a model picker" }
+    ]
   },
   {
     name: "Khoj",
@@ -357,10 +365,10 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
 ];
 
 export const SCORING_CRITERIA = [
-  { key: "zeroInstallUI", label: "Zero-Install UI", description: "Clean web or desktop interface without terminal commands or Git hurdles." },
-  { key: "oneClickSOP", label: "1-Click SOPs", description: "Procedures rendered as visual buttons with telemetry and duration tracking." },
-  { key: "byosAuth", label: "BYOS Auth", description: "Team members use existing subscriptions with zero host token bill shock." },
-  { key: "teamSecondBrain", label: "Team Second Brain", description: "Plain Markdown storage with bi-directional in-app editing and semantic search." },
-  { key: "teamRBAC", label: "Team RBAC", description: "Granular folder-level and file-level permissions with area ownership." },
-  { key: "modularPlugins", label: "Modular Engine", description: "Pluggable engine design or open harness foundation (e.g. DSH, OpenCode) where tools and memory are swappable community plugins." }
+  { key: "zeroInstallUI", label: "No terminal", description: "Non-technical users can run SOPs and edit notes from a graphical app." },
+  { key: "oneClickSOP", label: "Portable SOPs", description: "Procedures as Markdown files with maturity stages, runnable in more than one harness, ideally in one click." },
+  { key: "byosAuth", label: "Own subscription", description: "Each user runs agents on their own AI plan through the official client, or their own API key." },
+  { key: "teamSecondBrain", label: "Second brain", description: "Plain Markdown the owner controls, agent entry file, and tools to keep knowledge fresh." },
+  { key: "teamRBAC", label: "Permissions & safety", description: "Approval before external actions, untrusted content handled as data, folder permissions per role." },
+  { key: "modularPlugins", label: "Portability", description: "Vault as single source of truth, easy switch of harness and model, tools registry." }
 ];

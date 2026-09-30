@@ -3,156 +3,57 @@
 
 <section class="relative pt-20 pb-24 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-white">
   <div class="max-w-6xl mx-auto">
-    <!-- Breadcrumb / Spec Status -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-8 shadow-xs">
-      <span class="w-2 h-2 rounded-full bg-blue-600 live-indicator"></span>
-      <span class="font-semibold">OPEN SPECIFICATION v1.0</span>
-      <span class="text-blue-300">|</span>
-      <span class="text-blue-600 font-normal">SOVEREIGN AI HARNESS STANDARD</span>
-    </div>
+    <p class="text-sm text-slate-500 mb-6">
+      Open specification · Public draft v1.0 · CC-BY-4.0
+    </p>
 
     <div class="grid lg:grid-cols-12 gap-12 items-center">
-      <!-- Left Hero Text -->
       <div class="lg:col-span-7 space-y-6">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] font-sans">
-          The Sovereign AI Operating System for Small Business.
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+          Run your business with AI agents, without getting locked in.
         </h1>
 
-        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-light">
-          No terminal commands. No Git merge conflicts. No unpredictable API token bills. YAIBOS bridges your <strong>Personal Knowledge Management (PKM)</strong> second brain with 1-click SOP execution (Standard Operating Procedures: equivalent to skills for business) and Bring Your Own Subscription auth into a calm, zero-friction cockpit.
+        <p class="text-lg sm:text-xl text-slate-600 leading-relaxed">
+          YAIBOS is an open spec for an AI business OS. Your company context, procedures (SOPs) and tools live in plain Markdown files you own. Any AI harness can run them, from Claude Code to Codex, and you can switch harness or model without rewriting anything.
         </p>
 
-        <!-- Explanatory Value Callout -->
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed font-sans">
-          <strong class="text-slate-900 block mb-1">Why a Second Brain + AI OS?</strong>
-          Your company knowledge lives in open Markdown files that you own forever. Instead of re-explaining context to AI in every chat, your autonomous agents read your rules, follow your standard operating procedures, and run safely on your own terms.
-        </div>
+        <p class="text-base text-slate-600 leading-relaxed">
+          This site also grades the tools that exist today against the spec, so you can see what to use now and what is still missing.
+        </p>
 
-        <!-- CTAs -->
-        <div class="flex flex-wrap gap-3 font-mono text-xs sm:text-sm pt-2">
+        <div class="flex flex-wrap gap-3 pt-2 text-sm">
           <a
             href="/spec"
-            class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-xs flex items-center gap-2">
-            <span>READ SPECIFICATION v1.0</span>
-            <span aria-hidden="true">→</span>
+            class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors">
+            Read the spec
           </a>
           <a
-            href="/why"
-            class="px-5 py-3 rounded-lg border border-blue-200 bg-blue-50/60 hover:bg-blue-100 text-blue-800 font-semibold transition-all shadow-xs">
-            WHY SOVEREIGN (THE EQUATION)
+            href="/implementations"
+            class="px-6 py-3 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-semibold transition-colors">
+            See the scorecard
           </a>
-          <a
-            href="/#how-it-works"
-            class="px-5 py-3 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-medium transition-all shadow-xs">
-            HOW IT WORKS
-          </a>
-          <a
-            href="#cockpit"
-            class="px-5 py-3 rounded-lg border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold transition-all flex items-center gap-2">
-            <span>▶ TEST 1-CLICK COCKPIT</span>
-          </a>
-          <a
-            href="https://simpleaistudio.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-5 py-3 rounded-lg border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900 font-semibold transition-all flex items-center gap-1.5 shadow-xs">
-            <span>AI BOOTCAMP (BUILD AN AIBOS)</span>
-            <span class="text-xs" aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <!-- Attributes Strip -->
-        <div class="pt-8 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-          <div>
-            <span class="text-slate-400 block text-[11px]">DATA LAYER</span>
-            <span class="text-slate-800 font-semibold">Open Markdown PKM</span>
-          </div>
-          <div>
-            <span class="text-slate-400 block text-[11px]">AUTH MODEL</span>
-            <span class="text-slate-800 font-semibold">BYOS (Zero Token Debt)</span>
-          </div>
-          <div>
-            <span class="text-slate-400 block text-[11px]">RUNTIME</span>
-            <span class="text-slate-800 font-semibold">1-Click Agent Engine</span>
-          </div>
-          <div>
-            <span class="text-slate-400 block text-[11px]">LICENSE</span>
-            <span class="text-slate-800 font-semibold">CC-BY-4.0 Open Spec</span>
-          </div>
         </div>
       </div>
 
-      <!-- Right Architecture Blueprint Card -->
+      <!-- The v1 idea in one picture: vault -> harness -> model -->
       <div class="lg:col-span-5">
-        <div class="elegant-card rounded-2xl p-6 border border-slate-200/90 bg-white shadow-md relative overflow-hidden">
-          <!-- Card Header Bar -->
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-5 font-mono text-xs">
-            <div class="flex items-center gap-2 text-slate-500">
-              <span class="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block"></span>
-              <span class="font-semibold text-slate-700">yaibos-system-blueprint.arch</span>
-            </div>
-            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-medium font-mono">
-              SPEC v1.0 VALIDATED
-            </span>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3 text-sm">
+          <div class="rounded-lg bg-white border border-slate-200 p-4">
+            <div class="font-semibold text-slate-900">Your vault <span class="font-normal text-slate-500">(Markdown + git, you own it)</span></div>
+            <pre class="mt-2 font-mono text-xs text-slate-600 leading-relaxed">├── AGENTS.md   company context
+├── SOP/        procedures
+├── Tools.md    MCP servers, CLIs
+└── Areas/      knowledge</pre>
           </div>
-
-          <!-- Architecture Visual Stack -->
-          <div class="space-y-3 font-mono text-xs">
-            
-            <div class="p-3 rounded-lg bg-blue-50/60 border border-blue-100">
-              <div class="flex items-center justify-between">
-                <span class="text-blue-700 font-bold">[ 1. PRESENTATION COCKPIT ]</span>
-                <span class="text-[10px] text-blue-600 uppercase">Non-Technical UI</span>
-              </div>
-              <div class="text-slate-600 text-[11px] mt-1 font-sans">
-                • 1-Click SOP Visual Cards with Duration Tracking<br />
-                • In-App Rich Markdown Second Brain Editor<br />
-                • Telemetry Counter & Output Artifact Manifests
-              </div>
-            </div>
-
-            <div class="p-3 rounded-lg bg-emerald-50/60 border border-emerald-100">
-              <div class="flex items-center justify-between">
-                <span class="text-emerald-800 font-bold">[ 2. GOVERNANCE & AUTH ]</span>
-                <span class="text-[10px] text-emerald-700 uppercase">Zero Token Debt</span>
-              </div>
-              <div class="text-slate-600 text-[11px] mt-1 font-sans">
-                • Folder-level & File-level Team Role Permissions (RBAC)<br />
-                • Bring Your Own Subscription (BYOS): ChatGPT / Claude Session Bridge<br />
-                • Lifespan Gates: Assisted → Supervised → Autonomous
-              </div>
-            </div>
-
-            <div class="p-3 rounded-lg bg-amber-50/60 border border-amber-100">
-              <div class="flex items-center justify-between">
-                <span class="text-amber-800 font-bold">[ 3. SOVEREIGN AGENT ENGINE ]</span>
-                <span class="text-[10px] text-amber-700 uppercase">Local Execution</span>
-              </div>
-              <div class="text-slate-600 text-[11px] mt-1 font-sans">
-                • Agent Loop & Deterministic Context Assembler<br />
-                • Local Hybrid Search (Lightweight Embeddings + BM25)<br />
-                • Model Context Protocol (MCP) Tool Dispatcher
-              </div>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-100/70 border border-slate-200">
-              <div class="flex items-center justify-between">
-                <span class="text-slate-800 font-bold">[ 4. SOVEREIGN DATA LAYER ]</span>
-                <span class="text-[10px] text-slate-500 uppercase">File over App</span>
-              </div>
-              <div class="text-slate-600 text-[11px] mt-1 font-sans">
-                • Plain Markdown Files in Local Folders (<code class="text-slate-800 font-mono">SOP/</code>, <code class="text-slate-800 font-mono">Areas/</code>)<br />
-                • Zero proprietary cloud database lock-in
-              </div>
-            </div>
-
+          <div class="text-center text-slate-400" aria-hidden="true">↓ synced to</div>
+          <div class="rounded-lg bg-white border border-slate-200 p-4">
+            <div class="font-semibold text-slate-900">Any harness <span class="font-normal text-slate-500">(replaceable)</span></div>
+            <div class="mt-1 text-slate-600">Claude Code, Codex, OpenCode, Gemini CLI, or a desktop app built on one of them.</div>
           </div>
-
-          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
-            <span>RFC: 2026-YAIBOS-01</span>
-            <a href="/spec" class="text-blue-600 hover:underline font-semibold">
-              Read Complete Schemas →
-            </a>
+          <div class="text-center text-slate-400" aria-hidden="true">↓ uses</div>
+          <div class="rounded-lg bg-white border border-slate-200 p-4">
+            <div class="font-semibold text-slate-900">Any model <span class="font-normal text-slate-500">(replaceable)</span></div>
+            <div class="mt-1 text-slate-600">Through each person's own AI plan or API key.</div>
           </div>
         </div>
       </div>

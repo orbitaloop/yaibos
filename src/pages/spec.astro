@@ -4,316 +4,40 @@ import Header from '../components/Header.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import MyVideoAskSection from '../components/MyVideoAskSection.astro';
 import Footer from '../components/Footer.astro';
-import { PILLARS, ARCHITECTURE_LAYERS } from '../data/spec';
-
-const sopYamlSnippet = `---
-yaibos_version: "1.0"
-id: "sop-inbound-lead-qualification"
-title: "Inbound Lead Qualification & CRM Enrichment"
-area: "Sales & Marketing"
-owner: "Operations Lead"
-maturity_stage: "supervised"  # assisted | supervised | autonomous
-timeout_seconds: 600
-permissions:
-  required_role: "operations"
-  fs_scope:
-    - "read: Resources/Market Data/"
-    - "write: Projects/Active Leads/"
-mcp_tools:
-  - "business_registry_lookup"
-  - "email_verification"
-  - "crm_update"
----`;
-
-const telemetryJsonSnippet = `{
-  "execution_id": "exec-20260914-982341",
-  "sop_id": "sop-inbound-lead-qualification",
-  "trigger": "manual_1click",
-  "triggered_by": "alex@company.com",
-  "auth_mode": "byos_session",
-  "started_at": "2026-09-14T13:42:10Z",
-  "completed_at": "2026-09-14T13:43:08Z",
-  "duration_seconds": 58,
-  "status": "success",
-  "steps_total": 4,
-  "steps_completed": 4,
-  "artifacts_produced": [
-    "Projects/Active Leads/2026-09-14-qualified-leads.csv"
-  ],
-  "estimated_human_minutes_saved": 45
-}`;
-
-const knowledgeHealthYamlSnippet = `---
-yaibos_health:
-  health_score: 92              # 0-100 score (freshness, link validity, syntax)
-  last_validated: "2026-09-01"   # ISO date confirmed by human area owner
-  decay_threshold_days: 60      # Days before note is flagged as stale
-  decay_status: "fresh"         # fresh | decaying | stale | archived
-  contradictions_detected: 0    # Number of unresolved cross-note conflicts
-  owner: "operations@company.com"
-  auto_improve: true            # Allow idle-token daemon to propose diff updates
----`;
-
-const contradictionJsonSnippet = `{
-  "audit_id": "audit-20260915-0042",
-  "audit_type": "contradiction_detected",
-  "severity": "high",
-  "detected_at": "2026-09-15T09:12:00Z",
-  "primary_file": "Areas/Finance/Pricing-Rules.md",
-  "conflicting_file": "SOP/Inbound-Sales-Quote.md",
-  "summary": "Hourly rate mismatch: Pricing-Rules.md states $250/hr, while Inbound-Sales-Quote.md specifies $200/hr.",
-  "recommended_action": "Update Inbound-Sales-Quote.md line 34 to reflect approved $250/hr rate.",
-  "status": "pending_human_review"
-}`;
+// Rendered straight from the repo root SPEC.md: edit the spec there, never here.
+import { Content } from '../../SPEC.md';
 ---
 
 <BaseLayout
-  title="YAIBOS Specification v1.0.0-draft: Technical RFC & Architecture"
-  description="Open specification for YAIBOS: Sovereign AI harness, 1-click SOP manifests, BYOS session auth, Markdown second brain, and RBAC governance.">
+  title="YAIBOS Specification v1.0 draft"
+  description="Open specification for an AI business OS: a Markdown vault holds company context, SOPs and tools, and any AI harness or model can run them.">
   <Header activePage="spec" />
 
-  <main class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-    <div class="max-w-5xl mx-auto">
-      <!-- Breadcrumb & Document Meta -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200 font-mono text-xs">
-        <div class="flex items-center gap-3">
-          <a href="/" class="text-blue-600 hover:underline">← Back to Overview</a>
-          <span class="text-slate-300">/</span>
-          <span class="text-slate-800 font-semibold">SPEC.md (Draft RFC-01)</span>
-        </div>
-
-        <div class="flex items-center gap-3 text-slate-500">
-          <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">
-            STATUS: PUBLIC DRAFT
-          </span>
-          <span>VERSION: 1.0.0</span>
-          <span>LICENSE: CC-BY-4.0</span>
-        </div>
+  <main class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-wrap items-center gap-3 pb-6 mb-10 border-b border-slate-200 text-sm">
+        <button
+          id="copy-spec-btn"
+          type="button"
+          class="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 transition-colors">
+          Copy as Markdown
+        </button>
+        <a href="/SPEC.md" class="px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-800 transition-colors">
+          Raw SPEC.md
+        </a>
+        <a
+          href="https://github.com/orbitaloop/yaibos/blob/main/SPEC.md"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-800 transition-colors">
+          Comment on GitHub ↗
+        </a>
+        <span id="copy-status" class="hidden text-emerald-700 text-sm">Copied.</span>
       </div>
 
-      <!-- Title & Document Header -->
-      <div class="mb-12">
-        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans">
-          YAIBOS: The Sovereign AI Operating System Specification
-        </h1>
-        <p class="mt-4 text-slate-600 text-lg font-light leading-relaxed">
-          An open architectural standard for an integrated, sovereign AI harness designed for small businesses, founders, and non-technical teams.
-        </p>
-
-        <!-- Quick actions -->
-        <div class="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs">
-          <button
-            id="copy-spec-btn"
-            type="button"
-            class="px-4 py-2.5 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2 shadow-xs">
-            <span>📋 COPY SPEC.MD RAW</span>
-          </button>
-          <a
-            href="https://github.com/orbitaloop/yaibos/blob/main/SPEC.md"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 transition-colors flex items-center gap-1.5 shadow-xs">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-            <span>GITHUB REPO / SPEC ↗</span>
-          </a>
-          <a
-            href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-colors shadow-xs">
-            PROPOSE AMENDMENT (MYVIDEOASK) ↗
-          </a>
-        </div>
-        <p id="copy-status" class="hidden text-emerald-700 font-mono text-xs mt-2">
-          ✓ SPEC.md copied to clipboard!
-        </p>
-      </div>
-
-      <!-- Spec Content Body -->
-      <div class="space-y-12 text-slate-700 font-sans leading-relaxed text-base">
-        
-        <!-- Section 1: Executive Summary -->
-        <section id="executive-summary" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs">
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono mb-4 flex items-center gap-2.5">
-            <span class="text-blue-600">01.</span> Executive Summary & Problem Statement
-          </h2>
-          <div class="space-y-4 text-sm sm:text-base leading-relaxed">
-            <p>
-              Current autonomous AI agent frameworks (such as CrewAI, AutoGPT, and raw CLI agents) are engineered exclusively for software developers. They demand terminal fluency, package managers, virtual environment maintenance, and unmetered API keys.
-            </p>
-            <p>
-              Conversely, consumer chat interfaces (ChatGPT, Claude, Gemini) isolate team members in conversational silos. They lack persistent company memory, cannot execute business procedures with verifiable status telemetry, and fail to prevent API token bill shock for the organization.
-            </p>
-            <div class="p-4 rounded-xl bg-blue-50/60 border border-blue-100 text-xs sm:text-sm text-slate-800 font-sans">
-              <strong class="text-blue-900 block mb-1 uppercase font-bold font-mono">The Core Mission:</strong>
-              YAIBOS bridges this gap by decoupling the execution runtime from developer tooling. It provides a visual 1-click execution cockpit over standard plain text Markdown files, authenticated via individual team members' existing consumer AI subscriptions.
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 2: Architecture Layers -->
-        <section id="architecture-layers" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs">
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono mb-4 flex items-center gap-2.5">
-            <span class="text-blue-600">02.</span> System Layer Architecture
-          </h2>
-          <div class="grid sm:grid-cols-2 gap-4">
-            {ARCHITECTURE_LAYERS.map((layer, index) => (
-              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                <span class="text-xs font-mono text-blue-600 uppercase block mb-1 font-semibold">
-                  Layer 0{index + 1}
-                </span>
-                <h3 class="font-bold text-slate-900 text-base mb-2">{layer.name}</h3>
-                <ul class="space-y-1.5 font-mono text-xs text-slate-600">
-                  {layer.items.map((item) => (
-                    <li class="flex items-start gap-1.5">
-                      <span class="text-slate-400">›</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <!-- Section 3: The Six Pillars Deep-Dive -->
-        <section id="pillars-spec" class="space-y-6">
-          <div class="border-b border-slate-200 pb-4">
-            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono flex items-center gap-2.5">
-              <span class="text-blue-600">03.</span> The Six Architectural Pillars
-            </h2>
-            <p class="text-xs font-mono text-slate-500 mt-1">
-              Detailed normative requirements and architectural specifications.
-            </p>
-          </div>
-
-          <div class="space-y-6">
-            {PILLARS.map((pillar) => (
-              <div class="elegant-card p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-                <div class="flex items-center justify-between gap-4 mb-2">
-                  <span class="text-xs font-mono text-blue-600 uppercase font-semibold">
-                    Pillar {pillar.number} · {pillar.badge}
-                  </span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-1">{pillar.title}</h3>
-                <p class="text-xs font-mono text-slate-500 mb-3">{pillar.tagline}</p>
-
-                <div class="space-y-2 mb-4 text-xs leading-relaxed text-slate-700">
-                  <p>{pillar.solution}</p>
-                </div>
-
-                <div class="pt-3 border-t border-slate-100">
-                  <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
-                    Normative Requirements:
-                  </span>
-                  <ul class="space-y-1.5 text-xs font-mono text-slate-600">
-                    {pillar.technicalRequirements.map((req) => (
-                      <li class="flex items-start gap-2">
-                        <span class="text-emerald-600 shrink-0 font-bold">✓</span>
-                        <span>{req}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {pillar.codeSample && (
-                  <div class="mt-4 pt-3 border-t border-slate-100">
-                    <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
-                      Reference Schema:
-                    </span>
-                    <pre class="p-3.5 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto shadow-inner">
-                      <code>{pillar.codeSample.code}</code>
-                    </pre>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <!-- Section 4: Schemas & Manifests -->
-        <section id="schemas" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs space-y-6">
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono flex items-center gap-2.5">
-            <span class="text-blue-600">04.</span> Data Formats & Manifest Schemas
-          </h2>
-
-          <!-- Schema 1: SOP Frontmatter -->
-          <div>
-            <h3 class="font-mono text-xs font-bold text-blue-600 uppercase mb-2">
-              4.1 SOP Manifest Frontmatter (YAML)
-            </h3>
-            <p class="text-xs text-slate-500 mb-3">
-              Stored at the top of any SOP Markdown note inside the workspace (for example in <code class="text-slate-800">SOP/</code>).
-            </p>
-            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
-              <code>{sopYamlSnippet}</code>
-            </pre>
-          </div>
-
-          <!-- Schema 2: Execution Telemetry -->
-          <div>
-            <h3 class="font-mono text-xs font-bold text-emerald-700 uppercase mb-2">
-              4.2 Execution Telemetry Schema (JSON)
-            </h3>
-            <p class="text-xs text-slate-500 mb-3">
-              Emitted upon completion of an SOP execution to generate the audit log and output manifest.
-            </p>
-            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
-              <code>{telemetryJsonSnippet}</code>
-            </pre>
-          </div>
-
-          <!-- Schema 3: Knowledge Health Metadata -->
-          <div>
-            <h3 class="font-mono text-xs font-bold text-blue-600 uppercase mb-2">
-              4.3 Knowledge Note Health Metadata (YAML)
-            </h3>
-            <p class="text-xs text-slate-500 mb-3">
-              Stored in frontmatter of core company directives, SOPs, and memory notes to enable continuous health audits and decay tracking.
-            </p>
-            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
-              <code>{knowledgeHealthYamlSnippet}</code>
-            </pre>
-          </div>
-
-          <!-- Schema 4: Contradiction & Decay Audit Alert -->
-          <div>
-            <h3 class="font-mono text-xs font-bold text-amber-700 uppercase mb-2">
-              4.4 Knowledge Audit & Contradiction Alert Schema (JSON)
-            </h3>
-            <p class="text-xs text-slate-500 mb-3">
-              Emitted by background health daemons when detecting conflicting rules, obsolete pricing, or decaying procedures.
-            </p>
-            <pre class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed shadow-inner">
-              <code>{contradictionJsonSnippet}</code>
-            </pre>
-          </div>
-        </section>
-
-        <!-- Section 5: Security & Sovereignty -->
-        <section id="security" class="elegant-card p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs">
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono mb-4 flex items-center gap-2.5">
-            <span class="text-blue-600">05.</span> Security & Sovereignty Guarantees
-          </h2>
-          <div class="space-y-3 text-xs font-mono text-slate-700">
-            <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 block mb-1">1. Zero Third-Party Secret Relays</strong>
-              Credentials, session tokens, and keys are stored in encrypted client-side storage only. No proprietary cloud proxy broker mediates agent requests.
-            </div>
-            <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 block mb-1">2. Sandboxed File Operations</strong>
-              Agent execution loops operate inside strictly defined filesystem scopes declared in the SOP frontmatter.
-            </div>
-            <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 block mb-1">3. Immutable Local Audit Trail</strong>
-              Every agent filesystem modification, tool invocation, and token consumption trace is appended to an immutable local Git log.
-            </div>
-          </div>
-        </section>
-
-      </div>
+      <article class="prose prose-slate max-w-none prose-headings:scroll-mt-24 prose-h1:text-4xl prose-h1:tracking-tight prose-h2:mt-14 prose-h2:pt-8 prose-h2:border-t prose-h2:border-slate-200 prose-pre:text-[13px] prose-code:before:content-none prose-code:after:content-none prose-table:text-sm">
+        <Content />
+      </article>
     </div>
   </main>
 
@@ -323,22 +47,11 @@ const contradictionJsonSnippet = `{
 </BaseLayout>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const copyBtn = document.getElementById('copy-spec-btn');
-    const copyStatus = document.getElementById('copy-status');
-
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          const res = await fetch('/SPEC.md');
-          const text = await res.text();
-          await navigator.clipboard.writeText(text);
-          copyStatus.classList.remove('hidden');
-          setTimeout(() => copyStatus.classList.add('hidden'), 4000);
-        } catch (err) {
-          copyBtn.textContent = 'COPIED TO CLIPBOARD';
-        }
-      });
-    }
+  document.getElementById('copy-spec-btn')?.addEventListener('click', async () => {
+    const res = await fetch('/SPEC.md');
+    await navigator.clipboard.writeText(await res.text());
+    const status = document.getElementById('copy-status');
+    status.classList.remove('hidden');
+    setTimeout(() => status.classList.add('hidden'), 3000);
   });
 </script>

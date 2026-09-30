@@ -4,85 +4,41 @@ import { PILLARS } from '../data/spec';
 
 <section id="principles" class="py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-slate-50/40">
   <div class="max-w-6xl mx-auto">
-    <div class="max-w-3xl mb-14">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-3">
-        <span>ARCHITECTURAL FOUNDATIONS</span>
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-        The Six Core Pillars of YAIBOS
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+        Six pillars
       </h2>
       <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
-        Designed from first principles to eliminate the operational, financial, and psychological friction of deploying autonomous AI inside small businesses.
+        Version 1 is deliberately small: a Markdown vault defines the context, the SOPs and the tools, and you can switch harness or model at any time. Team features come at level 2.
       </p>
     </div>
 
-    <!-- Pillars Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {PILLARS.map((pillar) => (
-        <div class="elegant-card rounded-xl p-6 border border-slate-200/90 bg-white flex flex-col justify-between hover:border-blue-300 transition-all group">
-          <div>
-            <!-- Number & Badge -->
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-mono text-2xl font-bold text-blue-600/40 group-hover:text-blue-600 transition-colors">
-                {pillar.number}
-              </span>
-              <span class="px-2.5 py-0.5 rounded text-[11px] font-mono border border-slate-200 bg-slate-50 text-slate-600">
-                {pillar.badge}
-              </span>
-            </div>
+        <div class="rounded-xl p-6 border border-slate-200 bg-white flex flex-col">
+          <span class="font-mono text-sm text-slate-400">{pillar.number}</span>
+          <h3 class="mt-1 text-lg font-bold text-slate-900">{pillar.title}</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">{pillar.why}</p>
 
-            <!-- Title & Tagline -->
-            <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-              {pillar.title}
-            </h3>
-            <p class="text-xs font-mono text-blue-600/80 mt-1 mb-4">
-              {pillar.tagline}
-            </p>
+          <h4 class="mt-5 text-xs font-semibold text-slate-900">Core (v1)</h4>
+          <ul class="mt-2 space-y-1.5 text-sm text-slate-700">
+            {pillar.core.map((req) => (
+              <li class="flex gap-2"><span class="text-blue-600 shrink-0">✓</span><span>{req}</span></li>
+            ))}
+          </ul>
 
-            <!-- Problem vs Solution -->
-            <div class="space-y-3 text-xs leading-relaxed">
-              <div class="p-3 rounded-lg bg-red-50 border border-red-100 text-slate-700">
-                <strong class="text-red-700 font-mono block text-[10px] uppercase mb-1">The Friction:</strong>
-                {pillar.problem}
-              </div>
-              <div class="p-3 rounded-lg bg-emerald-50 border border-emerald-100 text-slate-700">
-                <strong class="text-emerald-800 font-mono block text-[10px] uppercase mb-1">The Standard:</strong>
-                {pillar.solution}
-              </div>
-            </div>
-          </div>
-
-          <!-- Technical Requirements List -->
-          <div class="mt-6 pt-4 border-t border-slate-100">
-            <h4 class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mb-2">
-              Key Normative Requirements:
-            </h4>
-            <ul class="space-y-1.5 text-[11px] text-slate-600 font-mono">
-              {pillar.technicalRequirements.map((req) => (
-                <li class="flex items-start gap-1.5">
-                  <span class="text-blue-600 shrink-0">›</span>
-                  <span>{req}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h4 class="mt-4 text-xs font-semibold text-slate-500">Later</h4>
+          <ul class="mt-2 space-y-1.5 text-sm text-slate-500">
+            {pillar.later.map((req) => (
+              <li class="flex gap-2"><span class="shrink-0">·</span><span>{req}</span></li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
 
-    <!-- Read Full Specification CTA Banner -->
-    <div class="mt-12 p-6 rounded-2xl border border-blue-200 bg-blue-50/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <h4 class="text-base font-bold text-slate-900">Looking for the formal technical schema?</h4>
-        <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
-          Read the complete draft RFC including YAML frontmatter specs, telemetry schemas, and sandboxing rules.
-        </p>
-      </div>
-      <a
-        href="/spec"
-        class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-mono text-xs font-bold hover:bg-blue-700 transition-colors shrink-0 shadow-xs">
-        READ COMPLETE SPECIFICATION →
-      </a>
-    </div>
+    <p class="mt-10 text-sm text-slate-600">
+      Exact requirements, levels and file formats are in the <a href="/spec" class="text-blue-600 font-medium hover:underline">full specification</a>.
+    </p>
   </div>
 </section>

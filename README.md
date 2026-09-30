@@ -2,22 +2,31 @@
 
 Official website, interactive implementation scorecard, and open specification for **YAIBOS** (Your AI Business OS).
 
-Sovereign, zero-friction AI operating system specification and harness tailored for founders, small businesses, and non-technical teams.
+Open specification for running a small business with AI agents. v1 scope: a Markdown vault defines company context, SOPs (skills) and tools; any harness (Claude Code, Codex, OpenCode...) and any model can run them. Nothing is built yet: the site publishes the spec and grades existing tools against it.
 
 ## Core Pillars
 
-1. **Zero-Install / All-in-One Simple UI**: Non-technical team members interact through a clean web or desktop dashboard without terminal hurdles, git conflicts, or complex setups.
-2. **1-Click SOP & Skills Execution Dashboard**: Visual business procedures (SOPs) runnable in one click with live telemetry, status indicators, and logs.
-3. **BYOS (Bring Your Own Subscription) Auth**: Team members authenticate using their existing subscriptions (ChatGPT Plus/Team/Pro, Claude Pro/Team, DeepSeek web auth) with zero host API token bill shock.
-4. **Living, Auto-Improving Team Second Brain**: Markdown-first knowledge base with continuous health scoring, decay alerts, semantic contradiction checks, and automated pattern extraction.
-5. **Team Permissions & Role-Based Access Control (RBAC)**: Folder-level and file-level permissions with area responsibility.
-6. **Modular "Everything is a Plugin" Architecture**: Lightweight micro-kernel allowing swappable tools, models, and connectors.
+Six pillars, each with requirements tagged [L1] core v1, [L2] team, or [Opt]. See `SPEC.md` for the normative text.
+
+1. Usable without a terminal
+2. SOPs as portable skills
+3. Bring your own subscription (official harness login or own API key, never scraped sessions)
+4. A living second brain
+5. Permissions and safety
+6. Harness and model portability
+
+## Editing rules
+
+- `SPEC.md` at the repo root is the single source of the spec. `/spec` renders it and `/SPEC.md` serves it raw (`src/pages/SPEC.md.ts`). Never copy it elsewhere.
+- `src/data/spec.ts` is only the short homepage summary of the pillars. Update it when a pillar changes.
+- Scorecard data lives in `src/data/implementations.ts`. Screenshots come from each project's own README, stored in `public/images/implementations/` as WebP (max 1200px wide), with a source link.
+- Avoid fake technical decoration: no "validated" badges, fake file names, pulsing "live" dots or RFC numbers on static content.
 
 ## Tech Stack
 
 - **Framework**: Astro 5 (SSG, static output)
 - **Styling**: Tailwind CSS v4 with `@tailwindcss/vite` and `@tailwindcss/typography`
-- **Design Language**: Dark cyber-minimalist engineering interface, high-contrast monospace accents, no generic AI slope
+- **Design Language**: Light, calm, readable. Plain sentence-case labels, one primary action per section.
 - **Integrations**: MyVideoAsk asynchronous contact (`contact.samuelmichelot.com`)
 - **Analytics**: PostHog EU, loaded after visitor consent, with session recording disabled. YAIBOS uses the existing Simple AI Studio project and tags every event with `source_site: yaibos`; filter the PostHog dashboard by that event property or by `yaibos.com` in Current URL.
 - **Deployment Target**: Cloudflare Pages
@@ -49,7 +58,7 @@ npm run preview
 ```
 yaibos-site/
 ├── README.md                  # Project overview and developer instructions
-├── SPEC.md                    # Complete standalone YAIBOS Open Specification v1.0
+├── SPEC.md                    # YAIBOS Open Specification (single source, rendered at /spec)
 ├── astro.config.mjs           # Astro configuration
 ├── package.json               # Dependencies and scripts
 ├── public/                    # Static assets, favicon, robots.txt

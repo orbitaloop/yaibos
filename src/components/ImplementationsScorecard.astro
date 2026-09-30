@@ -28,7 +28,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
             Important Note on Scoring & Overall Project Value
           </span>
           <p class="text-slate-600">
-            These letter grades (A+, B+, C, etc.) do not measure the overall engineering merit, usefulness, or general value of these projects. Many are world-class developer tools or personal productivity apps. Ratings strictly evaluate how each tool aligns with the specific operational requirements defined in the <a href="/spec" class="text-blue-700 underline font-medium hover:text-blue-900">YAIBOS specification</a>: the concrete needs of non-technical business owners and teams (zero-terminal desktop/web UI, 1-click SOP execution, BYOS cost protection, and sovereign Markdown memory).
+            These letter grades (A+, B+, C, etc.) do not measure the overall engineering merit, usefulness, or general value of these projects. Many are world-class developer tools or personal productivity apps. Ratings strictly evaluate how each tool aligns with the specific operational requirements defined in the <a href="/spec" class="text-blue-700 underline font-medium hover:text-blue-900">YAIBOS specification</a>: the concrete needs of non-technical business owners and teams (portable SOPs, your own AI subscription, a Markdown second brain you own, safety rules, and later a no-terminal team interface).
           </p>
         </div>
       </div>
@@ -136,7 +136,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
               </div>
               <div class="space-y-2 pt-1">
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-700">Zero-Install UI:</span>
+                  <span class="text-slate-700">No terminal:</span>
                   <div class="flex items-center gap-1.5">
                     <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
                       <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.zeroInstallUI / 5) * 100}%`}></div>
@@ -146,7 +146,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-700">1-Click SOPs:</span>
+                  <span class="text-slate-700">Portable SOPs:</span>
                   <div class="flex items-center gap-1.5">
                     <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
                       <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.oneClickSOP / 5) * 100}%`}></div>
@@ -156,7 +156,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-700">BYOS Auth:</span>
+                  <span class="text-slate-700">Own subscription:</span>
                   <div class="flex items-center gap-1.5">
                     <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
                       <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.byosAuth / 5) * 100}%`}></div>
@@ -166,7 +166,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-700">Team Second Brain:</span>
+                  <span class="text-slate-700">Second brain:</span>
                   <div class="flex items-center gap-1.5">
                     <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
                       <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.teamSecondBrain / 5) * 100}%`}></div>
@@ -176,7 +176,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-700">Team RBAC:</span>
+                  <span class="text-slate-700">Permissions & safety:</span>
                   <div class="flex items-center gap-1.5">
                     <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
                       <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.teamRBAC / 5) * 100}%`}></div>
@@ -186,7 +186,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
                 </div>
 
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-700">Modular Engine:</span>
+                  <span class="text-slate-700">Portability:</span>
                   <div class="flex items-center gap-1.5">
                     <div class="w-16 bg-slate-200 h-1.5 rounded-full overflow-hidden">
                       <div class="bg-blue-600 h-full rounded-full" style={`width: ${(tool.scores.modularPlugins / 5) * 100}%`}></div>
@@ -228,6 +228,22 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
               </div>
             </div>
           </div>
+
+          {tool.screenshots && (
+            <div class="mt-6 pt-5 border-t border-slate-100">
+              <div class={`grid gap-4 ${tool.screenshots.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-xl'}`}>
+                {tool.screenshots.map((shot) => (
+                  <figure>
+                    <a href={shot.src} target="_blank" rel="noopener">
+                      <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" class="w-full rounded-lg border border-slate-200" />
+                    </a>
+                    <figcaption class="mt-1.5 text-xs text-slate-500">{shot.alt}</figcaption>
+                  </figure>
+                ))}
+              </div>
+              <p class="mt-2 text-[11px] text-slate-400">Screenshots from the project's README{tool.repoUrl && <> (<a href={tool.repoUrl} target="_blank" rel="noopener noreferrer" class="underline">source</a>)</>}.</p>
+            </div>
+          )}
         </div>
       ))}
     </div>
