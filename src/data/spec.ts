@@ -1,11 +1,11 @@
-// Short homepage summary of the six pillars. The normative text is SPEC.md at the repo root.
+// 🤖 Short homepage summary of the six pillars. The normative text is SPEC.md at the repo root.
 export interface Pillar {
   id: string;
   number: string;
   title: string;
   why: string;
   core: string[];  // [L1] requirements, summarized
-  later: string[]; // [L2] and [Opt] requirements, summarized
+  later: string[]; // [L2], [L3] and [Opt] requirements, summarized
 }
 
 export const PILLARS: Pillar[] = [
@@ -19,8 +19,8 @@ export const PILLARS: Pillar[] = [
       "Every note, SOP and log stays a plain file.",
     ],
     later: [
-      "Team interface to browse and run SOPs [L2].",
-      "Automatic sync, readable conflict choices, no git markers [L2].",
+      "Cockpit to browse, launch and follow SOPs [L2].",
+      "Automatic sync, readable conflict choices, no git markers [L3].",
     ],
   },
   {
@@ -31,7 +31,7 @@ export const PILLARS: Pillar[] = [
     core: [
       "One Markdown file per SOP, with frontmatter.",
       "Runs in at least two harnesses without editing.",
-      "Maturity stage: assisted, supervised or autonomous.",
+      "Lifecycle: draft, pilot or stable; readable approval policy.",
     ],
     later: [
       "One-click catalog by area, with run history [L2].",
@@ -48,7 +48,7 @@ export const PILLARS: Pillar[] = [
       "No scraping or replaying of consumer session tokens.",
       "No credentials in the vault.",
     ],
-    later: ["Per-run plan visibility and spending caps on shared keys [L2]."],
+    later: ["Authentication mode in run history [L2]; shared-key spending caps [L3]."],
   },
   {
     id: "team-second-brain",
@@ -58,10 +58,10 @@ export const PILLARS: Pillar[] = [
     core: [
       "Plain Markdown in a folder you control.",
       "AGENTS.md entry file and README maps agents can follow.",
-      "Owner and last-validated date on notes agents rely on.",
+      "Role-agent notes and memory; maintenance, backups and updates.",
     ],
     later: [
-      "Review queue for stale notes [L2].",
+      "Review queue for stale notes [L3].",
       "Contradiction audits, decision log, learning from runs, semantic search [Opt].",
     ],
   },
@@ -71,12 +71,12 @@ export const PILLARS: Pillar[] = [
     title: "Permissions and safety",
     why: "An agent with blanket access to payroll, client data and email is one bad instruction away from a costly mistake.",
     core: [
-      "Human approval before external or irreversible actions.",
+      "Explicit authorization for external or irreversible actions.",
       "Emails, web pages and documents are data, never instructions.",
-      "Agent permissions: only what both the SOP and the user allow.",
+      "Readable action boundaries within the user's permissions.",
       "Every agent change reviewable in git history.",
     ],
-    later: ["Folder permissions per role, area owners approve changes [L2]."],
+    later: ["Visible approvals and cancellation [L2]; enforced role permissions and area owners [L3]."],
   },
   {
     id: "modular-plugins",
@@ -86,8 +86,8 @@ export const PILLARS: Pillar[] = [
     core: [
       "The vault is the single source of truth.",
       "A tools registry lists every MCP server and CLI.",
-      "A sync step installs SOPs, context and tools in each harness.",
+      "A sync step installs SOPs, context and tools in supported harnesses.",
     ],
-    later: ["Plugin manifest for connectors and panels [Opt]."],
+    later: ["Export run history and leave the cockpit for Base [L2]."],
   },
 ];

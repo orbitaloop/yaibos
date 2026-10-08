@@ -9,7 +9,7 @@ import { PILLARS } from '../data/spec';
         Six pillars
       </h2>
       <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
-        Version 1 is deliberately small: a Markdown vault defines the context, the SOPs and the tools, and you can switch harness or model at any time. Team features come at level 2.
+        Base keeps your context, SOPs, role agents and tools in open files. Cockpit adds a dashboard for execution and tracking. Team adds shared work and enforced permissions. The same six pillars apply across the three profiles.
       </p>
     </div>
 
@@ -20,14 +20,14 @@ import { PILLARS } from '../data/spec';
           <h3 class="mt-1 text-lg font-bold text-slate-900">{pillar.title}</h3>
           <p class="mt-2 text-sm text-slate-600 leading-relaxed">{pillar.why}</p>
 
-          <h4 class="mt-5 text-xs font-semibold text-slate-900">Core (v1)</h4>
+          <h4 class="mt-5 text-xs font-semibold text-slate-900">Base [L1]</h4>
           <ul class="mt-2 space-y-1.5 text-sm text-slate-700">
             {pillar.core.map((req) => (
               <li class="flex gap-2"><span class="text-blue-600 shrink-0">✓</span><span>{req}</span></li>
             ))}
           </ul>
 
-          <h4 class="mt-4 text-xs font-semibold text-slate-500">Later</h4>
+          <h4 class="mt-4 text-xs font-semibold text-slate-500">Optional layers</h4>
           <ul class="mt-2 space-y-1.5 text-sm text-slate-500">
             {pillar.later.map((req) => (
               <li class="flex gap-2"><span class="shrink-0">·</span><span>{req}</span></li>

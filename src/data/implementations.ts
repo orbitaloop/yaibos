@@ -366,9 +366,9 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
 
 export const SCORING_CRITERIA = [
   { key: "zeroInstallUI", label: "No terminal", description: "Non-technical users can run SOPs and edit notes from a graphical app." },
-  { key: "oneClickSOP", label: "Portable SOPs", description: "Procedures as Markdown files with maturity stages, runnable in more than one harness, ideally in one click." },
+  { key: "oneClickSOP", label: "Portable SOPs", description: "Markdown procedures with lifecycle and approval rules (Base); a launch dashboard and run history are optional Cockpit features." },
   { key: "byosAuth", label: "Own subscription", description: "Each user runs agents on their own AI plan through the official client, or their own API key." },
   { key: "teamSecondBrain", label: "Second brain", description: "Plain Markdown the owner controls, agent entry file, and tools to keep knowledge fresh." },
-  { key: "teamRBAC", label: "Permissions & safety", description: "Approval before external actions, untrusted content handled as data, folder permissions per role." },
+  { key: "teamRBAC", label: "Permissions & safety", description: "Authorization and untrusted-input rules (Base); enforced permissions per role belong to Team." },
   { key: "modularPlugins", label: "Portability", description: "Vault as single source of truth, easy switch of harness and model, tools registry." }
 ];

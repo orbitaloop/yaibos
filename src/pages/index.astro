@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import ImplementationProfiles from '../components/ImplementationProfiles.astro';
 import ConceptIllustrations from '../components/ConceptIllustrations.astro';
 import SopCockpitDemo from '../components/SopCockpitDemo.astro';
 import Principles from '../components/Principles.astro';
@@ -15,11 +16,12 @@ import Footer from '../components/Footer.astro';
 
 <BaseLayout
   title="YAIBOS: Open Spec for an AI Business OS"
-  description="Open specification for running a small business with AI agents: context, SOPs and tools in a Markdown vault you own, runnable by any harness and model. Plus a scorecard of existing tools.">
+  description="Open specification for running a small business with AI agents: a portable file-based Base, an optional SOP dashboard, and Team permissions. Plus a scorecard of existing tools.">
   <Header activePage="home" />
 
   <main>
     <Hero />
+    <ImplementationProfiles />
     <ConceptIllustrations />
     <SopCockpitDemo />
     <Principles />

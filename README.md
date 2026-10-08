@@ -2,11 +2,11 @@
 
 Official website, interactive implementation scorecard, and open specification for **YAIBOS** (Your AI Business OS).
 
-Open specification for running a small business with AI agents. v1 scope: a Markdown vault defines company context, SOPs (skills) and tools; any harness (Claude Code, Codex, OpenCode...) and any model can run them. Nothing is built yet: the site publishes the spec and grades existing tools against it.
+Open specification for running a small business with AI agents. The Base profile describes Samuel's existing file-based YAIBOS: company context, SOPs, role-agent definitions and memory, a tools registry and synchronization across supported harnesses. Cockpit adds an optional execution dashboard; Team adds shared context and enforced permissions. The latter two are profiles to implement, not released YAIBOS applications. The site publishes the spec, a cockpit simulation and a qualitative market scorecard.
 
 ## Core Pillars
 
-Six pillars, each with requirements tagged [L1] core v1, [L2] team, or [Opt]. See `SPEC.md` for the normative text.
+Six pillars, each with requirements tagged [L1] Base, [L2] Cockpit, [L3] Team, or [Opt]. See `SPEC.md` for the normative text.
 
 1. Usable without a terminal
 2. SOPs as portable skills
@@ -18,6 +18,8 @@ Six pillars, each with requirements tagged [L1] core v1, [L2] team, or [Opt]. Se
 ## Editing rules
 
 - `SPEC.md` at the repo root is the single source of the spec. `/spec` renders it and `/SPEC.md` serves it raw (`src/pages/SPEC.md.ts`). Never copy it elsewhere.
+- Specification versions and implementation profiles are separate. Keep Base aligned with the working second brain; cockpit metadata must not become mandatory Base fields. Do not imply all harnesses support the same models, subscriptions, tools or scheduling.
+- Existing scorecard grades mix core and optional capabilities and are not conformance certification. Do not regrade projects without fresh evidence.
 - `src/data/spec.ts` is only the short homepage summary of the pillars. Update it when a pillar changes.
 - Scorecard data lives in `src/data/implementations.ts`. Screenshots come from each project's own README, stored in `public/images/implementations/` as WebP (max 1200px wide), with a source link.
 - Avoid fake technical decoration: no "validated" badges, fake file names, pulsing "live" dots or RFC numbers on static content.
@@ -46,12 +48,14 @@ npm run check
 # Build production bundle
 npm run build
 
-# Deploy to Cloudflare Pages
+# Publish committed main changes through the Cloudflare Pages GitHub integration
 npm run deploy
 
 # Preview production build locally
 npm run preview
 ```
+
+Production deploys use the GitHub-connected Cloudflare Pages build on `main`. Run checks and the build, commit the reviewed changes, then push. Do not use direct Wrangler uploads for production. The deploy command pushes committed work only.
 
 ## Repository Structure
 
@@ -68,12 +72,12 @@ yaibos-site/
 │   │   ├── Hero.astro         # Direct positioning, value proposition, quick actions
 │   │   ├── Principles.astro   # Six core architecture pillars
 │   │   ├── SopCockpitDemo.astro # Interactive 1-click SOP simulation
-│   │   ├── SpecDocument.astro # Rendered specification with copyable sections
+│   │   ├── ImplementationProfiles.astro # Base, Cockpit and Team summary
 │   │   ├── ImplementationsScorecard.astro # Filterable matrix of market tools and grades
 │   │   ├── MyVideoAskSection.astro # Asynchronous video/audio/text contact
 │   │   └── Footer.astro       # Attribution, open spec license, links
 │   ├── data/
-│   │   ├── spec.ts            # Structured specification data
+│   │   ├── spec.ts            # Short homepage pillar summary
 │   │   └── implementations.ts # Market tools evaluation criteria and scores
 │   ├── layouts/
 │   │   └── BaseLayout.astro   # Main layout with SEO, fonts, and dark theme

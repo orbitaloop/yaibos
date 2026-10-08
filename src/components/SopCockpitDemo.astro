@@ -6,13 +6,13 @@
     <!-- Header -->
     <div class="max-w-3xl mb-12">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-200 bg-emerald-50 text-xs font-mono text-emerald-800 mb-3">
-        <span>CONCEPT MOCKUP, LEVEL 2</span>
+        <span>COCKPIT [L2] · CONCEPT SIMULATION</span>
       </div>
       <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-        What a level 2 team interface could look like
+        What an optional Cockpit could look like
       </h2>
       <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
-        This is a clickable mockup, not a product. It shows how non-technical team members could run SOPs (the business equivalent of agent skills) with buttons instead of terminal commands, and see what each run produced.
+        This simulation illustrates the optional Cockpit profile: browse SOPs, launch them and follow progress and outputs. Base already works through an existing harness. A real cockpit needs an integration with its supported harnesses; switching harness may change this interface.
       </p>
     </div>
 
@@ -30,7 +30,7 @@
         </div>
       </div>
       <p class="text-slate-600 leading-relaxed pt-1">
-        In multi-step business workflows where some tasks are completed by humans and some by AI, every SOP can be triggered either visually in 1 click from the harness, or called via REST API and deep-link URLs. A team member in Slack, Asana, Trello, or any ERP/CRM can click an embedded SOP link directly on a task card to execute the procedure in 1 click in their harness, or an ERP webhook executes the AI step automatically once predecessor human tasks are signed off.
+        An implementation may add API or deep-link triggers for workflows shared between humans and AI. The example routes above are illustrative, not active endpoints. Availability depends on the cockpit and harness integration, and each trigger must respect the SOP approval policy.
       </p>
     </div>
 
@@ -39,7 +39,7 @@
       <!-- Cockpit Top Bar -->
       <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
         <div class="flex items-center gap-3">
-          <span class="text-blue-700 font-bold">WORKSPACE: AI_ZONE (SMB-OPERATIONS-CORE)</span>
+          <span class="text-blue-700 font-bold">WORKSPACE: EXAMPLE BUSINESS · SIMULATED DATA</span>
           <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-[11px] flex items-center gap-1.5 transition-all">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
             <span>TOTAL SAVED THIS WEEK: <strong id="top-week-total" class="font-bold">15h</strong></span>
@@ -64,7 +64,7 @@
               <div>
                 <div class="flex items-center gap-2 mb-1.5">
                   <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-amber-100 text-amber-800 border border-amber-200">
-                    STAGE 2: SUPERVISED
+                    MODE: SUPERVISED
                   </span>
                   <span class="text-[11px] font-mono text-slate-500">Area: Sales & Marketing</span>
                 </div>
@@ -92,7 +92,7 @@
               <div>
                 <div class="flex items-center gap-2 mb-1.5">
                   <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-                    STAGE 3: AUTONOMOUS
+                    MODE: AUTONOMOUS
                   </span>
                   <span class="text-[11px] font-mono text-slate-500">Area: Accounting</span>
                 </div>
@@ -120,7 +120,7 @@
               <div>
                 <div class="flex items-center gap-2 mb-1.5">
                   <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-blue-100 text-blue-800 border border-blue-200">
-                    STAGE 1: ASSISTED
+                    MODE: ASSISTED
                   </span>
                   <span class="text-[11px] font-mono text-slate-500">Area: Operations & Support</span>
                 </div>
