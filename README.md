@@ -24,6 +24,7 @@ Six pillars, each with requirements tagged [L1] Base, [L2] Cockpit, [L3] Team, o
 - `src/data/spec.ts` is only the short homepage summary of the pillars. Update it when a pillar changes.
 - Scorecard data lives in `src/data/implementations.ts`. Screenshots come from each project's own README, stored in `public/images/implementations/` as WebP (max 1200px wide), with a source link.
 - Avoid fake technical decoration: no "validated" badges, fake file names, pulsing "live" dots or RFC numbers on static content.
+- Inspiration profiles live in `src/data/inspirations.ts`, shared by the homepage and `/inspirations`. Verify names, books, roles, figures and attributed ideas against primary sources before editing, retain the source links, and update the review date after a full review. Editorial takeaways are not direct quotations. Keep existing Base behavior separate from proposed Cockpit and Team features.
 
 ## Tech Stack
 
