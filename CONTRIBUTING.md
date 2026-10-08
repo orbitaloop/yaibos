@@ -14,7 +14,7 @@ We welcome contributions, RFC amendments, critiques, and implementation submissi
 - If you build or know of an open-source agent harness, visual cockpit, or second-brain tool that matches or challenges YAIBOS criteria, open an Issue titled `[Scorecard] <Project Name>`.
 - Provide:
   - Repository link.
-  - Scores (0 to 5) across the six criteria: Zero-Install UI, 1-Click SOPs, BYOS Auth, Team Second Brain, Team RBAC, and Modular Plugins.
+  - Scores (0 to 5) across the six criteria: Zero-Install UI, Portable Skills, BYOS Auth, Team Second Brain, Team RBAC, and Modular Plugins.
   - Known strengths and gaps relative to the YAIBOS standard.
 
 ### 3. Asynchronous Voice & Video Feedback

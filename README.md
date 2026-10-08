@@ -2,14 +2,14 @@
 
 Official website, interactive implementation scorecard, and open specification for **YAIBOS** (Your AI Business OS).
 
-Open specification for running a small business with AI agents. The Base profile describes Samuel's existing file-based YAIBOS: company context, SOPs, role-agent definitions and memory, a tools registry and synchronization across supported harnesses. Cockpit adds an optional execution dashboard; Team adds shared context and enforced permissions. The latter two are profiles to implement, not released YAIBOS applications. The site publishes the spec, a cockpit simulation and a qualitative market scorecard.
+Open specification for running a small business with AI agents. The Base profile describes Samuel's existing file-based YAIBOS: company context, agent skills, role-agent definitions and memory, a tools registry and synchronization across supported harnesses. Cockpit adds an optional execution dashboard; Team adds shared context and enforced permissions. The latter two are profiles to implement, not released YAIBOS applications. The site publishes the spec, a cockpit simulation and a qualitative market scorecard.
 
 ## Core Pillars
 
 Six pillars, each with requirements tagged [L1] Base, [L2] Cockpit, [L3] Team, or [Opt]. See `SPEC.md` for the normative text.
 
 1. Usable without a terminal
-2. SOPs as portable skills
+2. Portable agent skills
 3. Bring your own subscription (official harness login or own API key, never scraped sessions)
 4. A living second brain
 5. Permissions and safety
@@ -17,6 +17,7 @@ Six pillars, each with requirements tagged [L1] Base, [L2] Cockpit, [L3] Team, o
 
 ## Editing rules
 
+- Public and technical copy uses **skills** or **agent skills** as the main term. Explain **SOPs** occasionally as the business procedures those skills implement. A skill can include instructions, scripts and resources; not every skill is a business SOP. Preserve source filenames, command names and existing data identifiers when editing terminology.
 - `SPEC.md` at the repo root is the single source of the spec. `/spec` renders it and `/SPEC.md` serves it raw (`src/pages/SPEC.md.ts`). Never copy it elsewhere.
 - Specification versions and implementation profiles are separate. Keep Base aligned with the working second brain; cockpit metadata must not become mandatory Base fields. Do not imply all harnesses support the same models, subscriptions, tools or scheduling.
 - Existing scorecard grades mix core and optional capabilities and are not conformance certification. Do not regrade projects without fresh evidence.
@@ -71,7 +72,7 @@ yaibos-site/
 │   │   ├── Header.astro       # Tech header with live telemetry style
 │   │   ├── Hero.astro         # Direct positioning, value proposition, quick actions
 │   │   ├── Principles.astro   # Six core architecture pillars
-│   │   ├── SopCockpitDemo.astro # Interactive 1-click SOP simulation
+│   │   ├── SopCockpitDemo.astro # Interactive skill execution simulation
 │   │   ├── ImplementationProfiles.astro # Base, Cockpit and Team summary
 │   │   ├── ImplementationsScorecard.astro # Filterable matrix of market tools and grades
 │   │   ├── MyVideoAskSection.astro # Asynchronous video/audio/text contact

@@ -15,21 +15,21 @@ export const PILLARS: Pillar[] = [
     title: "Usable without a terminal",
     why: "Operations staff and assistants will not adopt a tool that starts with npm install.",
     core: [
-      "Run an existing SOP from a graphical app, no shell commands.",
-      "Every note, SOP and log stays a plain file.",
+      "Run an existing skill from a graphical app, no shell commands.",
+      "Every note, skill and log stays a plain file.",
     ],
     later: [
-      "Cockpit to browse, launch and follow SOPs [L2].",
+      "Cockpit to browse, launch and follow skills [L2].",
       "Automatic sync, readable conflict choices, no git markers [L3].",
     ],
   },
   {
     id: "one-click-sop",
     number: "02",
-    title: "SOPs as portable skills",
-    why: "Procedures in a wiki are never followed. Procedures in one vendor's format die with that vendor.",
+    title: "Portable agent skills",
+    why: "Skills package reusable instructions, scripts and resources. Business skills make your SOPs executable by an agent.",
     core: [
-      "One Markdown file per SOP, with frontmatter.",
+      "One Markdown file per skill, with frontmatter.",
       "Runs in at least two harnesses without editing.",
       "Lifecycle: draft, pilot or stable; readable approval policy.",
     ],
@@ -44,7 +44,7 @@ export const PILLARS: Pillar[] = [
     title: "Bring your own subscription",
     why: "Metered API keys make team bills unpredictable. Most people already pay for an AI plan.",
     core: [
-      "Each user runs SOPs with their own plan, through the vendor's official client, or their own API key.",
+      "Each user runs skills with their own plan, through the vendor's official client, or their own API key.",
       "No scraping or replaying of consumer session tokens.",
       "No credentials in the vault.",
     ],
@@ -86,7 +86,7 @@ export const PILLARS: Pillar[] = [
     core: [
       "The vault is the single source of truth.",
       "A tools registry lists every MCP server and CLI.",
-      "A sync step installs SOPs, context and tools in supported harnesses.",
+      "A sync step installs skills, context and tools in supported harnesses.",
     ],
     later: ["Export run history and leave the cockpit for Base [L2]."],
   },

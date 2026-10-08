@@ -44,7 +44,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     gaps: [
       "Not based on an open-source harness (such as DSH / Cordis): it uses a custom Python and Electron runtime, so it does not benefit from community harness plugins, fixes, or shared ecosystem improvements.",
       "Single-user desktop focus lacking multi-user team RBAC and folder-scoped permissions.",
-      "Automations are not yet standardized into business SOP cards with duration and ROI telemetry.",
+      "Automations are not yet standardized into business skill cards with duration and ROI telemetry.",
       "Early-stage release (v2 rewrite) with an evolving plugin ecosystem."
     ],
     repoUrl: "https://github.com/david-darr/jarvis-app",
@@ -56,7 +56,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
   },
   {
     name: "OBSIA (kevines-ods/OBSIA)",
-    category: "Obsidian Multi-Agent Harness & SOP Standard",
+    category: "Obsidian Multi-Agent Harness & Skill Standard",
     harnessStatus: "Multi-Harness Layer (Claude Code native / OpenCode / Aider)",
     grade: "B+",
     summary: "An open file-based multi-agent harness specification where agents, reusable skills, scheduled tasks, and memory live in plain Markdown, featuring a context-aware modular installer and per-agent security contracts.",
@@ -116,7 +116,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Custom Visual Engine (No Open Harness)",
     grade: "B+",
     summary: "Self-hosted, open-source platform for orchestrating AI agents through a visual drag-and-drop canvas with native MCP support, prompt vault, and team RBAC.",
-    verdict: "Superb self-hosted visual orchestration with strong secrets management and multi-provider LLM support, though its node canvas is more complex than 1-click business SOP buttons and it lacks a native bi-directional Markdown note editor.",
+    verdict: "Superb self-hosted visual orchestration with strong secrets management and multi-provider LLM support, though its node canvas is more complex than 1-click business skill buttons and it lacks a native bi-directional Markdown note editor.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 4,
@@ -131,8 +131,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Native Model Context Protocol (MCP) support and multi-provider model switching without config changes."
     ],
     gaps: [
-      "Not built on a standard open harness like DSH or OpenCode: uses a bespoke node-graph runtime, meaning it cannot natively run community harness plugins or shared SOP workflows.",
-      "Node-and-wire visual canvas still demands workflow logic design rather than simple 1-click SOP cards for business staff.",
+      "Not built on a standard open harness like DSH or OpenCode: uses a bespoke node-graph runtime, meaning it cannot natively run community harness plugins or shared skill workflows.",
+      "Node-and-wire visual canvas still demands workflow logic design rather than simple 1-click skill cards for business staff.",
       "Does not provide an integrated, human-editable Markdown second-brain note vault.",
       "Self-hosting requires Docker or server deployment before non-technical staff can use it."
     ],
@@ -202,7 +202,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Not an Agent Harness (Conversational Search)",
     grade: "B-",
     summary: "Self-hosted AI search and personal assistant that indexes local Markdown notes and documents.",
-    verdict: "Strong on local Markdown second-brain capabilities, but lacks an operational 1-click business SOP runner.",
+    verdict: "Strong on local Markdown second-brain capabilities, but lacks an operational 1-click business skill runner.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 2,
@@ -218,7 +218,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     ],
     gaps: [
       "Not an autonomous agent harness and not built on open harnesses like DSH or OpenCode: custom Python engine focused on personal document retrieval and conversational search.",
-      "Oriented toward conversational Q&A rather than running business SOPs.",
+      "Oriented toward conversational Q&A rather than running business skills.",
       "No 1-click action cards with telemetry and duration tracking.",
       "Rudimentary team sharing and permission controls."
     ],
@@ -258,7 +258,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Not an Agent Harness (Document RAG)",
     grade: "C+",
     summary: "All-in-one desktop and enterprise app for chatting with documents and local models.",
-    verdict: "Polished document workspace, but strictly conversational with no concept of business SOP execution.",
+    verdict: "Polished document workspace, but strictly conversational with no concept of business skill execution.",
     scores: {
       zeroInstallUI: 5,
       oneClickSOP: 1,
@@ -273,8 +273,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Flexible model endpoint configuration."
     ],
     gaps: [
-      "Not an agent harness and not built on open runtimes like DSH or OpenCode: custom monolithic Node.js backend designed for document Q&A, lacking autonomous business SOP execution.",
-      "No 1-click SOP procedures or automated business agent loops.",
+      "Not an agent harness and not built on open runtimes like DSH or OpenCode: custom monolithic Node.js backend designed for document Q&A, lacking autonomous business skill execution.",
+      "No 1-click business skill procedures or automated business agent loops.",
       "Data locked in internal vector databases instead of plain Markdown.",
       "Rigid plugin architecture with limited extensibility."
     ],
@@ -314,7 +314,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Not an Agent Harness (Model Chat UI)",
     grade: "C+",
     summary: "Feature-rich self-hosted chat interface for Ollama, OpenAI, and compatible endpoints.",
-    verdict: "Great as a sovereign ChatGPT alternative, but has no operational SOP catalog or agent action loops.",
+    verdict: "Great as a sovereign ChatGPT alternative, but has no operational skill catalog or agent action loops.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 1,
@@ -329,7 +329,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       "Broad model support including local Ollama runners."
     ],
     gaps: [
-      "A web chat interface for LLMs rather than an agent harness: not built on DSH or OpenCode, and lacks an autonomous task loop or business SOP runner.",
+      "A web chat interface for LLMs rather than an agent harness: not built on DSH or OpenCode, and lacks an autonomous task loop or business skill runner.",
       "Purely conversational: no 1-click execution cards or task duration telemetry.",
       "Lacks a bi-directional Markdown second brain.",
       "Not designed to automate repetitive business processes."
@@ -365,8 +365,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
 ];
 
 export const SCORING_CRITERIA = [
-  { key: "zeroInstallUI", label: "No terminal", description: "Non-technical users can run SOPs and edit notes from a graphical app." },
-  { key: "oneClickSOP", label: "Portable SOPs", description: "Markdown procedures with lifecycle and approval rules (Base); a launch dashboard and run history are optional Cockpit features." },
+  { key: "zeroInstallUI", label: "No terminal", description: "Non-technical users can run skills and edit notes from a graphical app." },
+  { key: "oneClickSOP", label: "Portable Skills", description: "Markdown procedures with lifecycle and approval rules (Base); a launch dashboard and run history are optional Cockpit features." },
   { key: "byosAuth", label: "Own subscription", description: "Each user runs agents on their own AI plan through the official client, or their own API key." },
   { key: "teamSecondBrain", label: "Second brain", description: "Plain Markdown the owner controls, agent entry file, and tools to keep knowledge fresh." },
   { key: "teamRBAC", label: "Permissions & safety", description: "Authorization and untrusted-input rules (Base); enforced permissions per role belong to Team." },
