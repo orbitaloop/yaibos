@@ -26,8 +26,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     category: "Sovereign Desktop AI Workspace & Vault UI",
     harnessStatus: "Custom Bespoke Engine (No Open Harness)",
     grade: "B+",
-    summary: "Self-hosted, open-source AI workspace packaging multi-model chat, automations, and an embedded Markdown vault visualization into native cross-platform desktop installers.",
-    verdict: "Superb alignment with YAIBOS on sovereign local file custody and cross-platform desktop delivery (Windows PC + Mac), but relies on an isolated custom runtime rather than an open harness.",
+    summary: "Self-hosted, open-source AI workspace with multi-model chat, automations, and a Markdown second-brain viewer. Available as native desktop installers across platforms.",
+    verdict: "Fits YAIBOS requirements for local file ownership and desktop delivery on Windows PC and Mac. It uses a custom runtime with its own maintenance needs.",
     scores: {
       zeroInstallUI: 5,
       oneClickSOP: 3,
@@ -37,9 +37,9 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 4
     },
     strengths: [
-      "Packaged desktop releases for Windows PC, macOS, and Linux with zero terminal friction.",
+      "Packaged desktop releases for Windows PC, macOS, and Linux that do not require a terminal.",
       "Embedded Markdown vault graph visualization directly inside the agent interface.",
-      "Sovereign data architecture: chats, memory, notes, and automations live in local files you own."
+      "Chats, memory, notes, and automations live in local files you own."
     ],
     gaps: [
       "Not based on an open-source harness (such as DSH / Cordis): it uses a custom Python and Electron runtime, so it does not benefit from community harness plugins, fixes, or shared ecosystem improvements.",
@@ -59,8 +59,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     category: "Obsidian Multi-Agent Harness & Skill Standard",
     harnessStatus: "Multi-Harness Layer (Claude Code native / OpenCode / Aider)",
     grade: "B+",
-    summary: "An open file-based multi-agent harness specification where agents, reusable skills, scheduled tasks, and memory live in plain Markdown, featuring a context-aware modular installer and per-agent security contracts.",
-    verdict: "The primary structural reference for YAIBOS file-based architecture: rather than reinventing a custom closed runtime, it proves skills, agent permissions, and memory can operate on top of open CLI harnesses with zero database lock-in.",
+    summary: "An open file-based specification for multiple agents. Agents, skills, scheduled tasks, and memory live in plain Markdown. It includes a modular installer that uses host context and a security contract for each agent.",
+    verdict: "The primary reference for YAIBOS file-based architecture. It runs skills, agent permissions, and memory on existing open CLI harnesses, keeping the files independent of a database.",
     scores: {
       zeroInstallUI: 2,
       oneClickSOP: 3,
@@ -70,7 +70,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 5
     },
     strengths: [
-      "100% Markdown architecture: agents, skills, and memory live in an open Obsidian vault with zero database lock-in.",
+      "Agents, skills, and memory live entirely in an open Markdown second brain, viewed and edited with Obsidian.",
       "Per-agent RBAC security contract: declared read-only agents and bounded write zones, with unlisted mutations requiring human-reviewed Git patches.",
       "Context-aware modular installation: detects host tools (Docker, Proxmox, browser) to provision only relevant skills and agents, avoiding context window bloat.",
       "Native Claude Code integration, with portable prompt-generation scripts for other CLI harnesses (OpenCode, Aider, Goose)."
@@ -88,8 +88,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     category: "Modular Agent Engine & Runtime",
     harnessStatus: "Native Open Harness (Reference Runtime)",
     grade: "B+",
-    summary: "The leading open-source modular agent harness built on the Cordis plugin engine with swappable memory, tool, and execution plugins.",
-    verdict: "The premier architectural reference for a modular open-source agent harness, benefiting from a vibrant community plugin ecosystem, but currently lacks a non-technical UI and multi-user RBAC.",
+    summary: "An open-source agent harness built on the Cordis plugin engine, with swappable memory, tool, and execution plugins.",
+    verdict: "An architectural reference for a modular open-source agent harness, with community plugins. It currently lacks an interface for non-technical users and multi-user RBAC.",
     scores: {
       zeroInstallUI: 2,
       oneClickSOP: 4,
@@ -99,9 +99,9 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 5
     },
     strengths: [
-      "World-class modular plugin architecture based on the Cordis meta-framework.",
-      "Vibrant open-source ecosystem: swappable execution, memory (dsh-mnemon), and tool plugins.",
-      "Robust telemetry, duration counting, and audit trace logging."
+      "Modular plugin architecture based on the Cordis meta-framework.",
+      "Swappable open-source execution, memory (dsh-mnemon), and tool plugins.",
+      "Execution telemetry, duration tracking, and audit logs."
     ],
     gaps: [
       "Strictly developer-oriented: requires terminal knowledge and Node.js to deploy.",
@@ -116,7 +116,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Custom Visual Engine (No Open Harness)",
     grade: "B+",
     summary: "Self-hosted, open-source platform for orchestrating AI agents through a visual drag-and-drop canvas with native MCP support, prompt vault, and team RBAC.",
-    verdict: "Superb self-hosted visual orchestration with strong secrets management and multi-provider LLM support, though its node canvas is more complex than 1-click business skill buttons and it lacks a native bi-directional Markdown note editor.",
+    verdict: "Self-hosted visual orchestration with secrets management and support for several LLM providers. Its node canvas is more complex than one-click business skill buttons, and it lacks a native Markdown editor that reads and writes notes.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 4,
@@ -144,7 +144,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Bespoke Agency Service (No Open Harness)",
     grade: "B",
     summary: "AI-native product studio and automation agency deploying custom autonomous agents, onboarding pipelines, and bespoke operational workflows for business operators.",
-    verdict: "Strong operational design and rapid production-ready MVP delivery, but structured as custom agency deployments rather than a sovereign, self-hosted open-source second brain operating system.",
+    verdict: "Custom agency deployments with a focus on operational design and rapid delivery of production-ready MVPs. It does not provide a self-hosted, open-source second-brain operating system.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 4,
@@ -155,8 +155,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     },
     strengths: [
       "Custom autonomous agent workflows for lead intake, client onboarding, and operational procedures.",
-      "High-end product design and rapid two-week delivery for operators.",
-      "Emphasizes client ownership of the final deployed automation system."
+      "Product design and two-week delivery for operators.",
+      "Clients own the deployed automation system."
     ],
     gaps: [
       "Not an open harness and not built on open runtimes like DSH or OpenCode: custom boutique agency automation built on private client infrastructure.",
@@ -171,8 +171,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     category: "Visual Harness UI",
     harnessStatus: "Built on Open Harness (DeepSeek Harness)",
     grade: "B",
-    summary: "Local-first visual desktop interface built directly on top of DeepSeek Harness (DSH), bringing a consumer-friendly UI to a vibrant open harness.",
-    verdict: "Demonstrates the exact advantage of building on a vibrant open harness: directly inherits DSH's modular plugins, execution telemetry, and community updates while providing a zero-install visual layer.",
+    summary: "A local-first visual desktop interface built on DeepSeek Harness (DSH), designed to make the harness accessible to non-technical users.",
+    verdict: "Uses DSH's modular plugins, execution telemetry, and community updates through a visual desktop layer that does not require terminal setup.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 4,
@@ -212,7 +212,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 3
     },
     strengths: [
-      "Excellent local Markdown indexing and semantic retrieval.",
+      "Local Markdown indexing and semantic retrieval.",
       "Clean web and desktop interface.",
       "Self-hosted privacy guarantees."
     ],
@@ -229,8 +229,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     category: "Knowledge Base + Plugin Ecosystem",
     harnessStatus: "Fragmented Plugins (No Unified Harness)",
     grade: "B-",
-    summary: "The premier local Markdown editor with community agent plugins (Smart Connections, Banners, Local LLMs).",
-    verdict: "Unbeatable as a personal knowledge vault, but too complex for non-technical staff and lacks multi-user RBAC.",
+    summary: "A local Markdown editor with community agent plugins (Smart Connections, Banners, Local LLMs).",
+    verdict: "Suited to editing a personal second brain. Setup is complex for non-technical staff, and it lacks multi-user RBAC.",
     scores: {
       zeroInstallUI: 2,
       oneClickSOP: 2,
@@ -240,8 +240,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
       modularPlugins: 4
     },
     strengths: [
-      "The gold standard for plain text Markdown sovereignty.",
-      "Massive plugin ecosystem and local graph visualization.",
+      "Plain Markdown files remain under your control.",
+      "A large plugin ecosystem and local graph visualization.",
       "Zero proprietary data format lock-in."
     ],
     gaps: [
@@ -286,7 +286,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Custom Visual DAG Engine (No Open Harness)",
     grade: "C",
     summary: "Visual canvas builders for chaining LLMs, tools, and multi-agent workflows into APIs.",
-    verdict: "Powerful for developers, but node spaghetti is too complex for non-technical teams, and lacks sovereign Markdown notes.",
+    verdict: "Visual node workflows suit developers but are complex for non-technical teams. They lack owner-controlled Markdown notes.",
     scores: {
       zeroInstallUI: 3,
       oneClickSOP: 3,
@@ -313,8 +313,8 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     category: "Self-Hosted Model Interface",
     harnessStatus: "Not an Agent Harness (Model Chat UI)",
     grade: "C+",
-    summary: "Feature-rich self-hosted chat interface for Ollama, OpenAI, and compatible endpoints.",
-    verdict: "Great as a sovereign ChatGPT alternative, but has no operational skill catalog or agent action loops.",
+    summary: "A self-hosted chat interface for Ollama, OpenAI, and compatible endpoints.",
+    verdict: "A self-hosted alternative to ChatGPT, without an operational skill catalog or agent action loops.",
     scores: {
       zeroInstallUI: 4,
       oneClickSOP: 1,
@@ -342,7 +342,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     harnessStatus: "Code Frameworks (Custom Runtimes)",
     grade: "D+",
     summary: "Code-first multi-agent orchestration libraries (CrewAI, AutoGPT, OpenManus) providing programmatic agent harnesses for developers.",
-    verdict: "Powerful algorithmic experiments, but each invents its own custom runtime rather than building on modular standards like DSH or OpenCode, and they lack a non-technical UI.",
+    verdict: "Support algorithmic experiments through their own custom runtimes. They do not build on modular standards such as DSH or OpenCode, and lack an interface for non-technical users.",
     scores: {
       zeroInstallUI: 1,
       oneClickSOP: 2,
@@ -358,7 +358,7 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     gaps: [
       "Each library invents its own custom programmatic harness rather than converging on modular standards like DSH (Cordis) or terminal standards like OpenCode, resulting in framework churn and developer lock-in.",
       "Zero graphical UI: requires terminal execution and virtual environments.",
-      "Metered API consumption causes severe token bill shock.",
+      "Metered API use can produce unexpectedly large bills.",
       "No persistent human-readable knowledge layer or team permissions."
     ]
   }
@@ -366,9 +366,9 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
 
 export const SCORING_CRITERIA = [
   { key: "zeroInstallUI", label: "No terminal", description: "Non-technical users can run skills and edit notes from a graphical app." },
-  { key: "oneClickSOP", label: "Portable Skills", description: "Markdown procedures with lifecycle and approval rules (Base); a launch dashboard and run history are optional Cockpit features." },
+  { key: "oneClickSOP", label: "Portable skills", description: "Markdown procedures with lifecycle and approval rules (Base); a launch dashboard and run history are optional Cockpit features." },
   { key: "byosAuth", label: "Own subscription", description: "Each user runs agents on their own AI plan through the official client, or their own API key." },
   { key: "teamSecondBrain", label: "Second brain", description: "Plain Markdown the owner controls, agent entry file, and tools to keep knowledge fresh." },
   { key: "teamRBAC", label: "Permissions & safety", description: "Authorization and untrusted-input rules (Base); enforced permissions per role belong to Team." },
-  { key: "modularPlugins", label: "Portability", description: "Vault as single source of truth, easy switch of harness and model, tools registry." }
+  { key: "modularPlugins", label: "Portability", description: "Second brain as the single source of truth, harness and model switching, and a tools registry." }
 ];

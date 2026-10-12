@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="YAIBOS Implementation Scorecard: Market Landscape & Gaps"
+  title="YAIBOS implementation scorecard: tools and gaps"
   description="Comparative evaluation of agent harnesses, second brains, and LLMOps tools against the YAIBOS sovereign small-business standard.">
   <Header activePage="implementations" />
 
@@ -19,7 +19,7 @@ import Footer from '../components/Footer.astro';
         <div class="max-w-3xl">
 
           <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
-            Market Implementations & Gap Analysis
+            How existing tools compare
           </h1>
 
           <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-light">
@@ -27,7 +27,7 @@ import Footer from '../components/Footer.astro';
           </p>
 
           <p class="mt-2 text-slate-500 text-xs sm:text-sm leading-relaxed">
-            Note: Ratings evaluate fit against the specific operational needs of business owners defined in the YAIBOS specification, rather than general project quality or developer value.
+            Ratings show how each tool fits the business needs in the YAIBOS specification. They do not measure overall project quality or value to developers.
           </p>
 
           <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-slate-500">
@@ -36,10 +36,10 @@ import Footer from '../components/Footer.astro';
               12 projects graded
             </span>
             <span>•</span>
-            <span>Last Updated: September 2026</span>
+            <span>Last updated: September 2026</span>
             <span>•</span>
             <a href="https://contact.samuelmichelot.com/?lang=en&source_site=yaibos" class="text-blue-600 hover:underline">
-              Submit a Project for Grading ↗
+              Suggest a project to review ↗
             </a>
           </div>
         </div>
@@ -54,39 +54,39 @@ import Footer from '../components/Footer.astro';
       <div class="max-w-6xl mx-auto">
         <div class="max-w-3xl mb-8">
           <h2 class="text-2xl font-bold text-slate-900 font-mono">
-            KEY STRATEGIC TAKEAWAYS
+            Where the gaps are
           </h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">
-            Why existing tools fall short for founder-led small businesses.
+            Common gaps for founder-led small businesses.
           </p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs font-mono">
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-            <span class="text-blue-600 font-bold block mb-2 text-sm">1. The Developer Bias</span>
+            <span class="text-blue-600 font-bold block mb-2 text-sm">1. Tools built for developers</span>
             <p class="text-slate-600 leading-relaxed font-sans text-sm">
-              Most frameworks assume users are software engineers with Git workflows, Docker, and terminal comfort. Non-technical staff are completely alienated by current agent tooling.
+              Most frameworks expect users to know Git, Docker, and the terminal. That makes them difficult for non-technical staff to use.
             </p>
           </div>
 
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-            <span class="text-emerald-700 font-bold block mb-2 text-sm">2. The Token Shock Trap</span>
+            <span class="text-emerald-700 font-bold block mb-2 text-sm">2. Unpredictable API costs</span>
             <p class="text-slate-600 leading-relaxed font-sans text-sm">
-              Metered API architectures force founders to shoulder uncapped financial liabilities when team members trigger agent loops. BYOS authentication is an existential requirement.
+              Agent loops can run up metered API costs when team members use them without spending limits. Bring-your-own-subscription (BYOS) access gives each person a way to use their existing AI plan.
             </p>
           </div>
 
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-            <span class="text-amber-800 font-bold block mb-2 text-sm">3. The Knowledge Island</span>
+            <span class="text-amber-800 font-bold block mb-2 text-sm">3. Context and team access</span>
             <p class="text-slate-600 leading-relaxed font-sans text-sm">
-              Tools either store context in black-box vector databases that humans cannot inspect, or in personal note-taking apps that lack multi-user team permissions and agent runners.
+              Context may sit in vector databases that people cannot inspect, or in personal note apps without team permissions or agent runners.
             </p>
           </div>
 
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-            <span class="text-purple-700 font-bold block mb-2 text-sm">4. The Bespoke Harness Silo</span>
+            <span class="text-purple-700 font-bold block mb-2 text-sm">4. Maintaining a custom runtime</span>
             <p class="text-slate-600 leading-relaxed font-sans text-sm">
-              Building a custom agent runtime from scratch isolates projects from community improvements. Tools built on vibrant open-source harnesses (like DeepSeek Harness or OpenCode) inherit modular plugins, adapters, and security patches automatically. Bespoke runtimes must maintain everything alone.
+              A custom agent runtime needs its own tool drivers, plugins, and fixes. Building on an open-source harness such as DeepSeek Harness or OpenCode gives projects access to shared plugins, adapters, and security patches.
             </p>
           </div>
         </div>

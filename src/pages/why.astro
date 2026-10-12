@@ -7,8 +7,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Why Sovereign AI: The Business Equation & Anti-Lock-In Principles"
-  description="Why sovereign local-first AI matters: the business utility equation U = M * C * Skills * Tools, the dangers of vendor lock-in, and the freedom to switch LLMs and harnesses easily.">
+  title="Why YAIBOS: business context, useful skills, and control of your files"
+  description="How models, context, skills, and tools affect AI business results. Why YAIBOS keeps your files portable when you change models or harnesses.">
   <Header activePage="why" />
 
   <main class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -17,15 +17,15 @@ import Footer from '../components/Footer.astro';
       <!-- Top Kicker & Title -->
       <div class="space-y-4 pb-12 mb-12 border-b border-slate-200/80">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 font-semibold shadow-xs">
-          <span>THE SOVEREIGN ADVANTAGE</span>
+          <span>Control of your AI setup</span>
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
-          Why YAIBOS: The Equation for Business Leverage and Data Sovereignty
+          Why keep your business files portable?
         </h1>
 
         <p class="text-lg sm:text-xl text-slate-600 font-light leading-relaxed">
-          Why you should never lock your company's processes inside a proprietary AI silo, why the best AI system is local-first, and how the core business leverage formula works.
+          YAIBOS keeps company knowledge and procedures in files you control. This makes it easier to change AI tools without rebuilding your business context.
         </p>
       </div>
 
@@ -33,20 +33,20 @@ import Footer from '../components/Footer.astro';
       <section class="space-y-8 mb-16">
         <div>
           <span class="text-xs font-mono text-blue-600 font-semibold uppercase tracking-wider block mb-1">
-            Foundational Mental Model
+            A way to think about useful AI
           </span>
           <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
-            The Business AI Equation: U = M × C × Skills × Tools
+            Models, context, skills, and tools
           </h2>
           <p class="mt-3 text-slate-600 leading-relaxed font-sans text-base sm:text-lg">
-            Too many companies believe that getting business results from AI is simply about picking the smartest model. In reality, raw intelligence is only one factor in a multiplicative chain.
+            A capable model needs company context, reusable skills, and tools to get useful work done. I think of those factors as a multiplication:
           </p>
         </div>
 
         <!-- Formula Card -->
         <div class="elegant-card rounded-2xl p-8 sm:p-10 border border-blue-200 bg-gradient-to-br from-blue-50/50 via-white to-slate-50 text-center shadow-xs">
           <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-3 font-semibold">
-            The Multiplicative Leverage Formula
+            Business AI utility
           </span>
           <div class="font-mono text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <span class="text-blue-600">U</span>
@@ -60,7 +60,7 @@ import Footer from '../components/Footer.astro';
             <span class="text-emerald-700">Tools</span>
           </div>
           <p class="mt-4 text-xs sm:text-sm text-slate-500 font-mono">
-            Utility = Model Intelligence × Context Quality × Skills × Action Tools
+            Utility = Model intelligence × Context quality × Skills × Action tools
           </p>
         </div>
 
@@ -70,56 +70,56 @@ import Footer from '../components/Footer.astro';
           <!-- Term 1: Model -->
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-mono font-bold text-lg text-blue-600">M: Model Intelligence</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Cognitive Core</span>
+              <span class="font-mono font-bold text-lg text-blue-600">M: Model intelligence</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600">Reasoning</span>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed font-sans">
-              The raw reasoning capability of the underlying LLM (ex. Claude, GPT, DeepSeek, local open-weights models, etc.). The horsepower under the hood.
+              The reasoning ability of the model, such as Claude, GPT, DeepSeek, or a local open-weights model.
             </p>
             <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-100">
-              Risk if weak: Poor reasoning, misunderstanding complex multi-step logic.
+              A weak model can struggle with complex reasoning and tasks that need several steps.
             </div>
           </div>
 
           <!-- Term 2: Context -->
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-mono font-bold text-lg text-blue-600">C: Context Quality</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 text-blue-700">Living Second Brain</span>
+              <span class="font-mono font-bold text-lg text-blue-600">C: Context quality</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 text-blue-700">Second brain</span>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed font-sans">
-              Static context (company principles, voice, guidelines in <code class="font-mono text-slate-800">AGENTS.md</code>, client history in Markdown) and dynamic context (emails, customer records). Kept fresh via auto-improvement, decay alerts, and contradiction audits.
+              Static context (company principles, voice, guidelines in <code class="font-mono text-slate-800">AGENTS.md</code>, client history in Markdown) and dynamic context (emails, customer records). Automatic updates, stale-note alerts, and contradiction audits help keep it current.
             </p>
             <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-100">
-              Risk if zero or stale: Generic hallucinations, out-of-date answers, or acting on conflicting business rules.
+              Missing or stale context can lead to made-up details, outdated answers, or conflicting business rules.
             </div>
           </div>
 
           <!-- Term 3: SOP -->
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-mono font-bold text-lg text-amber-700">Skills: Reusable Capabilities</span>
+              <span class="font-mono font-bold text-lg text-amber-700">Skills: Reusable instructions</span>
               <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800">Procedures</span>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed font-sans">
               Agent skills package reusable instructions, scripts and resources. Business skills can implement standard operating procedures (SOPs), with clear inputs, approval rules and reviewable outputs.
             </p>
             <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-100">
-              Risk if zero: Prompt lottery where employees get chaotic, inconsistent results.
+              Without shared skills, each employee writes their own prompts and gets inconsistent results.
             </div>
           </div>
 
           <!-- Term 4: Tools -->
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-xs space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-mono font-bold text-lg text-emerald-700">Tools: Action Capability</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Real Execution</span>
+              <span class="font-mono font-bold text-lg text-emerald-700">Tools: Access to business systems</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Actions</span>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed font-sans">
               Model Context Protocol (MCP) servers, local file system read/write, terminal scripts, CRM endpoints, and public registry or billing APIs.
             </p>
             <div class="text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-100">
-              Risk if zero: Conversational paralysis where the AI can chat, but cannot do real work.
+              Without tools, the agent can give advice but cannot update files or business systems.
             </div>
           </div>
 
@@ -128,18 +128,18 @@ import Footer from '../components/Footer.astro';
         <!-- Why Multiplication Matters Alert -->
         <div class="p-6 rounded-xl bg-amber-50/60 border border-amber-200 text-slate-800 text-sm font-sans space-y-2">
           <strong class="text-amber-900 block font-semibold">
-            Why It is Multiplicative, Not Additive:
+            What happens when a factor is missing
           </strong>
           <p class="leading-relaxed">
-            In multiplication, if any single factor is zero, the entire outcome collapses to zero:
+            Multiplication makes the dependency easy to see: if a factor is zero, the product is zero.
           </p>
           <ul class="space-y-1.5 font-mono text-xs text-slate-700 list-disc pl-5">
-            <li><strong>Genius Model × 0 Context = Generic hallucinations.</strong> The model knows everything about Wikipedia, but nothing about your company.</li>
-            <li><strong>Genius Model × Great Context × 0 skills = Prompt chaos.</strong> Team members write random, unrepeatable prompts and hope for the best.</li>
-            <li><strong>Genius Model × Great Context × Great skills × 0 Tools = Zero action.</strong> The agent creates advice in a chat window, but writes zero files and updates zero systems.</li>
+            <li>A model with no company context may invent details about your business.</li>
+            <li>With context but no shared skills, team members have to write their own prompts for each task.</li>
+            <li>With context and skills but no tools, the agent can give advice in chat. It cannot write files or update systems.</li>
           </ul>
           <p class="text-xs text-slate-600 pt-2 font-sans">
-            YAIBOS ensures all four factors operate at maximum fidelity, turning theoretical AI capability into predictable, sovereign business leverage.
+            YAIBOS describes how to connect these four parts in a system you control.
           </p>
         </div>
       </section>
@@ -148,40 +148,40 @@ import Footer from '../components/Footer.astro';
       <section class="space-y-6 mb-16 pt-8 border-t border-slate-200/80">
         <div>
           <span class="text-xs font-mono text-red-600 font-semibold uppercase tracking-wider block mb-1">
-            Strategic Risk
+            Vendor dependence
           </span>
           <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
-            The Trap of Closed SaaS & Vendor Lock-In
+            The cost of depending on one vendor
           </h2>
         </div>
 
         <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-sans">
-          The big AI cloud giants (OpenAI, Anthropic, Google) are racing to bundle everything into their proprietary cloud wrappers: memory, agent tools, execution environments, and user interfaces.
+          OpenAI, Anthropic, and Google bundle memory, agent tools, execution environments, and interfaces in their platforms.
         </p>
 
         <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-sans">
-          This looks convenient on day one, but it is an existential trap for a business:
+          Before putting your business processes in one platform, consider what it would take to leave:
         </p>
 
         <div class="space-y-4 text-sm font-sans">
           <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-            <strong class="text-slate-900 block text-base font-semibold">1. Your Core Value Is Your Processes and Knowledge</strong>
+            <strong class="text-slate-900 block text-base font-semibold">1. Your processes and knowledge</strong>
             <p class="text-slate-600 leading-relaxed">
-              What makes your business competitive is not the commodity LLM everyone has access to. It is your unique way of operating: your qualifying criteria, your pricing formulas, your client history, your internal procedures. If you store these inside an opaque cloud interface, you are handing the crown jewels of your business to a single vendor.
+              Your lead qualification criteria, pricing formulas, client history, and internal procedures shape how your business works. Keeping them inside an opaque cloud interface makes you depend on that vendor to access and use them.
             </p>
           </div>
 
           <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-            <strong class="text-slate-900 block text-base font-semibold">2. The Risk of Competitor Training Leakage</strong>
+            <strong class="text-slate-900 block text-base font-semibold">2. How the provider uses your data</strong>
             <p class="text-slate-600 leading-relaxed">
-              Proprietary cloud providers constantly update and train future model iterations. When you feed your most intimate operational data and edge-case solutions into closed cloud platforms, you risk training the very models that your competitors will use tomorrow.
+              Providers keep training new models. If a platform uses your operational data and solutions for training, those contributions may benefit models your competitors also use.
             </p>
           </div>
 
           <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-            <strong class="text-slate-900 block text-base font-semibold">3. Geopolitical, Legal, and Outage Risks</strong>
+            <strong class="text-slate-900 block text-base font-semibold">3. Outages, pricing, and access changes</strong>
             <p class="text-slate-600 leading-relaxed">
-              What happens if a major cloud provider experiences an outage, changes its pricing by 500%, alters its terms of service, or restricts access due to international regulations? If your entire company relies on their proprietary harness, your operations freeze instantly.
+              An outage or a change in terms can interrupt your work. A provider could also raise prices, say by 500%, or restrict access because of international regulations. If your company depends entirely on its harness, you may have no way to keep those operations running.
             </p>
           </div>
         </div>
@@ -191,43 +191,43 @@ import Footer from '../components/Footer.astro';
       <section class="space-y-6 mb-16 pt-8 border-t border-slate-200/80">
         <div>
           <span class="text-xs font-mono text-emerald-700 font-semibold uppercase tracking-wider block mb-1">
-            Architectural Freedom
+            Changing tools
           </span>
           <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
-            The Freedom to Switch Models & Harnesses
+            Changing models and harnesses
           </h2>
         </div>
 
         <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-sans">
-          The principle is simple: <em>the LLM is the engine (raw horsepower), but the harness is what steers the horse</em>. You must always maintain complete separation between the harness, the model, and your data.
+          The model does the reasoning. The harness gives it instructions, tools, and an interface. Keeping your data separate lets you change either one.
         </p>
 
         <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-sans">
-          In 2026, the AI race moves too fast to marry a single provider:
+          Models and tools change quickly. Your setup should let you choose what fits the work:
         </p>
 
         <div class="grid sm:grid-cols-2 gap-4 text-xs font-mono">
           <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2">
-            <span class="text-blue-600 font-bold block text-sm">Predicting the Future is Impossible</span>
+            <span class="text-blue-600 font-bold block text-sm">Providers change</span>
             <p class="text-slate-600 font-sans text-xs leading-relaxed">
-              Anthropic leads in coding one quarter; DeepSeek shocks the market with cost-efficient reasoning the next; OpenAI or Google surges the following month. Tying your company to one vendor leaves you stranded when the frontier shifts.
+              A provider that suits you today may be overtaken by another. A setup tied to one vendor makes switching harder.
             </p>
           </div>
 
           <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2">
-            <span class="text-emerald-700 font-bold block text-sm">Different Models for Different Tasks</span>
+            <span class="text-emerald-700 font-bold block text-sm">Match the model to the task</span>
             <p class="text-slate-600 font-sans text-xs leading-relaxed">
-              Complex code refactoring demands Claude Code or Antigravity. Massive batch extraction runs faster and 10x cheaper on DeepSeek. Highly sensitive medical or financial data requires a local offline model (Ollama / vLLM) or an LLM provider with strong privacy guarantees (such as Zero Data Retention / ZDR or private enterprise endpoints).
+              Complex code refactoring calls for tools such as Claude Code or Antigravity. Batch extraction can run faster and 10x cheaper on DeepSeek. Highly sensitive medical or financial data requires a local offline model (Ollama / vLLM) or an LLM provider with strong privacy guarantees, such as Zero Data Retention (ZDR) or private enterprise endpoints.
             </p>
           </div>
         </div>
 
         <div class="p-6 rounded-2xl bg-blue-50/50 border border-blue-200 text-slate-800 text-sm font-sans space-y-2">
           <strong class="text-blue-900 block font-semibold text-base">
-            How YAIBOS Keeps Your Skills Portable:
+            How YAIBOS keeps skills portable
           </strong>
           <p class="leading-relaxed text-slate-700">
-            Your <strong>second brain</strong>, <strong>skill sources</strong> and <strong>tool descriptions</strong> live in files you control. The chosen model and connectors determine what data leaves your machine during execution.
+            Your second brain, skill sources, and tool descriptions live in files you control. The chosen model and connectors determine what data leaves your machine during execution.
           </p>
           <p class="leading-relaxed text-slate-700">
             To change harness, keep the same source files and run synchronization for a supported destination. Native skill packaging, tool connections, authentication and permissions need verification. Cockpit features may require a different integration.
@@ -242,33 +242,33 @@ import Footer from '../components/Footer.astro';
       <section class="space-y-6 mb-16 pt-8 border-t border-slate-200/80">
         <div>
           <span class="text-xs font-mono text-purple-700 font-semibold uppercase tracking-wider block mb-1">
-            The Sovereign Standard
+            Daily work
           </span>
           <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
-            What Sovereignty Looks Like in Daily Work
+            What you keep control of
           </h2>
         </div>
 
         <div class="grid sm:grid-cols-3 gap-6 text-sm font-sans">
           <div class="p-5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
-            <span class="font-mono text-xs text-blue-600 font-bold block">1. FILE OVER APP</span>
-            <strong class="text-slate-900 block text-base font-semibold">Zero Database Lock-In</strong>
+            <span class="font-mono text-xs text-blue-600 font-bold block">1. File over app</span>
+            <strong class="text-slate-900 block text-base font-semibold">Readable files</strong>
             <p class="text-xs text-slate-600 leading-relaxed">
               Following <a href="https://stephango.com/file-over-app" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">Steph Ango’s “File over app” principle</a>, YAIBOS keeps business context and procedures in plain Markdown files readable with any text editor.
             </p>
           </div>
 
           <div class="p-5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
-            <span class="font-mono text-xs text-emerald-700 font-bold block">2. ZERO TOKEN SHOCK</span>
-            <strong class="text-slate-900 block text-base font-semibold">BYOS Authentication</strong>
+            <span class="font-mono text-xs text-emerald-700 font-bold block">2. Your own AI plan</span>
+            <strong class="text-slate-900 block text-base font-semibold">Bring your own subscription</strong>
             <p class="text-xs text-slate-600 leading-relaxed">
               Team members use their own AI plan through the official app or harness (Claude Code with a Claude plan, Codex with a ChatGPT plan). The founder does not get surprise metered API bills.
             </p>
           </div>
 
           <div class="p-5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
-            <span class="font-mono text-xs text-amber-700 font-bold block">3. DETERMINISTIC REPEATABILITY</span>
-            <strong class="text-slate-900 block text-base font-semibold">1-Click Business Skills</strong>
+            <span class="font-mono text-xs text-amber-700 font-bold block">3. Reusable procedures</span>
+            <strong class="text-slate-900 block text-base font-semibold">Skills and optional launch buttons</strong>
             <p class="text-xs text-slate-600 leading-relaxed">
               Base runs business skills through an existing harness. An optional Cockpit adds launch buttons, progress, approvals and exportable history for its supported harnesses.
             </p>
@@ -280,10 +280,10 @@ import Footer from '../components/Footer.astro';
       <div class="p-8 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div class="space-y-1">
           <h3 class="text-lg font-bold text-slate-900 font-sans">
-            Ready to inspect the open specification?
+            Read the specification
           </h3>
           <p class="text-xs text-slate-600">
-            Read the normative requirements, YAML schemas, and security guarantees.
+            See the normative requirements, YAML schemas, and safety rules.
           </p>
         </div>
 
@@ -291,12 +291,12 @@ import Footer from '../components/Footer.astro';
           <a
             href="/spec"
             class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-xs">
-            READ THE SPEC →
+            Read the spec
           </a>
           <a
             href="/about"
             class="px-5 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-800 font-semibold transition-all shadow-xs">
-            ABOUT SAMUEL'S STORY
+            About Samuel
           </a>
         </div>
       </div>

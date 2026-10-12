@@ -13,14 +13,14 @@ export const PILLARS: Pillar[] = [
     id: "zero-install-ui",
     number: "01",
     title: "Usable without a terminal",
-    why: "Operations staff and assistants will not adopt a tool that starts with npm install.",
+    why: "Operations staff and assistants need to use skills without installing packages in a terminal.",
     core: [
-      "Run an existing skill from a graphical app, no shell commands.",
+      "Run an existing skill from a graphical app without shell commands.",
       "Every note, skill and log stays a plain file.",
     ],
     later: [
       "Cockpit to browse, launch and follow skills [L2].",
-      "Automatic sync, readable conflict choices, no git markers [L3].",
+      "Automatic sync and readable choices for conflicts, without git markers [L3].",
     ],
   },
   {
@@ -46,7 +46,7 @@ export const PILLARS: Pillar[] = [
     core: [
       "Each user runs skills with their own plan, through the vendor's official client, or their own API key.",
       "No scraping or replaying of consumer session tokens.",
-      "No credentials in the vault.",
+      "Keep credentials out of the second brain.",
     ],
     later: ["Authentication mode in run history [L2]; shared-key spending caps [L3]."],
   },
@@ -54,7 +54,7 @@ export const PILLARS: Pillar[] = [
     id: "team-second-brain",
     number: "04",
     title: "A living second brain",
-    why: "Agents are only as good as the context they read, and company knowledge decays quietly.",
+    why: "Agents need current company context. Outdated notes can lead them to use old rules or facts.",
     core: [
       "Plain Markdown in a folder you control.",
       "AGENTS.md entry file and README maps agents can follow.",
@@ -69,7 +69,7 @@ export const PILLARS: Pillar[] = [
     id: "team-rbac",
     number: "05",
     title: "Permissions and safety",
-    why: "An agent with blanket access to payroll, client data and email is one bad instruction away from a costly mistake.",
+    why: "Broad access to payroll, client data, and email increases the damage an agent can cause when it follows a bad instruction.",
     core: [
       "Explicit authorization for external or irreversible actions.",
       "Emails, web pages and documents are data, never instructions.",
@@ -82,9 +82,9 @@ export const PILLARS: Pillar[] = [
     id: "modular-plugins",
     number: "06",
     title: "Harness and model portability",
-    why: "Harnesses and models change every few months. Your procedures should outlive all of them.",
+    why: "Harnesses and models change every few months. Keeping procedures in open files makes them easier to use with the next tool.",
     core: [
-      "The vault is the single source of truth.",
+      "The second brain is the single source of truth.",
       "A tools registry lists every MCP server and CLI.",
       "A sync step installs skills, context and tools in supported harnesses.",
     ],

@@ -12,15 +12,15 @@ const { variant = 'card' } = Astro.props;
       <div class="max-w-2xl mx-auto text-center">
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-4">
-          <span>THE CONTEXT LAYER & YAIBOS DISPATCH</span>
+          <span>The Context Layer & YAIBOS</span>
         </div>
 
         <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-sans">
-          Curated Intelligence on Sovereign AI & Second Brains
+          Weekly notes on AI and second brains
         </h3>
 
         <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
-          Get weekly, high-signal breakdowns of practical AI agent setups, Personal Knowledge Management (PKM) methods, team second brains, and open harness specifications. Curated directly by Samuel Michelot. No spam, zero AI fluff.
+          Samuel Michelot selects practical AI agent setups and personal knowledge management (PKM) methods each week, including team second brains and open harness specifications.
         </p>
 
         <!-- Form -->
@@ -34,12 +34,12 @@ const { variant = 'card' } = Astro.props;
           <button
             type="submit"
             class="newsletter-btn px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-bold transition-all shrink-0 shadow-xs">
-            SUBSCRIBE →
+            Subscribe
           </button>
         </form>
 
         <div class="newsletter-message hidden mt-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono">
-          ✓ Thank you! You are subscribed to curated dispatches on sovereign AI & PKM.
+          You are subscribed. Expect weekly notes on sovereign AI and PKM.
         </div>
 
         <p class="mt-4 text-[11px] text-slate-400 font-mono">
@@ -51,10 +51,10 @@ const { variant = 'card' } = Astro.props;
 ) : (
   <div class="newsletter-compact space-y-3">
     <div class="text-xs font-bold uppercase tracking-wider text-slate-900 font-mono">
-      Curated Newsletter
+      Newsletter
     </div>
     <p class="text-xs text-slate-600 leading-relaxed font-sans">
-      Weekly insights on sovereign AI, Personal Knowledge Management (PKM), and open agent harnesses.
+      Weekly notes on sovereign AI, personal knowledge management (PKM), and open agent harnesses.
     </p>
     <form class="newsletter-form ph-no-capture flex gap-2">
       <input
@@ -66,11 +66,11 @@ const { variant = 'card' } = Astro.props;
       <button
         type="submit"
         class="newsletter-btn px-3.5 py-2 rounded-md bg-slate-900 hover:bg-blue-600 text-white font-mono text-xs font-semibold transition-colors shrink-0">
-        JOIN
+        Subscribe
       </button>
     </form>
     <div class="newsletter-message hidden p-2 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono">
-      ✓ Subscribed! Welcome aboard.
+      You are subscribed.
     </div>
   </div>
 )}

@@ -4,7 +4,7 @@ const profiles = [
   {
     level: 'L1', title: 'Base', label: 'The system Samuel uses today',
     benefit: 'Your second brain, skills, role agents and tools live in open files. Run them through an existing AI harness, with your own official subscription or API key.',
-    dependency: 'Sync adapters, authentication and tool connections for each supported harness. No dedicated YAIBOS app required.',
+    dependency: 'Sync adapters, authentication and tool connections for each supported harness. You do not need a dedicated YAIBOS app.',
     exit: 'Change harness while keeping your business files. Verify tools, permissions and schedules in the destination.',
   },
   {
@@ -16,7 +16,7 @@ const profiles = [
   {
     level: 'L3', title: 'Team', label: 'Optional shared operations',
     benefit: 'Everything in Cockpit, plus shared context, enforced role permissions, area owners and a team audit trail.',
-    dependency: 'Identity, shared storage, file sync and access enforcement. More infrastructure to maintain.',
+    dependency: 'Identity, shared storage, file sync and access enforcement. You will have more infrastructure to maintain.',
     exit: 'Export files, history and policies. Configure and verify access enforcement again in the destination.',
   },
 ];
@@ -25,8 +25,8 @@ const profiles = [
 <section id="implementation-profiles" class="py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-slate-50/40">
   <div class="max-w-6xl mx-auto">
     <div class="max-w-3xl mb-8">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">One portable base. Optional layers when you need them.</h2>
-      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">Base is complete on its own. Cockpit and Team describe additional capabilities, with more dependence on the chosen integration.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Start with Base and add what you need</h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">Base works on its own. Cockpit and Team describe extra capabilities that depend on how the dashboard and harness are integrated.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
       {profiles.map((profile) => (
@@ -41,6 +41,6 @@ const profiles = [
         </article>
       ))}
     </div>
-    <p class="mt-6 text-sm text-slate-600">The business files remain portable at every level. Identical interface features across harnesses are not guaranteed. <a class="text-blue-700 font-medium hover:underline" href="/spec#2-conventions-and-implementation-profiles">Read the profile requirements →</a></p>
+    <p class="mt-6 text-sm text-slate-600">The business files remain portable at every level. Identical interface features across harnesses are not guaranteed. <a class="text-blue-700 font-medium hover:underline" href="/spec#2-conventions-and-implementation-profiles">Read the profile requirements</a></p>
   </div>
 </section>
