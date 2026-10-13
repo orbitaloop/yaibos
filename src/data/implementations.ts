@@ -22,11 +22,11 @@ export interface ImplementationScore {
 
 export const IMPLEMENTATIONS: ImplementationScore[] = [
   {
-    name: "JARVIS (david-darr/jarvis-app)",
+    name: "Kairos (formerly JARVIS, david-darr/kairos)",
     category: "Sovereign Desktop AI Workspace & Vault UI",
     harnessStatus: "Custom Bespoke Engine (No Open Harness)",
     grade: "B+",
-    summary: "Self-hosted, open-source AI workspace with multi-model chat, automations, and a Markdown second-brain viewer. Available as native desktop installers across platforms.",
+    summary: "Self-hosted, open-source AI workspace with multi-model chat, automations, and a Markdown second-brain viewer. Rebranded from JARVIS to Kairos with the v2.0 release, featuring an editorial light UI, Forge coding environment, and native desktop installers.",
     verdict: "Fits YAIBOS requirements for local file ownership and desktop delivery on Windows PC and Mac. It uses a custom runtime with its own maintenance needs.",
     scores: {
       zeroInstallUI: 5,
@@ -38,19 +38,20 @@ export const IMPLEMENTATIONS: ImplementationScore[] = [
     },
     strengths: [
       "Packaged desktop releases for Windows PC, macOS, and Linux that do not require a terminal.",
-      "Embedded Markdown vault graph visualization directly inside the agent interface.",
+      "Embedded Markdown vault graph visualization in Library directly inside the workspace.",
       "Chats, memory, notes, and automations live in local files you own."
     ],
     gaps: [
       "Not based on an open-source harness (such as DSH / Cordis): it uses a custom Python and Electron runtime, so it does not benefit from community harness plugins, fixes, or shared ecosystem improvements.",
       "Single-user desktop focus lacking multi-user team RBAC and folder-scoped permissions.",
       "Automations are not yet standardized into business skill cards with duration and ROI telemetry.",
-      "Early-stage release (v2 rewrite) with an evolving plugin ecosystem."
+      "Evolving plugin ecosystem under the new v2.0 architecture."
     ],
-    repoUrl: "https://github.com/david-darr/jarvis-app",
+    repoUrl: "https://github.com/david-darr/kairos",
     screenshots: [
-      { src: "/images/implementations/jarvis-tasks.webp", alt: "JARVIS Tasks screen: scheduled daily briefing and an automation library of recurring routines" },
-      { src: "/images/implementations/jarvis-vault.webp", alt: "JARVIS Brain screen: graph view of the Markdown vault grouped by Projects, Resources, Personal, Learning and Daily notes" }
+      { src: "/images/implementations/kairos-home.webp", alt: "Kairos 2.0 Home: workspace dashboard with vault access, daily briefing, agents, and model status" },
+      { src: "/images/implementations/kairos-tasks.webp", alt: "Kairos 2.0 Tasks: automation routines, event triggers (webhooks/GitHub pushes), and execution history" },
+      { src: "/images/implementations/kairos-vault.webp", alt: "Kairos 2.0 Library Vault: interactive graph view of Markdown notes grouped by Projects, Resources, Personal, and Learning" }
     ],
     securityAnalysisUrl: "/implementations/jarvis-security"
   },

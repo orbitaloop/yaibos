@@ -231,7 +231,7 @@ import { IMPLEMENTATIONS, SCORING_CRITERIA } from '../data/implementations';
 
           {tool.screenshots && (
             <div class="mt-6 pt-5 border-t border-slate-100">
-              <div class={`grid gap-4 ${tool.screenshots.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-xl'}`}>
+              <div class={`grid gap-4 ${tool.screenshots.length > 2 ? 'sm:grid-cols-2 lg:grid-cols-3' : tool.screenshots.length > 1 ? 'sm:grid-cols-2' : 'sm:max-w-xl'}`}>
                 {tool.screenshots.map((shot) => (
                   <figure>
                     <a href={shot.src} target="_blank" rel="noopener">
