@@ -48,7 +48,7 @@ export const PILLARS: Pillar[] = [
       "No scraping or replaying of consumer session tokens.",
       "Keep credentials out of the second brain.",
     ],
-    later: ["Authentication mode in run history [L2]; shared-key spending caps [L3]."],
+    later: ["Authentication mode and Cockpit BYOS bridge wrapping official vendor CLIs [L2]; shared-key spending caps [L3]."],
   },
   {
     id: "team-second-brain",

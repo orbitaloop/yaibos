@@ -108,7 +108,11 @@ Conformance claims MUST name the specification version, profile, supported harne
 - [L2] Run records SHOULD identify the authentication mode, without credentials. A cockpit MUST NOT promise subscription access that its supported harness cannot officially provide.
 - [L3] The owner SHOULD be able to see which plan or key each run used, and set spending caps on shared API keys.
 
-**Note for implementers:** a vault-plus-harness system gets BYOS almost for free, because the official harness makes the model call. A new custom harness usually cannot use consumer plans legally and falls back to API keys. This is one reason the v1 spec builds on existing harnesses instead of replacing them.
+**Note for implementers:** A vault-plus-harness system gets BYOS almost for free because the official harness makes the model call. When implementing a Cockpit [L2], developers can avoid forcing non-technical users to install CLI tools manually by borrowing architectural patterns from implementations like Kairos:
+1. Vendor SDK bundling: Using vendor-provided SDKs (such as Anthropic's `claude_agent_sdk`) that include precompiled CLI binaries, or fetching verified releases of official CLIs (such as `@openai/codex`) into a managed application bin directory.
+2. Official OAuth delegation: Triggering the CLI's native browser login flow (`claude login` or `codex login`) so credentials remain in the vendor's designated local store (such as the OS keychain or `~/.claude/` / `~/.codex/`).
+3. Permission bridges: Intercepting CLI tool approval hooks (such as `can_use_tool`) to present graphical approval buttons in the Cockpit instead of requiring terminal input.
+4. Flexible fallback: Always maintaining support for standard API keys (Anthropic, OpenRouter, local Ollama) for environments where interactive browser login is not appropriate.
 
 ### Pillar 4: A living second brain
 
