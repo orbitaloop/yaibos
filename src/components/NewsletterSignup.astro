@@ -1,96 +1,200 @@
 ---
 interface Props {
-  variant?: 'card' | 'compact';
+  variant?: 'card' | 'compact' | 'inline';
 }
 
 const { variant = 'card' } = Astro.props;
 ---
 
 {variant === 'card' ? (
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50/70 border-b border-slate-200/80">
-    <div class="max-w-4xl mx-auto elegant-card rounded-2xl p-8 sm:p-12 border border-slate-200/90 bg-white shadow-sm">
-      <div class="max-w-2xl mx-auto text-center">
+  <section id="newsletter" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/50 via-blue-50/30 to-slate-50/70 border-b border-slate-200/80">
+    <div class="max-w-5xl mx-auto elegant-card rounded-2xl p-8 sm:p-12 lg:p-14 border border-blue-200/90 bg-white shadow-sm relative overflow-hidden">
+      <!-- Subtle top decorative bar -->
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500" aria-hidden="true"></div>
+
+      <div class="max-w-3xl mx-auto text-center">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-4">
-          <span>The Context Layer & YAIBOS</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 mb-4 shadow-2xs">
+          <span class="w-2 h-2 rounded-full bg-blue-600 live-indicator"></span>
+          <span>Weekly Tech Watch · Curated by Samuel Michelot</span>
         </div>
 
-        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-sans">
-          Weekly notes on AI and second brains
+        <h3 class="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
+          The Sovereign AI & Harness Radar
         </h3>
 
-        <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
-          Samuel Michelot selects practical AI agent setups and personal knowledge management (PKM) methods each week, including team second brains and open harness specifications.
+        <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-sans">
+          A weekly curated radar for founders and developers. We track the fast-moving world of agent harnesses, context engineering, and the architectural layers built above raw harnesses to keep your business workflows fully sovereign.
         </p>
+      </div>
 
-        <!-- Form -->
-        <form class="newsletter-form ph-no-capture mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <!-- 3 Key Pillars: Mini-presentation -->
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+        <!-- Pillar 1: Harnesses -->
+        <div class="p-5 rounded-xl border border-slate-200/80 bg-slate-50/60 hover:bg-white hover:border-blue-200 transition-all shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-mono text-sm font-bold mb-3">
+            ⚡
+          </div>
+          <h4 class="text-sm font-bold text-slate-900 font-sans mb-1">
+            Agent Harnesses
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Tracking shifts across Claude Code, Cursor, OpenCode, Goose, and Codex. Real benchmark tests, breaking updates, and staying free from vendor lock-in.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Context Layer -->
+        <div class="p-5 rounded-xl border border-slate-200/80 bg-slate-50/60 hover:bg-white hover:border-emerald-200 transition-all shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-mono text-sm font-bold mb-3">
+            🧠
+          </div>
+          <h4 class="text-sm font-bold text-slate-900 font-sans mb-1">
+            Context & Memory
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Structuring company context, Markdown SOPs, second brains, and multi-agent memory. How to give AI deep business understanding that outlasts any single model.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Sovereign Layers -->
+        <div class="p-5 rounded-xl border border-slate-200/80 bg-slate-50/60 hover:bg-white hover:border-indigo-200 transition-all shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center font-mono text-sm font-bold mb-3">
+            🛡️
+          </div>
+          <h4 class="text-sm font-bold text-slate-900 font-sans mb-1">
+            Sovereign Layers
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            The thin abstraction layers, MCP tool registries, and execution guardrails placed above harnesses to keep your data, keys, and operations under your own control.
+          </p>
+        </div>
+      </div>
+
+      <!-- Subscription Box -->
+      <div class="mt-10 max-w-xl mx-auto text-center">
+        <form class="newsletter-form ph-no-capture flex flex-col sm:flex-row gap-3">
           <input
             type="email"
             required
             placeholder="your.email@company.com"
-            class="newsletter-input flex-1 px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent font-sans shadow-xs"
+            aria-label="Email address for newsletter"
+            class="newsletter-input flex-1 px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent font-sans shadow-xs"
           />
           <button
             type="submit"
-            class="newsletter-btn px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-bold transition-all shrink-0 shadow-xs">
-            Subscribe
+            class="newsletter-btn px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-mono text-xs font-bold transition-all shrink-0 shadow-xs cursor-pointer">
+            Get the Weekly Radar
           </button>
         </form>
 
-        <div class="newsletter-message hidden mt-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono">
-          You are subscribed. Expect weekly notes on sovereign AI and PKM.
+        <div class="newsletter-message hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono text-left sm:text-center">
+          <span class="font-bold">✓ Subscribed successfully!</span> Look out for the next weekly issue in your inbox.
         </div>
 
-        <p class="mt-4 text-[11px] text-slate-400 font-mono">
-          Sent once a week. Unsubscribe anytime with one click.
-        </p>
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px] text-slate-500 font-mono">
+          <span>✓ Sent once a week</span>
+          <span>•</span>
+          <span>5-minute read</span>
+          <span>•</span>
+          <span>Zero sponsor fluff</span>
+          <span>•</span>
+          <span>1-click unsubscribe</span>
+        </div>
       </div>
     </div>
   </section>
+) : variant === 'inline' ? (
+  <aside id="newsletter-inline" aria-label="Newsletter signup" class="my-10 p-6 sm:p-8 rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50/70 via-white to-slate-50 shadow-xs">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div class="space-y-2 max-w-xl">
+        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full border border-blue-200 bg-white text-[11px] font-mono text-blue-700 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 live-indicator"></span>
+          <span>Weekly Tech Watch</span>
+        </div>
+        <h4 class="text-lg sm:text-xl font-bold text-slate-900 font-sans">
+          The Sovereign AI & Harness Radar
+        </h4>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+          Weekly analysis of AI harnesses, context layers, and thin abstractions above raw models to stay sovereign. Curated by Samuel Michelot.
+        </p>
+      </div>
+
+      <div class="shrink-0 w-full lg:w-auto lg:min-w-[320px]">
+        <form class="newsletter-form ph-no-capture flex flex-col sm:flex-row gap-2">
+          <input
+            type="email"
+            required
+            placeholder="your.email@company.com"
+            aria-label="Email address for newsletter"
+            class="newsletter-input flex-1 px-3 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-xs placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 font-sans"
+          />
+          <button
+            type="submit"
+            class="newsletter-btn px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-bold transition-colors shrink-0 shadow-xs cursor-pointer">
+            Subscribe
+          </button>
+        </form>
+        <div class="newsletter-message hidden mt-2 p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono">
+          ✓ Subscribed! Welcome to the radar.
+        </div>
+        <p class="mt-2 text-[10px] text-slate-400 font-mono text-center sm:text-left">
+          Weekly · 5 min · 1-click unsubscribe
+        </p>
+      </div>
+    </div>
+  </aside>
 ) : (
   <div class="newsletter-compact space-y-3">
-    <div class="text-xs font-bold uppercase tracking-wider text-slate-900 font-mono">
-      Newsletter
+    <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 font-mono">
+      <span class="w-1.5 h-1.5 rounded-full bg-blue-600 live-indicator"></span>
+      <span>Harness & AI Radar</span>
     </div>
     <p class="text-xs text-slate-600 leading-relaxed font-sans">
-      Weekly notes on sovereign AI, personal knowledge management (PKM), and open agent harnesses.
+      Weekly tech watch on AI agent harnesses, context engineering, and sovereign layers above models. Curated by Samuel Michelot.
     </p>
     <form class="newsletter-form ph-no-capture flex gap-2">
       <input
         type="email"
         required
         placeholder="your.email@company.com"
+        aria-label="Email address for newsletter"
         class="newsletter-input flex-1 px-3 py-2 rounded-md border border-slate-200 bg-white text-slate-900 text-xs placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-600 font-sans"
       />
       <button
         type="submit"
-        class="newsletter-btn px-3.5 py-2 rounded-md bg-slate-900 hover:bg-blue-600 text-white font-mono text-xs font-semibold transition-colors shrink-0">
+        class="newsletter-btn px-3.5 py-2 rounded-md bg-slate-900 hover:bg-blue-600 text-white font-mono text-xs font-semibold transition-colors shrink-0 cursor-pointer">
         Subscribe
       </button>
     </form>
     <div class="newsletter-message hidden p-2 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono">
-      You are subscribed.
+      ✓ You are subscribed.
+    </div>
+    <div class="text-[10px] text-slate-400 font-mono">
+      <a href="/newsletter" class="hover:text-blue-600 underline">Read more about the Radar →</a>
     </div>
   </div>
 )}
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initNewsletterForms() {
     const forms = document.querySelectorAll('.newsletter-form');
     forms.forEach((form) => {
+      if (form.dataset.initialized) return;
+      form.dataset.initialized = 'true';
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const input = form.querySelector('.newsletter-input');
         const btn = form.querySelector('.newsletter-btn');
         const parent = form.parentElement;
-        const msg = parent.querySelector('.newsletter-message');
+        const msg = parent ? parent.querySelector('.newsletter-message') : null;
 
         if (!input || !input.value) return;
         const email = input.value.trim();
 
         // Visual feedback
         btn.disabled = true;
+        const originalText = btn.textContent;
         btn.textContent = '...';
 
         try {
@@ -115,14 +219,18 @@ const { variant = 'card' } = Astro.props;
             fd.append('flow', 'yaibos-newsletter');
             fd.append('source_site', 'yaibos');
             fd.append('source_page', window.location.pathname);
-            fd.append('message', 'Subscribed to YAIBOS Newsletter (The Context Layer / AI Business Harness Radar)');
+            fd.append('message', 'Subscribed to Sovereign AI & Harness Radar (YAIBOS)');
             const fallbackRes = await fetch('https://contact.samuelmichelot.com/api/submit', {
               method: 'POST',
               body: fd
             });
-            if (fallbackRes.ok) window.trackYaibosEvent?.('newsletter_subscribed');
+            if (fallbackRes.ok && window.trackYaibosEvent) {
+              window.trackYaibosEvent('newsletter_subscribed');
+            }
           } else {
-            window.trackYaibosEvent?.('newsletter_subscribed');
+            if (window.trackYaibosEvent) {
+              window.trackYaibosEvent('newsletter_subscribed');
+            }
           }
 
           form.classList.add('hidden');
@@ -146,5 +254,12 @@ const { variant = 'card' } = Astro.props;
         }
       });
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNewsletterForms);
+  } else {
+    initNewsletterForms();
+  }
+  document.addEventListener('astro:page-load', initNewsletterForms);
 </script>

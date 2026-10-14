@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'spec' | 'implementations' | 'about' | 'why' | 'inspirations';
+  activePage?: 'home' | 'spec' | 'implementations' | 'about' | 'why' | 'inspirations' | 'newsletter';
 }
 
 const { activePage = 'home' } = Astro.props;
@@ -91,6 +91,16 @@ const { activePage = 'home' } = Astro.props;
         }`}>
         About
       </a>
+      <a 
+        href="/newsletter" 
+        class={`px-2.5 py-1.5 rounded-lg transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+          activePage === 'newsletter' 
+            ? 'text-blue-700 font-bold bg-blue-50/80 border border-blue-200/60' 
+            : 'hover:text-blue-600 hover:bg-slate-50'
+        }`}>
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 live-indicator"></span>
+        <span>Radar</span>
+      </a>
     </nav>
 
     <!-- CTAs & Actions -->
@@ -159,6 +169,12 @@ const { activePage = 'home' } = Astro.props;
       href="/about" 
       class={`block px-3 py-2 rounded-lg ${activePage === 'about' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
       About Samuel
+    </a>
+    <a 
+      href="/newsletter" 
+      class={`block px-3 py-2 rounded-lg flex items-center gap-2 ${activePage === 'newsletter' ? 'bg-blue-50 text-blue-700 font-bold' : 'text-slate-700 hover:bg-slate-50'}`}>
+      <span class="w-1.5 h-1.5 rounded-full bg-blue-600 live-indicator"></span>
+      <span>Weekly Radar</span>
     </a>
 
     <div class="pt-3 border-t border-slate-100 flex items-center gap-2">

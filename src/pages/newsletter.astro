@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import MyVideoAskSection from '../components/MyVideoAskSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="The Sovereign AI & Harness Radar | Weekly Tech Watch by Samuel Michelot"
+  description="Weekly curated tech watch on AI agent harnesses, context engineering, and sovereign architectural layers above raw models. Free, 5-minute read.">
+  <Header activePage="newsletter" />
+
+  <main class="bg-white">
+    <!-- Top Editorial Hero -->
+    <section class="pt-20 pb-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 font-semibold shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-blue-600 live-indicator"></span>
+            <span>Weekly Tech Watch</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 font-sans leading-tight">
+            Stay sovereign as AI harnesses and agent architectures move.
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 font-light leading-relaxed">
+            The ecosystem of agent harnesses (Claude Code, Cursor, OpenCode, Goose, Codex) evolves every single week. This radar filters out vendor marketing and hype to focus on what matters: real capability shifts, context engineering, and keeping your company completely independent.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Signup Card -->
+    <NewsletterSignup variant="card" />
+
+    <!-- Detailed Breakdown: What You Get Every Week -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-200/80">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="max-w-2xl">
+          <span class="text-xs font-mono text-blue-600 font-semibold uppercase tracking-wider block mb-1">
+            Curated Signal Only
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 font-sans">
+            What is inside each issue?
+          </h2>
+          <p class="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
+            No endless link lists or sponsored press releases. Every Wednesday, you receive a dense, 5-minute practical breakdown across four critical topics:
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-slate-200/90 bg-slate-50/60 space-y-3">
+            <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-base">
+              ⚡
+            </div>
+            <h3 class="text-base font-bold text-slate-900 font-sans">
+              1. Harness Benchmarks & Shifts
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+              We test major updates across CLI harnesses, IDE extensions, and background agent runners. We report breaking changes, context compaction performance, and BYOS (Bring-Your-Own-Subscription) support.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-slate-200/90 bg-slate-50/60 space-y-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-base">
+              🧠
+            </div>
+            <h3 class="text-base font-bold text-slate-900 font-sans">
+              2. Context Engineering & Second Brains
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+              How to structure Markdown files, procedural SOPs, and system context so that any compatible AI harness can execute tasks autonomously without hallucinating or losing thread history.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-slate-200/90 bg-slate-50/60 space-y-3">
+            <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-base">
+              🛡️
+            </div>
+            <h3 class="text-base font-bold text-slate-900 font-sans">
+              3. Sovereign Layers Above Harnesses
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+              Why relying on proprietary SaaS agent platforms creates lock-in, and how to build a thin layer of tools (MCP), safety boundaries, and role definitions that you can take anywhere.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-slate-200/90 bg-slate-50/60 space-y-3">
+            <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-base">
+              🔬
+            </div>
+            <h3 class="text-base font-bold text-slate-900 font-sans">
+              4. Field Notes from Real Deployments
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+              Real learnings from small-business workflows: automating bookkeeping prep, lead qualification, solar prospect maps, and asynchronous founder operations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Curated by Samuel Michelot -->
+        <div class="p-6 sm:p-8 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/40 via-white to-slate-50 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <img
+            src="/images/samuel.jpg"
+            alt="Samuel Michelot"
+            width="64"
+            height="64"
+            class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
+          />
+          <div class="space-y-1">
+            <h4 class="text-sm font-bold text-slate-900 font-sans">
+              Written by Samuel Michelot
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Software engineer, co-founder of Mosalingua (sold), and author of the YAIBOS specification. Building low-overhead sovereign AI architectures from Catalonia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200/80">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <h2 class="text-2xl font-bold text-slate-900 font-sans">
+          Frequently asked questions
+        </h2>
+
+        <div class="space-y-4">
+          <div class="p-5 rounded-xl border border-slate-200 bg-white">
+            <h3 class="text-sm font-bold text-slate-900 font-sans mb-1">
+              How often will I receive an email?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Exactly once a week, typically on Wednesday morning. If there is no high-quality signal to share during a quiet week, I will not send an email just to fill your inbox.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-slate-200 bg-white">
+            <h3 class="text-sm font-bold text-slate-900 font-sans mb-1">
+              Is it really 100% free?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes. There are no paid tiers, no sponsored banner ads, and no affiliate kickbacks. It is written to share real-world engineering progress and sovereign AI patterns.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-slate-200 bg-white">
+            <h3 class="text-sm font-bold text-slate-900 font-sans mb-1">
+              Can I easily unsubscribe?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes, in a single click. Every issue contains an immediate unsubscribe link at the bottom with zero confirmation hoops.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <MyVideoAskSection />
+  </main>
+
+  <Footer />
+</BaseLayout>
